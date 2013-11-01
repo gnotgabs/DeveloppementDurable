@@ -12,6 +12,7 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'stylesheets' => array($this, 'block_stylesheets'),
+            'menu' => array($this, 'block_menu'),
             'arianne' => array($this, 'block_arianne'),
             'leftCont' => array($this, 'block_leftCont'),
             'body' => array($this, 'block_body'),
@@ -36,10 +37,10 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
         ";
         // line 11
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 22
+        // line 23
         echo "        
         <link rel=\"icon\" type=\"image/x-icon\" href=\"";
-        // line 23
+        // line 24
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
     </head>
@@ -51,6 +52,11 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
                 <div id=\"arbre\"></div>
             </div>
             <div id=\"navtabs\">
+                ";
+        // line 34
+        $this->displayBlock('menu', $context, $blocks);
+        // line 35
+        echo "                
                 <!-- MENU A CONCEVOIR DE MANIERE AUTOMATIQUE -->
                 <!--ul>
                     <li class=\"hover first\">
@@ -88,29 +94,29 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
         </header>
         <nav id=\"arianneDev\">
             ";
-        // line 69
+        // line 72
         $this->displayBlock('arianne', $context, $blocks);
-        // line 70
+        // line 73
         echo "        </nav>
         <div id=\"contentDev\">
             <aside id=\"leftContent\">
                 ";
-        // line 73
+        // line 76
         $this->displayBlock('leftCont', $context, $blocks);
-        // line 74
+        // line 77
         echo "            </aside>
             <section id=\"rightContent\">
                 ";
-        // line 76
+        // line 79
         $this->displayBlock('body', $context, $blocks);
-        // line 77
+        // line 80
         echo "            </section>
         </div>
         
         ";
-        // line 80
+        // line 83
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 81
+        // line 84
         echo "    </body>
 </html>
 ";
@@ -132,50 +138,65 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
             ";
         // line 13
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "0e9861a_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_0e9861a_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/compiled/main_structPage_1.css");
-            // line 16
+            // asset "ebe53c2_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_ebe53c2_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/compiled/main_menu_1.css");
+            // line 17
             echo "            
             <link rel=\"stylesheet\" href=\"";
+            // line 18
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" type=\"text/css\">
+            
+            ";
+            // asset "ebe53c2_1"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_ebe53c2_1") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/compiled/main_structPage_2.css");
             // line 17
+            echo "            
+            <link rel=\"stylesheet\" href=\"";
+            // line 18
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\" type=\"text/css\">
             
             ";
         } else {
-            // asset "0e9861a"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_0e9861a") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/compiled/main.css");
-            // line 16
+            // asset "ebe53c2"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_ebe53c2") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/compiled/main.css");
+            // line 17
             echo "            
             <link rel=\"stylesheet\" href=\"";
-            // line 17
+            // line 18
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\" type=\"text/css\">
             
             ";
         }
         unset($context["asset_url"]);
-        // line 20
+        // line 21
         echo "            
         ";
     }
 
-    // line 69
+    // line 34
+    public function block_menu($context, array $blocks = array())
+    {
+    }
+
+    // line 72
     public function block_arianne($context, array $blocks = array())
     {
     }
 
-    // line 73
+    // line 76
     public function block_leftCont($context, array $blocks = array())
     {
     }
 
-    // line 76
+    // line 79
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 80
+    // line 83
     public function block_javascripts($context, array $blocks = array())
     {
     }
@@ -192,6 +213,6 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
 
     public function getDebugInfo()
     {
-        return array (  179 => 80,  174 => 76,  169 => 73,  164 => 69,  159 => 20,  152 => 17,  149 => 16,  141 => 17,  138 => 16,  134 => 13,  131 => 12,  128 => 11,  123 => 7,  120 => 6,  114 => 81,  112 => 80,  107 => 77,  105 => 76,  101 => 74,  99 => 73,  94 => 70,  92 => 69,  38 => 11,  34 => 9,  25 => 1,  71 => 22,  62 => 19,  58 => 18,  55 => 17,  52 => 11,  47 => 9,  43 => 23,  40 => 22,  37 => 6,  32 => 6,  29 => 3,);
+        return array (  200 => 83,  195 => 79,  190 => 76,  185 => 72,  180 => 34,  175 => 21,  168 => 18,  165 => 17,  157 => 18,  154 => 17,  147 => 18,  144 => 17,  140 => 13,  137 => 12,  134 => 11,  129 => 7,  126 => 6,  120 => 84,  118 => 83,  113 => 80,  111 => 79,  107 => 77,  105 => 76,  100 => 73,  98 => 72,  57 => 34,  41 => 23,  26 => 1,  101 => 54,  92 => 51,  88 => 50,  85 => 49,  82 => 43,  77 => 41,  73 => 40,  70 => 39,  67 => 38,  62 => 36,  59 => 35,  53 => 31,  44 => 24,  39 => 11,  35 => 9,  33 => 6,  30 => 3,);
     }
 }

@@ -22,7 +22,7 @@ class SubCategory
     
     /**
     * @ORM\ManyToOne(targetEntity="UTBM\ArticleDevBundle\Entity\Category")
-    * @ORM\JoinColumn(nullable=true)
+    * @ORM\JoinColumn(nullable=false)
     */
     private $category;
     
@@ -75,5 +75,28 @@ class SubCategory
     public function getLabelSubCategory()
     {
         return $this->labelSubCategory;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \UTBM\ArticleDevBundle\Entity\Category $category
+     * @return SubCategory
+     */
+    public function setCategory(\UTBM\ArticleDevBundle\Entity\Category $category)
+    {
+        $this->category = $category;
+    
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \UTBM\ArticleDevBundle\Entity\Category 
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

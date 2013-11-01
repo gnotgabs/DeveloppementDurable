@@ -1,5 +1,37 @@
 {% extends "::base.html.twig" %}
 
+{% block menu %}
+   {# <div id="menu">
+        <ul>
+          <li><a href="#">Item 1</a></li>
+          <li><a href="#">Item 2</a>
+            <ul>
+              <li><a href="#">Sous-item 1</a></li>
+              <li><a href="#">Sous-item 2</a></li>
+              <li><a href="#">Sous-item 3</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Item 3</a></li>
+        </ul>
+    </div>#}
+    <div id="menu">
+        <ul>
+            {#% for men in menus %}
+                <li><a href="#">{{ men.labelCategory }}</a><ul>
+                {% for smen in subMenu %}
+                    {% if (men.id==smen.category_id) %}
+                        <li><a href="#">{{ smen.labelSubCategory }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                </ul></li>
+            {% endfor %#}
+            {% for smen in subMenu %}
+                        <li><a href="#">{{ smen.labelSubCategory }}</a></li>
+                {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
 {% block arianne %}
     > Accueil
 {% endblock %}

@@ -13,7 +13,7 @@ class ArticleDevController extends Controller
     public function indexAction(){
         
         // On récupère l'EntityManager
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getEntityManager();
 
         // on récupère tous les articles associés au sous menu (à la sous catégory) numéro ---
         $articles = $em->getRepository("ArticleDevBundle:Article")->findAll(
@@ -22,9 +22,20 @@ class ArticleDevController extends Controller
         if($articles === null){
             throw $this->createNotFoundException('Article[id=1] inexistant.');
         }
+        
+        // on récupère tous les menus
+        $men = $em->getRepository("ArticleDevBundle:Category")->findAll();
+        
+        // on récupère les sous menus
+       $smen = $em->getRepository("ArticleDevBundle:SubCategory")->findAll();
+
+      //  print_r($smen);
+
 
         return $this->render('ArticleDevBundle:ArticleDev:index.html.twig', array(
-            'articles' => $articles,
+            'articles'  => $articles,
+            'menus'     => $men,
+            'subMenu'   => $smen,
         ));
     }
 

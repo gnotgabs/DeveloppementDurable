@@ -2905,6 +2905,7 @@ class appDevDebugProjectContainer extends Container
 
         $instance->addPath('C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views', 'Framework');
         $instance->addPath('C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle/Resources/views', 'Security');
+        $instance->addPath('C:/xampp/htdocs/DeveloppementDurable/app/Resources/TwigBundle/views', 'Twig');
         $instance->addPath('C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views', 'Twig');
         $instance->addPath('C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\swiftmailer-bundle\\Symfony\\Bundle\\SwiftmailerBundle/Resources/views', 'Swiftmailer');
         $instance->addPath('C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\doctrine\\doctrine-bundle\\Doctrine\\Bundle\\DoctrineBundle/Resources/views', 'Doctrine');

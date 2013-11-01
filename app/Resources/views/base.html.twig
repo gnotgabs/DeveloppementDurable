@@ -10,7 +10,8 @@
             
         {% block stylesheets %}
         
-            {% stylesheets output="css/compiled/main.css" filter="cssrewrite" 
+            {% stylesheets output="css/compiled/main.css" filter="cssrewrite"
+                'css/menu.css'
                 'css/structPage.css'
             %}
             
@@ -30,6 +31,8 @@
                 <div id="arbre"></div>
             </div>
             <div id="navtabs">
+                {% block menu %}{% endblock %}
+                
                 <!-- MENU A CONCEVOIR DE MANIERE AUTOMATIQUE -->
                 <!--ul>
                     <li class="hover first">

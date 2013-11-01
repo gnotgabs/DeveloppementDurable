@@ -63,6 +63,18 @@ class SubCategory extends \UTBM\ArticleDevBundle\Entity\SubCategory implements \
         return parent::getLabelSubCategory();
     }
 
+    public function setCategory(\UTBM\ArticleDevBundle\Entity\Category $category)
+    {
+        $this->__load();
+        return parent::setCategory($category);
+    }
+
+    public function getCategory()
+    {
+        $this->__load();
+        return parent::getCategory();
+    }
+
 
     public function __sleep()
     {

@@ -25,11 +25,12 @@ return array (
       ),
     ),
   ),
-  '0e9861a' => 
+  'ebe53c2' => 
   array (
     0 => 
     array (
-      0 => 'css/structPage.css',
+      0 => 'css/menu.css',
+      1 => 'css/structPage.css',
     ),
     1 => 
     array (
@@ -38,7 +39,7 @@ return array (
     2 => 
     array (
       'output' => '_controller/css/compiled/main.css',
-      'name' => '0e9861a',
+      'name' => 'ebe53c2',
       'debug' => NULL,
       'combine' => NULL,
       'vars' => 
