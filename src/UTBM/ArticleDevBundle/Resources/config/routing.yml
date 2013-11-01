@@ -1,3 +1,11 @@
 article_dev_homepage:
     pattern:  /
     defaults: { _controller: ArticleDevBundle:ArticleDev:index }
+    
+article_dev_article:
+    pattern:  /article={idAr}
+    defaults: { _controller: ArticleDevBundle:ArticleDev:showTheArticle }
+    
+article_dev_addCategory:
+    pattern:  /addCategory
+    defaults: { _controller: ArticleDevBundle:ArticleDev:addCategory }

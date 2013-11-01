@@ -16,7 +16,7 @@
     #}
         <p>
             {{ article.content|truncate(500, true, ' ...')|raw }}
-            <a href="{{ path('page_dev_article', {'idAr': article.id }) }}"><i>la suite</i></a>
+            <a href="{{ path('article_dev_article', {'idAr': article.id }) }}"><i>la suite</i></a>
         </p>
     {% endfor %}
         

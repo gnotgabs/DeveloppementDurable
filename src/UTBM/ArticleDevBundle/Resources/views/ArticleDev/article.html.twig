@@ -1,7 +1,7 @@
 {% extends "::base.html.twig" %}
 
 {% block arianne %}
-    > <a href="{{ path('page_dev_homepage') }}">Accueil</a> > Article N° {{ article.id }}
+    > <a href="{{ path('article_dev_homepage') }}">Accueil</a> > Article N° {{ article.id }}
 {% endblock %}
 {% block body %}
     <h1>Le développement durable</h1>
@@ -15,7 +15,7 @@
 #}
     <p>
         {{ article.content|raw }}
-        <a href="{{ path('page_dev_homepage') }}" title="retour à l'accueil"><i>««retour</i></a>
+        <a href="{{ path('article_dev_homepage') }}" title="retour à l'accueil"><i>««retour</i></a>
     </p>
         
 {% endblock %}

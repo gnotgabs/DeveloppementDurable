@@ -25,6 +25,37 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $allow = array();
         $pathinfo = rawurldecode($pathinfo);
 
+        if (0 === strpos($pathinfo, '/css/compiled/main')) {
+            // _assetic_3d212fc
+            if ($pathinfo === '/css/compiled/main.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '3d212fc',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_3d212fc',);
+            }
+
+            if (0 === strpos($pathinfo, '/css/compiled/main_')) {
+                // _assetic_3d212fc_0
+                if ($pathinfo === '/css/compiled/main_structPage_1.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '3d212fc',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_3d212fc_0',);
+                }
+
+                // _assetic_3d212fc_1
+                if ($pathinfo === '/css/compiled/main_admin_2.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '3d212fc',  'pos' => 1,  '_format' => 'css',  '_route' => '_assetic_3d212fc_1',);
+                }
+
+            }
+
+            // _assetic_0e9861a
+            if ($pathinfo === '/css/compiled/main.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '0e9861a',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_0e9861a',);
+            }
+
+            // _assetic_0e9861a_0
+            if ($pathinfo === '/css/compiled/main_structPage_1.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '0e9861a',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_0e9861a_0',);
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/_')) {
             // _wdt
             if (0 === strpos($pathinfo, '/_wdt') && preg_match('#^/_wdt/(?P<token>[^/]++)$#s', $pathinfo, $matches)) {
@@ -127,6 +158,31 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 // _configurator_final
                 if ($pathinfo === '/_configurator/final') {
                     return array (  '_controller' => 'Sensio\\Bundle\\DistributionBundle\\Controller\\ConfiguratorController::finalAction',  '_route' => '_configurator_final',);
+                }
+
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/devdurable')) {
+            // article_dev_homepage
+            if (rtrim($pathinfo, '/') === '/devdurable') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'article_dev_homepage');
+                }
+
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::indexAction',  '_route' => 'article_dev_homepage',);
+            }
+
+            if (0 === strpos($pathinfo, '/devdurable/a')) {
+                // article_dev_article
+                if (0 === strpos($pathinfo, '/devdurable/article') && preg_match('#^/devdurable/article\\=(?P<idAr>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_article')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::showTheArticleAction',));
+                }
+
+                // article_dev_addCategory
+                if ($pathinfo === '/devdurable/addCategory') {
+                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::addCategoryAction',  '_route' => 'article_dev_addCategory',);
                 }
 
             }

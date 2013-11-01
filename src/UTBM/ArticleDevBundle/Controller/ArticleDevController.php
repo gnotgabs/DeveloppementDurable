@@ -16,14 +16,14 @@ class ArticleDevController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         // on récupère tous les articles associés au sous menu (à la sous catégory) numéro ---
-        $articles = $em->getRepository("PageDevBundle:Article")->findAll(
+        $articles = $em->getRepository("ArticleDevBundle:Article")->findAll(
                     array('subCategory_id'=>1)
                );
         if($articles === null){
             throw $this->createNotFoundException('Article[id=1] inexistant.');
         }
 
-        return $this->render('PageDevBundle:Page:index.html.twig', array(
+        return $this->render('ArticleDevBundle:ArticleDev:index.html.twig', array(
             'articles' => $articles,
         ));
     }
@@ -37,13 +37,13 @@ class ArticleDevController extends Controller
         $em = $this->getDoctrine()->getManager();
         
         // on récupère l'article à affiche en intégralité
-       $article = $em->getRepository("PageDevBundle:Article")->find($idAr);
+       $article = $em->getRepository("ArticleDevBundle:Article")->find($idAr);
        
         if($article === null){
             throw $this->createNotFoundException('Article[id='.$idAr.'] inexistant.');
         }
         
-        return $this->render('PageDevBundle:Page:article.html.twig', array(
+        return $this->render('ArticleDevBundle:ArticleDev:article.html.twig', array(
             'article' => $article,
         ));
     }
@@ -54,21 +54,21 @@ class ArticleDevController extends Controller
         $em = $this->getDoctrine()->getManager();
         
         // on récupère l'identifiant du sous menu sur lequel on a cliqué
-        $subCategory = $em->getRepository("PageDevBundle:Category")->find($idSubMenu);
+        $subCategory = $em->getRepository("ArticleDevBundle:Category")->find($idSubMenu);
         if($subCategory === null){
             throw $this->createNotFoundException('Article[id='.$idSubMenu.'] inexistant.');
         }
         $idSubCategory = $subCategory->getId();
         
         // on récupère tous les articles associés au sous menu (à la sous catégory) numéro ---
-       $articles = $em->getRepository("PageDevBundle:Article")->findAll(
+       $articles = $em->getRepository("ArticleDevBundle:Article")->findAll(
                     array('subCategory_id'=>$idSubCategory)
                );
         if($articles === null){
             throw $this->createNotFoundException('Article[id='.$idSubMenu.'] inexistant.');
         }
         
-        return $this->render('PageDevBundle:Page:article.html.twig', array(
+        return $this->render('ArticleDevBundle:ArticleDev:article.html.twig', array(
             'articles' => $articles,
         ));
     }*/
@@ -90,7 +90,7 @@ class ArticleDevController extends Controller
         $form = $formBuilder->getForm();
  
         
-        return $this->render('PageDevBundle:Page:addCategory.html.twig', array(
+        return $this->render('ArticleDevBundle:ArticleDev:addCategory.html.twig', array(
             'form' => $form->createView(),
         ));
     }
