@@ -1,0 +1,4 @@
+web/uploads/*
+web/bundles/*
+#configuration files
+app/config/parameters.ini
