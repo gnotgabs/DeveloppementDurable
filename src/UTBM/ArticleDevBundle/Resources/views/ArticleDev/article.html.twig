@@ -1,0 +1,21 @@
+{% extends "::base.html.twig" %}
+
+{% block arianne %}
+    > <a href="{{ path('page_dev_homepage') }}">Accueil</a> > Article N° {{ article.id }}
+{% endblock %}
+{% block body %}
+    <h1>Le développement durable</h1>
+    <h3>{{ article.title }}</h3>
+    {#<span><h6>Par {{ article.author|capitalize }}, le {{ article.date|date('d M Y') }}</h6></span>#}
+    
+{# 
+    ICI raw nous permet de faire comprendre à twig que les balises <br> contenues dans les articles sont bien des éléments HTML 
+    et doivent être interpretées comme tel.autoescape
+    Il est a noter que, pour que trutruncate fonctionne, il a fallut activer les options de twig dans le fichier config.yml 
+#}
+    <p>
+        {{ article.content|raw }}
+        <a href="{{ path('page_dev_homepage') }}" title="retour à l'accueil"><i>««retour</i></a>
+    </p>
+        
+{% endblock %}

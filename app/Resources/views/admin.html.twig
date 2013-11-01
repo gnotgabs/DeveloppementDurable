@@ -10,8 +10,9 @@
             
         {% block stylesheets %}
         
-            {% stylesheets output="css/compiled/main.css" filter="cssrewrite" 
+            {% stylesheets output="css/compiled/main.css" filter="cssrewrite, ?yui_css" 
                 'css/structPage.css'
+                'css/admin.css'
             %}
             
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
@@ -66,7 +67,9 @@
             </div>
         </header>
         <nav id="arianneDev">
-            {% block arianne %}{% endblock %}
+            {% block arianne %}
+                > Admin
+            {% endblock %}
         </nav>
         <div id="contentDev">
             <aside id="leftContent">
