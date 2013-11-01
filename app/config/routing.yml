@@ -1,0 +1,4 @@
+article_dev:
+    resource: "@ArticleDevBundle/Resources/config/routing.yml"
+    prefix:   /devdurable
+

@@ -1,0 +1,7 @@
+parameters:
+#    article_dev.example.class: UTBM\ArticleDevBundle\Example
+
+services:
+#    article_dev.example:
+#        class: %article_dev.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
