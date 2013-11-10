@@ -56,67 +56,37 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
         // line 34
         $this->displayBlock('menu', $context, $blocks);
         // line 35
-        echo "                
-                <!-- MENU A CONCEVOIR DE MANIERE AUTOMATIQUE -->
-                <!--ul>
-                    <li class=\"hover first\">
-                        <a href=\"/features/index.html\" title=\"Accueil, Développement durable\">Accueil</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"/features/platform/index.html\" title=\"Le menu 2\">Le menu 2</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"/enterprise/index.html\" title=\"Le menu 3\">Le menu 3</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"http://plugins.netbeans.org/PluginPortal/\" title=\"Le menu 4\">Le menu 4</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"/kb/index.html\" title=\"Le menu 5\">Le menu 5</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"/community/index.html\" title=\"Le menu 6\">Le menu 6</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"/enterprise/index.html\" title=\"Le menu 3\">Le menu 3</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"http://plugins.netbeans.org/PluginPortal/\" title=\"Le menu 4\">Le menu 4</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"/kb/index.html\" title=\"Le menu 5\">Le menu 5</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"/community/index.html\" title=\"Le menu 6\">Le menu 6</a>
-                    </li>
-                </ul-->  
-            </div>
+        echo "            </div>
         </header>
-        <nav id=\"arianneDev\">
-            ";
-        // line 72
-        $this->displayBlock('arianne', $context, $blocks);
-        // line 73
-        echo "        </nav>
-        <div id=\"contentDev\">
-            <aside id=\"leftContent\">
-                ";
-        // line 76
-        $this->displayBlock('leftCont', $context, $blocks);
-        // line 77
-        echo "            </aside>
-            <section id=\"rightContent\">
-                ";
-        // line 79
-        $this->displayBlock('body', $context, $blocks);
-        // line 80
-        echo "            </section>
-        </div>
         
+        <div id=\"breadcrumb\">
+            <ul>
+                ";
+        // line 40
+        $this->displayBlock('arianne', $context, $blocks);
+        // line 48
+        echo "            </ul>
+        </div><!-- /breadcrumb-->
+            
+        <div id=\"contentDev\">
+            <div id=\"leftContent\">
+                ";
+        // line 53
+        $this->displayBlock('leftCont', $context, $blocks);
+        // line 54
+        echo "            </div>
+            <div id=\"rightContent\">
+                ";
+        // line 56
+        $this->displayBlock('body', $context, $blocks);
+        // line 57
+        echo "            </div>
+        </div>
+  
         ";
-        // line 83
+        // line 60
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 84
+        // line 61
         echo "    </body>
 </html>
 ";
@@ -181,22 +151,33 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
     {
     }
 
-    // line 72
+    // line 40
     public function block_arianne($context, array $blocks = array())
     {
+        // line 41
+        echo "                     <li class=\"first\">
+                         <a href=\"";
+        // line 42
+        echo $this->env->getExtension('routing')->getPath("article_dev_homepage", array("id" => 1));
+        echo "\" title=\"Retour à l'accueil\">
+                             Accueil
+                         </a>
+                         <span class=\"end\">&nbsp;</span>
+                     </li>  
+                ";
     }
 
-    // line 76
+    // line 53
     public function block_leftCont($context, array $blocks = array())
     {
     }
 
-    // line 79
+    // line 56
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 83
+    // line 60
     public function block_javascripts($context, array $blocks = array())
     {
     }
@@ -213,6 +194,6 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
 
     public function getDebugInfo()
     {
-        return array (  200 => 83,  195 => 79,  190 => 76,  185 => 72,  180 => 34,  175 => 21,  168 => 18,  165 => 17,  157 => 18,  154 => 17,  147 => 18,  144 => 17,  140 => 13,  137 => 12,  134 => 11,  129 => 7,  126 => 6,  120 => 84,  118 => 83,  113 => 80,  111 => 79,  107 => 77,  105 => 76,  100 => 73,  98 => 72,  57 => 34,  41 => 23,  26 => 1,  101 => 54,  92 => 51,  88 => 50,  85 => 49,  82 => 43,  77 => 41,  73 => 40,  70 => 39,  67 => 38,  62 => 36,  59 => 35,  53 => 31,  44 => 24,  39 => 11,  35 => 9,  33 => 6,  30 => 3,);
+        return array (  181 => 60,  176 => 56,  171 => 53,  161 => 42,  158 => 41,  155 => 40,  150 => 34,  145 => 21,  138 => 18,  135 => 17,  127 => 18,  124 => 17,  117 => 18,  114 => 17,  110 => 13,  107 => 12,  104 => 11,  99 => 7,  96 => 6,  90 => 61,  88 => 60,  83 => 57,  81 => 56,  75 => 53,  68 => 48,  66 => 40,  59 => 35,  57 => 34,  44 => 24,  41 => 23,  39 => 11,  33 => 6,  26 => 1,  86 => 43,  77 => 54,  73 => 39,  70 => 38,  67 => 32,  62 => 30,  58 => 29,  55 => 28,  52 => 27,  45 => 23,  42 => 22,  35 => 9,  32 => 15,  27 => 5,);
     }
 }

@@ -13,6 +13,12 @@ use Doctrine\ORM\Mapping as ORM;
 class Category
 {
     /**
+     *
+     * @ORM\oneToMany(targetEntity="UTBM\ArticleDevBundle\Entity\SubCategory", mappedBy="category")
+     */
+    private $subCategories;
+    
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -28,6 +34,10 @@ class Category
      */
     private $labelCategory;
 
+    public function __construct()
+    {
+        $this->subCategories = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -60,5 +70,38 @@ class Category
     public function getLabelCategory()
     {
         return $this->labelCategory;
+    }
+
+    /**
+     * Add subCategories
+     *
+     * @param \UTBM\ArticleDevBundle\Entity\Category $subCategories
+     * @return Category
+     */
+    public function addSubCategorie(\UTBM\ArticleDevBundle\Entity\Category $subCategories)
+    {
+        $this->subCategories[] = $subCategories;
+    
+        return $this;
+    }
+
+    /**
+     * Remove subCategories
+     *
+     * @param \UTBM\ArticleDevBundle\Entity\Category $subCategories
+     */
+    public function removeSubCategorie(\UTBM\ArticleDevBundle\Entity\Category $subCategories)
+    {
+        $this->subCategories->removeElement($subCategories);
+    }
+
+    /**
+     * Get subCategories
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSubCategories()
+    {
+        return $this->subCategories;
     }
 }

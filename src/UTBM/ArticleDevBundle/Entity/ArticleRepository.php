@@ -12,4 +12,16 @@ use Doctrine\ORM\EntityRepository;
  */
 class ArticleRepository extends EntityRepository
 {
+    /**
+     *  Récupère les articles appartenant au sous menus qu'on a sélectionné
+     */
+    public function getArticlesAccueil($id){
+        $query = $this->createQueryBuilder('ar')
+                      ->leftJoin('ar.subCategory', 'sc') // les sous menus des menus
+                        ->addSelect('sc')
+                      ->where("sc.id = :id")
+                      ->setParameter('id', $id)
+                      ->getQuery();
+        return $query->getResult();
+    }
 }

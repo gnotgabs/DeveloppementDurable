@@ -75,10 +75,28 @@ class SubCategory extends \UTBM\ArticleDevBundle\Entity\SubCategory implements \
         return parent::getCategory();
     }
 
+    public function addArticle(\UTBM\ArticleDevBundle\Entity\Article $articles)
+    {
+        $this->__load();
+        return parent::addArticle($articles);
+    }
+
+    public function removeArticle(\UTBM\ArticleDevBundle\Entity\Article $articles)
+    {
+        $this->__load();
+        return parent::removeArticle($articles);
+    }
+
+    public function getArticles()
+    {
+        $this->__load();
+        return parent::getArticles();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'labelSubCategory', 'category');
+        return array('__isInitialized__', 'id', 'labelSubCategory', 'category', 'articles');
     }
 
     public function __clone()

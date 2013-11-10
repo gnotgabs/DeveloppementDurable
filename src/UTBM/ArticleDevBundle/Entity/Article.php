@@ -21,7 +21,7 @@ class Article
      */
     
     /**
-    * @ORM\ManyToOne(targetEntity="UTBM\ArticleDevBundle\Entity\SubCategory")
+    * @ORM\ManyToOne(targetEntity="UTBM\ArticleDevBundle\Entity\SubCategory", inversedBy="articles")
     * @ORM\JoinColumn(nullable=false)
     */
     private $subCategory;
@@ -164,5 +164,28 @@ class Article
     public function getContent()
     {
         return $this->content;
+    }
+
+    /**
+     * Set subCategory
+     *
+     * @param \UTBM\ArticleDevBundle\Entity\SubCategory $subCategory
+     * @return Article
+     */
+    public function setSubCategory(\UTBM\ArticleDevBundle\Entity\SubCategory $subCategory)
+    {
+        $this->subCategory = $subCategory;
+    
+        return $this;
+    }
+
+    /**
+     * Get subCategory
+     *
+     * @return \UTBM\ArticleDevBundle\Entity\SubCategory 
+     */
+    public function getSubCategory()
+    {
+        return $this->subCategory;
     }
 }

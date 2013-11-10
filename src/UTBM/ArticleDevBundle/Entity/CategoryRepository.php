@@ -12,4 +12,21 @@ use Doctrine\ORM\EntityRepository;
  */
 class CategoryRepository extends EntityRepository
 {
+    /**
+     * Nous permet dans le controlleur de ne pas utiliser les méthodes "find et findAll" 
+     * pour récupérer les menus. Nous pourront ainsi récupérer les menus et les entitités 
+     * qui lui sont reliés (SubCategory par exemple)
+     * 
+     * Ceci nous permet aussi de charger toutes les informations liées aux articles en une 
+     * seule requête ce qui allège le code
+     */
+    public function getMenus(){
+        $query = $this->createQueryBuilder('c')
+                      ->leftJoin('c.subCategories', 'sc') // les sous menus des menus
+                        ->addSelect('sc')
+                      ->orderBy('c.id', 'ASC')
+                      ->getQuery();
+
+        return $query->getResult();
+    }
 }

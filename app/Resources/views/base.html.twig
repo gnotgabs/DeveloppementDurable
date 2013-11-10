@@ -32,54 +32,31 @@
             </div>
             <div id="navtabs">
                 {% block menu %}{% endblock %}
-                
-                <!-- MENU A CONCEVOIR DE MANIERE AUTOMATIQUE -->
-                <!--ul>
-                    <li class="hover first">
-                        <a href="/features/index.html" title="Accueil, Développement durable">Accueil</a>
-                    </li>
-                    <li class="hover ">
-                        <a href="/features/platform/index.html" title="Le menu 2">Le menu 2</a>
-                    </li>
-                    <li class="hover ">
-                        <a href="/enterprise/index.html" title="Le menu 3">Le menu 3</a>
-                    </li>
-                    <li class="hover ">
-                        <a href="http://plugins.netbeans.org/PluginPortal/" title="Le menu 4">Le menu 4</a>
-                    </li>
-                    <li class="hover ">
-                        <a href="/kb/index.html" title="Le menu 5">Le menu 5</a>
-                    </li>
-                    <li class="hover ">
-                        <a href="/community/index.html" title="Le menu 6">Le menu 6</a>
-                    </li>
-                    <li class="hover ">
-                        <a href="/enterprise/index.html" title="Le menu 3">Le menu 3</a>
-                    </li>
-                    <li class="hover ">
-                        <a href="http://plugins.netbeans.org/PluginPortal/" title="Le menu 4">Le menu 4</a>
-                    </li>
-                    <li class="hover ">
-                        <a href="/kb/index.html" title="Le menu 5">Le menu 5</a>
-                    </li>
-                    <li class="hover ">
-                        <a href="/community/index.html" title="Le menu 6">Le menu 6</a>
-                    </li>
-                </ul-->  
             </div>
         </header>
-        <nav id="arianneDev">
-            {% block arianne %}{% endblock %}
-        </nav>
-        <div id="contentDev">
-            <aside id="leftContent">
-                {% block leftCont %}{% endblock %}
-            </aside>
-            <section id="rightContent">
-                {% block body %}{% endblock %}
-            </section>
-        </div>
         
+        <div id="breadcrumb">
+            <ul>
+                {% block arianne %}
+                     <li class="first">
+                         <a href="{{ path('article_dev_homepage', {'id': 1 }) }}" title="Retour à l'accueil">
+                             Accueil
+                         </a>
+                         <span class="end">&nbsp;</span>
+                     </li>  
+                {% endblock %}
+            </ul>
+        </div><!-- /breadcrumb-->
+            
+        <div id="contentDev">
+            <div id="leftContent">
+                {% block leftCont %}{% endblock %}
+            </div>
+            <div id="rightContent">
+                {% block body %}{% endblock %}
+            </div>
+        </div>
+  
         {% block javascripts %}{% endblock %}
     </body>
 </html>

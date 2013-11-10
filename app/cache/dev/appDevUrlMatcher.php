@@ -174,12 +174,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         if (0 === strpos($pathinfo, '/devdurable')) {
             // article_dev_homepage
-            if (rtrim($pathinfo, '/') === '/devdurable') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'article_dev_homepage');
-                }
-
-                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::indexAction',  '_route' => 'article_dev_homepage',);
+            if (0 === strpos($pathinfo, '/devdurable/sous_category') && preg_match('#^/devdurable/sous_category\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_homepage')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::indexAction',));
             }
 
             if (0 === strpos($pathinfo, '/devdurable/a')) {

@@ -21,10 +21,15 @@ class SubCategory
      */
     
     /**
-    * @ORM\ManyToOne(targetEntity="UTBM\ArticleDevBundle\Entity\Category")
-    * @ORM\JoinColumn(nullable=false)
-    */
+     * @ORM\ManyToOne(targetEntity="UTBM\ArticleDevBundle\Entity\Category", inversedBy="subCategories")
+     * @ORM\JoinColumn(nullable=false)
+     */
     private $category;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="UTBM\ArticleDevBundle\Entity\Article", mappedBy="subCategory")
+     */
+    private $articles;
     
     /**
      * @var integer
@@ -43,6 +48,13 @@ class SubCategory
      */
     private $labelSubCategory;
 
+     /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -98,5 +110,38 @@ class SubCategory
     public function getCategory()
     {
         return $this->category;
+    }
+    
+    /**
+     * Add articles
+     *
+     * @param \UTBM\ArticleDevBundle\Entity\Article $articles
+     * @return SubCategory
+     */
+    public function addArticle(\UTBM\ArticleDevBundle\Entity\Article $articles)
+    {
+        $this->articles[] = $articles;
+    
+        return $this;
+    }
+
+    /**
+     * Remove articles
+     *
+     * @param \UTBM\ArticleDevBundle\Entity\Article $articles
+     */
+    public function removeArticle(\UTBM\ArticleDevBundle\Entity\Article $articles)
+    {
+        $this->articles->removeElement($articles);
+    }
+
+    /**
+     * Get articles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArticles()
+    {
+        return $this->articles;
     }
 }

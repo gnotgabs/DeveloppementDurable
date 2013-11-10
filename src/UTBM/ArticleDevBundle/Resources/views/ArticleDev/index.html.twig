@@ -1,40 +1,29 @@
+{# Héritage de l'aperçu global de l'application #}
 {% extends "::base.html.twig" %}
 
+{# IMPORTATION DE LA MACRO CHARGEE DE LA CREATION DES MENUS #}
+{% import "ArticleDevBundle::menu.html.twig" as macroMenus %}
+
+
+
+{# 
+    CREATION DU MENU DE L'APPLICATION
+    
+    Les menus récupérés de la base de données sont passés à la méthode "dynamicMenu" de la macro de création de menus 
+    Celle-ci se charge de les placer comme il faut dans le code html préparé à cet effet contenu dans la fichier "menu.html.twig"
+#}
 {% block menu %}
-   {# <div id="menu">
-        <ul>
-          <li><a href="#">Item 1</a></li>
-          <li><a href="#">Item 2</a>
-            <ul>
-              <li><a href="#">Sous-item 1</a></li>
-              <li><a href="#">Sous-item 2</a></li>
-              <li><a href="#">Sous-item 3</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Item 3</a></li>
-        </ul>
-    </div>#}
-    <div id="menu">
-        <ul>
-            {#% for men in menus %}
-                <li><a href="#">{{ men.labelCategory }}</a><ul>
-                {% for smen in subMenu %}
-                    {% if (men.id==smen.category_id) %}
-                        <li><a href="#">{{ smen.labelSubCategory }}</a></li>
-                    {% endif %}
-                {% endfor %}
-                </ul></li>
-            {% endfor %#}
-            {% for smen in subMenu %}
-                        <li><a href="#">{{ smen.labelSubCategory }}</a></li>
-                {% endfor %}
-        </ul>
-    </div>
+    {{ macroMenus.dynamicMenu(menus) }}
 {% endblock %}
 
+{#
+    FIL D'ARIANNE DE L'APPLICATION
+#}
 {% block arianne %}
-    > Accueil
+   {{ parent() }}  
 {% endblock %}
+    
+    
 {% block body %}
     <h1>Le développement durable</h1>
     {% for article in articles %}
@@ -47,8 +36,8 @@
         Il est a noter que, pour que trutruncate fonctionne, il a fallut activer les options de twig dans le fichier config.yml 
     #}
         <p>
-            {{ article.content|truncate(500, true, ' ...')|raw }}
-            <a href="{{ path('article_dev_article', {'idAr': article.id }) }}"><i>la suite</i></a>
+            {{ article.content|truncate(500, true, ' ... ')|raw }}
+            <a href="{{ path('article_dev_article', {'idAr': article.id }) }}"><i>lire la suite</i></a>
         </p>
     {% endfor %}
         

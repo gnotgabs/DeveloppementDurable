@@ -23,81 +23,66 @@ class __TwigTemplate_f5623865e82f9ebbe64552af8682018ed5244ec488a097790db87c123ee
 
     protected function doDisplay(array $context, array $blocks = array())
     {
+        // line 5
+        $context["macroMenus"] = $this->env->loadTemplate("ArticleDevBundle::menu.html.twig");
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 3
+    // line 15
     public function block_menu($context, array $blocks = array())
     {
-        // line 4
-        echo "   ";
-        // line 17
-        echo "    <div id=\"menu\">
-        <ul>
-            ";
-        // line 28
-        echo "            ";
-        $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["subMenu"]) ? $context["subMenu"] : $this->getContext($context, "subMenu")));
-        foreach ($context['_seq'] as $context["_key"] => $context["smen"]) {
-            // line 29
-            echo "                        <li><a href=\"#\">";
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["smen"]) ? $context["smen"] : $this->getContext($context, "smen")), "labelSubCategory"), "html", null, true);
-            echo "</a></li>
-                ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['smen'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 31
-        echo "        </ul>
-    </div>
+        // line 16
+        echo "    ";
+        echo $context["macroMenus"]->getdynamicMenu((isset($context["menus"]) ? $context["menus"] : $this->getContext($context, "menus")));
+        echo "
 ";
     }
 
-    // line 35
+    // line 22
     public function block_arianne($context, array $blocks = array())
     {
-        // line 36
-        echo "    > Accueil
+        // line 23
+        echo "   ";
+        $this->displayParentBlock("arianne", $context, $blocks);
+        echo "  
 ";
     }
 
-    // line 38
+    // line 27
     public function block_body($context, array $blocks = array())
     {
-        // line 39
+        // line 28
         echo "    <h1>Le développement durable</h1>
     ";
-        // line 40
+        // line 29
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) ? $context["articles"] : $this->getContext($context, "articles")));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 41
+            // line 30
             echo "        <h3>";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "title"), "html", null, true);
             echo "</h3>
         ";
-            // line 43
+            // line 32
             echo "
     ";
-            // line 49
+            // line 38
             echo "        <p>
             ";
-            // line 50
-            echo twig_truncate_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "content"), 500, true, " ...");
+            // line 39
+            echo twig_truncate_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "content"), 500, true, " ... ");
             echo "
             <a href=\"";
-            // line 51
+            // line 40
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_article", array("idAr" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
-            echo "\"><i>la suite</i></a>
+            echo "\"><i>lire la suite</i></a>
         </p>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 54
+        // line 43
         echo "        
 ";
     }
@@ -114,6 +99,6 @@ class __TwigTemplate_f5623865e82f9ebbe64552af8682018ed5244ec488a097790db87c123ee
 
     public function getDebugInfo()
     {
-        return array (  101 => 54,  92 => 51,  88 => 50,  85 => 49,  82 => 43,  77 => 41,  73 => 40,  70 => 39,  67 => 38,  62 => 36,  59 => 35,  53 => 31,  44 => 29,  39 => 28,  35 => 17,  33 => 4,  30 => 3,);
+        return array (  86 => 43,  77 => 40,  73 => 39,  70 => 38,  67 => 32,  62 => 30,  58 => 29,  55 => 28,  52 => 27,  45 => 23,  42 => 22,  35 => 16,  32 => 15,  27 => 5,);
     }
 }

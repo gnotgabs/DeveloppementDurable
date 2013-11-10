@@ -3,6 +3,7 @@
 namespace UTBM\ArticleDevBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use UTBM\ArticleDevBundle\Entity\Category;
 
 class ArticleDevController extends Controller
 {
@@ -10,32 +11,27 @@ class ArticleDevController extends Controller
      * Va afficher les articles d'acceuil correspondant à la rubrique Accueil de la
      * base de données et possédant l'identifiant numéro 1
      */
-    public function indexAction(){
+    public function indexAction($id){
         
         // On récupère l'EntityManager
         $em = $this->getDoctrine()->getEntityManager();
 
-        // on récupère tous les articles associés au sous menu (à la sous catégory) numéro ---
-        $articles = $em->getRepository("ArticleDevBundle:Article")->findAll(
-                    array('subCategory_id'=>1)
-               );
+        // on récupère tous les articles associés à la page d'accueil du projet
+        $articles = $em->getRepository("ArticleDevBundle:Article")
+                       ->getArticlesAccueil($id);
+        
         if($articles === null){
             throw $this->createNotFoundException('Article[id=1] inexistant.');
         }
         
-        // on récupère tous les menus
-        $men = $em->getRepository("ArticleDevBundle:Category")->findAll();
-        
-        // on récupère les sous menus
-       $smen = $em->getRepository("ArticleDevBundle:SubCategory")->findAll();
-
-      //  print_r($smen);
-
+        // on récupère les menus ainsi que tous les éléments qui leurs sont liés
+        // Exemple un menu et ses sous-menus
+        $men = $em->getRepository('ArticleDevBundle:Category')
+                  ->getMenus();
 
         return $this->render('ArticleDevBundle:ArticleDev:index.html.twig', array(
             'articles'  => $articles,
             'menus'     => $men,
-            'subMenu'   => $smen,
         ));
     }
 
@@ -46,41 +42,45 @@ class ArticleDevController extends Controller
         
         // On récupère l'EntityManager
         $em = $this->getDoctrine()->getManager();
-        
+
         // on récupère l'article à affiche en intégralité
-       $article = $em->getRepository("ArticleDevBundle:Article")->find($idAr);
-       
+        $article = $em->getRepository("ArticleDevBundle:Article")->find($idAr);
+
         if($article === null){
             throw $this->createNotFoundException('Article[id='.$idAr.'] inexistant.');
         }
-        
+
+        // on récupère les menus ainsi que tous les éléments qui leurs sont liés
+        // Exemple un menu et ses sous-menus
+        $men = $em->getRepository('ArticleDevBundle:Category')
+                  ->getMenus();
         return $this->render('ArticleDevBundle:ArticleDev:article.html.twig', array(
             'article' => $article,
+            'menus'   => $men,
         ));
     }
 
-   /* public function showArticleAction($idSubMenu)
-    {
+    /*public function showArticlesAction($idSubMenu){
+        
         // On récupère l'EntityManager
         $em = $this->getDoctrine()->getManager();
         
-        // on récupère l'identifiant du sous menu sur lequel on a cliqué
-        $subCategory = $em->getRepository("ArticleDevBundle:Category")->find($idSubMenu);
-        if($subCategory === null){
-            throw $this->createNotFoundException('Article[id='.$idSubMenu.'] inexistant.');
-        }
-        $idSubCategory = $subCategory->getId();
-        
         // on récupère tous les articles associés au sous menu (à la sous catégory) numéro ---
        $articles = $em->getRepository("ArticleDevBundle:Article")->findAll(
-                    array('subCategory_id'=>$idSubCategory)
+                    array('subCategory_id'=>$idSubMenu)
                );
         if($articles === null){
             throw $this->createNotFoundException('Article[id='.$idSubMenu.'] inexistant.');
         }
         
-        return $this->render('ArticleDevBundle:ArticleDev:article.html.twig', array(
+        // on récupère les menus ainsi que tous les éléments qui leurs sont liés
+        // Exemple un menu et ses sous-menus
+        $men = $em->getRepository('ArticleDevBundle:Category')
+                  ->getMenus();
+        
+        return $this->render('ArticleDevBundle:ArticleDev:index.html.twig', array(
             'articles' => $articles,
+            'menus'   => $men,
         ));
     }*/
     

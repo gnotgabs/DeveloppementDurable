@@ -1,0 +1,15 @@
+{% macro dynamicMenu(menus) %}
+    <div id="menu">
+        <ul>
+            {% for men in menus %}
+                <li><a href="#">{{ men.labelCategory }}</a><ul>
+                {% for smen in men.subCategories %}
+                    {% if smen.labelSubCategory != "accueil" %}
+                        <li><a href="{{ path('article_dev_homepage', {'id': smen.id }) }}">{{ smen.labelSubCategory }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                </ul></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endmacro %}

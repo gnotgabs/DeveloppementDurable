@@ -16,8 +16,9 @@ body{
     margin: auto;
     padding: auto;
     text-align: center;
-    height: 100px;
-   // background: yellow;
+    height: 120px;
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
 }
 #details{
     width:100%;
@@ -38,15 +39,6 @@ body{
     height: 100%;
     background: url("../images/arbreVert.png") no-repeat;
 }
-#arianneDev{
-    height: 20px;
-    width: 80%;
-    margin: auto;
-    padding-left: 15px;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px;
-   // background: url("../images/arriane.png") no-repeat;
-}
 #leftContent{
     float:left;
     width:20%;
@@ -54,7 +46,7 @@ body{
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #eef7ea) );
     background:-moz-linear-gradient( center top, #ffffff 5%, #eef7ea 100% );
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eef7ea');
-    background-color:#ffffff;
+    background-color:#fff027;
     color:#fafafa;
     border-left:1px solid #006400;
     color:#000;
@@ -91,6 +83,10 @@ body{
     padding-left: 5px;
     background-color: lightskyblue;
 }
+#theContent{
+    width:100%;
+    background: yellow;
+}
 
 #navtabs {
   background:darkgreen;
@@ -98,7 +94,7 @@ body{
   border-bottom-right-radius:5px;
   color:white;
   font-size:1em;
-  height:30px;
+  height:50px;
   width:100%;
   margin:0;
   padding:0;
