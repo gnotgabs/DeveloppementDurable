@@ -3,7 +3,7 @@ article_dev_homepage:
     defaults: { _controller: ArticleDevBundle:ArticleDev:index }
     
 article_dev_article:
-    pattern:  /article={idAr}
+    pattern:  /s_{idSc}/article={idAr}
     defaults: { _controller: ArticleDevBundle:ArticleDev:showTheArticle }
     
 article_dev_addCategory:

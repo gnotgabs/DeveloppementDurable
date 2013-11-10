@@ -46,7 +46,7 @@ body{
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #eef7ea) );
     background:-moz-linear-gradient( center top, #ffffff 5%, #eef7ea 100% );
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eef7ea');
-    background-color:#fff027;
+    background-color:#ffffff;
     color:#fafafa;
     border-left:1px solid #006400;
     color:#000;
@@ -82,10 +82,6 @@ body{
     margin-bottom: 10px;
     padding-left: 5px;
     background-color: lightskyblue;
-}
-#theContent{
-    width:100%;
-    background: yellow;
 }
 
 #navtabs {

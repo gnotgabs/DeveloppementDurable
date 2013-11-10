@@ -18,7 +18,7 @@ class ArticleDevController extends Controller
 
         // on récupère tous les articles associés à la page d'accueil du projet
         $articles = $em->getRepository("ArticleDevBundle:Article")
-                       ->getArticlesAccueil($id);
+                       ->getSubCategoryArticles($id);
         
         if($articles === null){
             throw $this->createNotFoundException('Article[id=1] inexistant.');
@@ -37,14 +37,16 @@ class ArticleDevController extends Controller
 
     /**
      *  Affiche l'article dans son intégralité. Une fois que l'utilisateur clique sur "lire la suite"
+     * idSc va permettre de retourner à la page sur laquelle l'utilisateur était précédement
      */
-    public function showTheArticleAction($idAr){
+    public function showTheArticleAction($idSc,$idAr){
         
-        // On récupère l'EntityManager
-        $em = $this->getDoctrine()->getManager();
+         // On récupère l'EntityManager
+        $em = $this->getDoctrine()->getEntityManager();
 
         // on récupère l'article à affiche en intégralité
-        $article = $em->getRepository("ArticleDevBundle:Article")->find($idAr);
+        $article = $em->getRepository("ArticleDevBundle:Article")
+                      ->find($idAr);
 
         if($article === null){
             throw $this->createNotFoundException('Article[id='.$idAr.'] inexistant.');
@@ -54,9 +56,11 @@ class ArticleDevController extends Controller
         // Exemple un menu et ses sous-menus
         $men = $em->getRepository('ArticleDevBundle:Category')
                   ->getMenus();
+        
         return $this->render('ArticleDevBundle:ArticleDev:article.html.twig', array(
             'article' => $article,
             'menus'   => $men,
+            'idSc'    => $idSc,
         ));
     }
 

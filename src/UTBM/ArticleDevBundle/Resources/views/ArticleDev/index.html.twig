@@ -20,7 +20,7 @@
     FIL D'ARIANNE DE L'APPLICATION
 #}
 {% block arianne %}
-   {{ parent() }}  
+   {{ parent() }}
 {% endblock %}
     
     
@@ -37,7 +37,7 @@
     #}
         <p>
             {{ article.content|truncate(500, true, ' ... ')|raw }}
-            <a href="{{ path('article_dev_article', {'idAr': article.id }) }}"><i>lire la suite</i></a>
+            <a href="{{ path('article_dev_article', {'idSc': article.subCategory.id , 'idAr': article.id }) }}"><i>lire la suite</i></a>
         </p>
     {% endfor %}
         

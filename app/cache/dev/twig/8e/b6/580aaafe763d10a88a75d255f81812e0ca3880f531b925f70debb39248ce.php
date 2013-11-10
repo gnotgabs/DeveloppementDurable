@@ -74,7 +74,7 @@ class __TwigTemplate_8eb6580aaafe763d10a88a75d255f81812e0ca3880f531b925f70debb39
         echo "
         <a href=\"";
         // line 37
-        echo $this->env->getExtension('routing')->getPath("article_dev_homepage", array("id" => 1));
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_homepage", array("id" => (isset($context["idSc"]) ? $context["idSc"] : $this->getContext($context, "idSc")))), "html", null, true);
         echo "\" title=\"retour à l'accueil\"><i>«« Retour</i></a>
     </p>
         

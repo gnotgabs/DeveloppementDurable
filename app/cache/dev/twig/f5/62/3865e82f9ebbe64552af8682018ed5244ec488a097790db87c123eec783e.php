@@ -44,7 +44,7 @@ class __TwigTemplate_f5623865e82f9ebbe64552af8682018ed5244ec488a097790db87c123ee
         // line 23
         echo "   ";
         $this->displayParentBlock("arianne", $context, $blocks);
-        echo "  
+        echo "
 ";
     }
 
@@ -74,7 +74,7 @@ class __TwigTemplate_f5623865e82f9ebbe64552af8682018ed5244ec488a097790db87c123ee
             echo "
             <a href=\"";
             // line 40
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_article", array("idAr" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_article", array("idSc" => $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "subCategory"), "id"), "idAr" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
             echo "\"><i>lire la suite</i></a>
         </p>
     ";

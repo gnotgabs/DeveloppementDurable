@@ -15,12 +15,25 @@ class ArticleRepository extends EntityRepository
     /**
      *  Récupère les articles appartenant au sous menus qu'on a sélectionné
      */
-    public function getArticlesAccueil($id){
+    public function getSubCategoryArticles($id){
         $query = $this->createQueryBuilder('ar')
-                      ->leftJoin('ar.subCategory', 'sc') // les sous menus des menus
+                      ->leftJoin('ar.subCategory', 'sc')
                         ->addSelect('sc')
                       ->where("sc.id = :id")
                       ->setParameter('id', $id)
+                      ->getQuery();
+        return $query->getResult();
+    }
+    
+    /**
+     *  Récupère les articles appartenant au sous menus qu'on a sélectionné
+     */
+    public function getArticleByID($idAr){
+        $query = $this->createQueryBuilder('ar')
+                      ->leftJoin('ar.subCategory', 'sc')
+                        ->addSelect('sc')
+                      ->where("sc.id = :id")
+                      ->setParameter('id', $idAr)
                       ->getQuery();
         return $query->getResult();
     }
