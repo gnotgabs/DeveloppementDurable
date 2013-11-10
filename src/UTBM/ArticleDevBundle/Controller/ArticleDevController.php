@@ -63,33 +63,9 @@ class ArticleDevController extends Controller
             'idSc'    => $idSc,
         ));
     }
-
-    /*public function showArticlesAction($idSubMenu){
-        
-        // On récupère l'EntityManager
-        $em = $this->getDoctrine()->getManager();
-        
-        // on récupère tous les articles associés au sous menu (à la sous catégory) numéro ---
-       $articles = $em->getRepository("ArticleDevBundle:Article")->findAll(
-                    array('subCategory_id'=>$idSubMenu)
-               );
-        if($articles === null){
-            throw $this->createNotFoundException('Article[id='.$idSubMenu.'] inexistant.');
-        }
-        
-        // on récupère les menus ainsi que tous les éléments qui leurs sont liés
-        // Exemple un menu et ses sous-menus
-        $men = $em->getRepository('ArticleDevBundle:Category')
-                  ->getMenus();
-        
-        return $this->render('ArticleDevBundle:ArticleDev:index.html.twig', array(
-            'articles' => $articles,
-            'menus'   => $men,
-        ));
-    }*/
     
-    public function addCategoryAction()
-    {
+    public function addCategoryAction(){
+        
         // On crée un objet Article
         $category = new Category();
 

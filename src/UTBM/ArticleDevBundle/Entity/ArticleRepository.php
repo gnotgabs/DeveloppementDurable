@@ -24,17 +24,4 @@ class ArticleRepository extends EntityRepository
                       ->getQuery();
         return $query->getResult();
     }
-    
-    /**
-     *  Récupère les articles appartenant au sous menus qu'on a sélectionné
-     */
-    public function getArticleByID($idAr){
-        $query = $this->createQueryBuilder('ar')
-                      ->leftJoin('ar.subCategory', 'sc')
-                        ->addSelect('sc')
-                      ->where("sc.id = :id")
-                      ->setParameter('id', $idAr)
-                      ->getQuery();
-        return $query->getResult();
-    }
 }

@@ -1,9 +1,9 @@
 article_dev_homepage:
-    pattern:  /sous_category={id}
+    pattern:  /sc={id}
     defaults: { _controller: ArticleDevBundle:ArticleDev:index }
     
 article_dev_article:
-    pattern:  /s_{idSc}/article={idAr}
+    pattern:  /sc={idSc}/ar={idAr}
     defaults: { _controller: ArticleDevBundle:ArticleDev:showTheArticle }
     
 article_dev_addCategory:

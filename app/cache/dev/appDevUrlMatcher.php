@@ -173,14 +173,14 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/devdurable')) {
-            if (0 === strpos($pathinfo, '/devdurable/s')) {
+            if (0 === strpos($pathinfo, '/devdurable/sc')) {
                 // article_dev_homepage
-                if (0 === strpos($pathinfo, '/devdurable/sous_category') && preg_match('#^/devdurable/sous_category\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (preg_match('#^/devdurable/sc\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_homepage')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::indexAction',));
                 }
 
                 // article_dev_article
-                if (preg_match('#^/devdurable/s_(?P<idSc>[^/]++)/article\\=(?P<idAr>[^/]++)$#s', $pathinfo, $matches)) {
+                if (preg_match('#^/devdurable/sc\\=(?P<idSc>[^/]++)/ar\\=(?P<idAr>[^/]++)$#s', $pathinfo, $matches)) {
                     return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_article')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::showTheArticleAction',));
                 }
 
