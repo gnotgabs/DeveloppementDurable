@@ -42,7 +42,9 @@ class __TwigTemplate_f765f534dd535e94b6cb57e32e01950b684ad5748c08890f9e7fc93e5e6
                 // line 6
                 if (($this->getAttribute((isset($context["men"]) ? $context["men"] : $this->getContext($context, "men")), "labelCategory") != "Accueil")) {
                     // line 7
-                    echo "                    <li><a href=\"#\">";
+                    echo "                    <li><a href=\"";
+                    echo $this->env->getExtension('routing')->getPath("article_dev_homepage", array("id" => 1));
+                    echo "\">";
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["men"]) ? $context["men"] : $this->getContext($context, "men")), "labelCategory"), "html", null, true);
                     echo "</a>
                 ";
@@ -116,6 +118,6 @@ class __TwigTemplate_f765f534dd535e94b6cb57e32e01950b684ad5748c08890f9e7fc93e5e6
 
     public function getDebugInfo()
     {
-        return array (  94 => 25,  85 => 21,  78 => 19,  71 => 15,  67 => 14,  64 => 13,  62 => 12,  59 => 11,  55 => 10,  51 => 8,  45 => 7,  43 => 6,  40 => 5,  36 => 4,  32 => 2,  21 => 1,);
+        return array (  96 => 25,  87 => 21,  80 => 19,  73 => 15,  69 => 14,  66 => 13,  64 => 12,  61 => 11,  57 => 10,  53 => 8,  45 => 7,  43 => 6,  40 => 5,  36 => 4,  32 => 2,  21 => 1,);
     }
 }

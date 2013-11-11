@@ -67,32 +67,57 @@ body{
     border-right:1px solid #006400;
     color:#000;
 }
-#rightContent p{
+#rightContent p.content{
     text-align: justify;
+    margin: auto;
+    padding: 5px;
+}
+#rightContent p.linkDev{
+    text-align: center;
     width: 95%;
     margin: auto;
     padding: 5px;
+    font-weight: bold;
 }
 #rightContent h1{
     text-align: center;
     color: darkgreen;
 }
-#rightContent h3{
-    margin-top: 0px;
-    margin-bottom: 10px;
-    padding-left: 5px;
-    background-color: lightskyblue;
+#rightContent p.titleDev{
+    padding: 5px;
+    background-color: darkgreen;
+    width:99%;
+    color:#ffffff;
+    font-weight: bold;
+    font-size: 14px;
 }
-
-#navtabs {
-  background:darkgreen;
-  border-bottom-left-radius:5px;
-  border-bottom-right-radius:5px;
-  color:white;
-  font-size:1em;
-  height:24px;
-  width:100%;
-  margin:0;
-  padding:0;
-  text-align:center;
+.erreur{
+    width: 80%;
+    height: 30px;
+    margin: auto;
+    padding: 10px;
+    font-size: 20px;
+    color: red;
+    border: 1px solid red;
+    text-align: center;
+}
+.imageDev{
+    width:180px;
+    border:0;
+    height:120px;
+    float: right; border: 0pt none; margin: 5px 10px;
+}
+.imageDevSup{
+    width:250px;
+    border:0;
+    height:180px;
+    float: right; border: 0pt none; margin: 5px 10px;
+}
+span.details, span.back{
+    color:blue;
+    font-weight: bold;
+    font-size: 12px;
+}
+a:link{
+    text-decoration: none;
 }

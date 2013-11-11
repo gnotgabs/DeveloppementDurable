@@ -12,6 +12,7 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'stylesheets' => array($this, 'block_stylesheets'),
+            'menu' => array($this, 'block_menu'),
             'arianne' => array($this, 'block_arianne'),
             'leftCont' => array($this, 'block_leftCont'),
             'body' => array($this, 'block_body'),
@@ -36,10 +37,10 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
         ";
         // line 11
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 22
+        // line 23
         echo "        
         <link rel=\"icon\" type=\"image/x-icon\" href=\"";
-        // line 23
+        // line 24
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
     </head>
@@ -51,66 +52,41 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
                 <div id=\"arbre\"></div>
             </div>
             <div id=\"navtabs\">
-                <!-- MENU A CONCEVOIR DE MANIERE AUTOMATIQUE -->
-                <!--ul>
-                    <li class=\"hover first\">
-                        <a href=\"/features/index.html\" title=\"Accueil, Développement durable\">Accueil</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"/features/platform/index.html\" title=\"Le menu 2\">Le menu 2</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"/enterprise/index.html\" title=\"Le menu 3\">Le menu 3</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"http://plugins.netbeans.org/PluginPortal/\" title=\"Le menu 4\">Le menu 4</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"/kb/index.html\" title=\"Le menu 5\">Le menu 5</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"/community/index.html\" title=\"Le menu 6\">Le menu 6</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"/enterprise/index.html\" title=\"Le menu 3\">Le menu 3</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"http://plugins.netbeans.org/PluginPortal/\" title=\"Le menu 4\">Le menu 4</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"/kb/index.html\" title=\"Le menu 5\">Le menu 5</a>
-                    </li>
-                    <li class=\"hover \">
-                        <a href=\"/community/index.html\" title=\"Le menu 6\">Le menu 6</a>
-                    </li>
-                </ul-->  
-            </div>
+                ";
+        // line 34
+        $this->displayBlock('menu', $context, $blocks);
+        // line 35
+        echo "            </div>
         </header>
-        <nav id=\"arianneDev\">
-            ";
-        // line 69
-        $this->displayBlock('arianne', $context, $blocks);
-        // line 70
-        echo "        </nav>
-        <div id=\"contentDev\">
-            <aside id=\"leftContent\">
-                ";
-        // line 73
-        $this->displayBlock('leftCont', $context, $blocks);
-        // line 74
-        echo "            </aside>
-            <section id=\"rightContent\">
-                ";
-        // line 76
-        $this->displayBlock('body', $context, $blocks);
-        // line 77
-        echo "            </section>
-        </div>
         
+        <div id=\"breadcrumb\">
+            <ul>
+                ";
+        // line 40
+        $this->displayBlock('arianne', $context, $blocks);
+        // line 48
+        echo "            </ul>
+        </div><!-- /breadcrumb-->
+            
+        <div id=\"contentDev\">
+            <div id=\"leftContent\">
+                ";
+        // line 53
+        $this->displayBlock('leftCont', $context, $blocks);
+        // line 54
+        echo "            </div>
+            <div id=\"rightContent\">
+                ";
+        // line 56
+        $this->displayBlock('body', $context, $blocks);
+        // line 57
+        echo "            </div>
+        </div>
+  
         ";
-        // line 80
+        // line 60
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 81
+        // line 61
         echo "    </body>
 </html>
 ";
@@ -132,50 +108,76 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
             ";
         // line 13
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "0e9861a_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_0e9861a_0") : $this->env->getExtension('assets')->getAssetUrl("css/compiled/main_structPage_1.css");
-            // line 16
+            // asset "ebe53c2_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_ebe53c2_0") : $this->env->getExtension('assets')->getAssetUrl("css/compiled/main_menu_1.css");
+            // line 17
             echo "            
             <link rel=\"stylesheet\" href=\"";
+            // line 18
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
+            echo "\" type=\"text/css\">
+            
+            ";
+            // asset "ebe53c2_1"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_ebe53c2_1") : $this->env->getExtension('assets')->getAssetUrl("css/compiled/main_structPage_2.css");
             // line 17
+            echo "            
+            <link rel=\"stylesheet\" href=\"";
+            // line 18
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\" type=\"text/css\">
             
             ";
         } else {
-            // asset "0e9861a"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_0e9861a") : $this->env->getExtension('assets')->getAssetUrl("css/compiled/main.css");
-            // line 16
+            // asset "ebe53c2"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_ebe53c2") : $this->env->getExtension('assets')->getAssetUrl("css/compiled/main.css");
+            // line 17
             echo "            
             <link rel=\"stylesheet\" href=\"";
-            // line 17
+            // line 18
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : null), "html", null, true);
             echo "\" type=\"text/css\">
             
             ";
         }
         unset($context["asset_url"]);
-        // line 20
+        // line 21
         echo "            
         ";
     }
 
-    // line 69
-    public function block_arianne($context, array $blocks = array())
+    // line 34
+    public function block_menu($context, array $blocks = array())
     {
     }
 
-    // line 73
+    // line 40
+    public function block_arianne($context, array $blocks = array())
+    {
+        // line 41
+        echo "                     <li class=\"first\">
+                         <a href=\"";
+        // line 42
+        echo $this->env->getExtension('routing')->getPath("article_dev_homepage", array("id" => 1));
+        echo "\" title=\"Retour à l'accueil\">
+                             Accueil
+                         </a>
+                         <span class=\"end\">&nbsp;</span>
+                     </li>  
+                ";
+    }
+
+    // line 53
     public function block_leftCont($context, array $blocks = array())
     {
     }
 
-    // line 76
+    // line 56
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 80
+    // line 60
     public function block_javascripts($context, array $blocks = array())
     {
     }
@@ -192,6 +194,6 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
 
     public function getDebugInfo()
     {
-        return array (  179 => 80,  174 => 76,  169 => 73,  164 => 69,  159 => 20,  152 => 17,  149 => 16,  141 => 17,  138 => 16,  134 => 13,  131 => 12,  128 => 11,  123 => 7,  120 => 6,  114 => 81,  112 => 80,  107 => 77,  105 => 76,  101 => 74,  99 => 73,  94 => 70,  92 => 69,  43 => 23,  40 => 22,  38 => 11,  34 => 9,  32 => 6,  25 => 1,  31 => 4,  28 => 3,);
+        return array (  181 => 60,  171 => 53,  161 => 42,  158 => 41,  155 => 40,  150 => 34,  145 => 21,  138 => 18,  135 => 17,  127 => 18,  124 => 17,  117 => 18,  114 => 17,  110 => 13,  107 => 12,  104 => 11,  96 => 6,  90 => 61,  88 => 60,  83 => 57,  81 => 56,  77 => 54,  75 => 53,  68 => 48,  66 => 40,  59 => 35,  44 => 24,  41 => 23,  35 => 9,  26 => 1,  31 => 4,  28 => 3,  22 => 2,  19 => 1,  209 => 82,  203 => 78,  199 => 76,  193 => 73,  189 => 71,  187 => 70,  182 => 68,  176 => 56,  173 => 63,  168 => 62,  164 => 60,  162 => 59,  154 => 54,  149 => 51,  147 => 50,  144 => 49,  141 => 48,  133 => 42,  130 => 41,  125 => 38,  122 => 37,  116 => 36,  112 => 35,  109 => 34,  106 => 33,  103 => 32,  99 => 7,  95 => 28,  92 => 27,  86 => 24,  82 => 22,  80 => 21,  73 => 19,  64 => 15,  60 => 13,  57 => 34,  54 => 11,  51 => 10,  48 => 9,  45 => 8,  42 => 7,  39 => 11,  36 => 5,  33 => 6,  30 => 3,);
     }
 }

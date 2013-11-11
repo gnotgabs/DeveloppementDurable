@@ -4,7 +4,7 @@
             {% for men in menus %}
             
                 {% if men.labelCategory != "Accueil" %}
-                    <li><a href="#">{{ men.labelCategory }}</a>
+                    <li><a href="{{ path('article_dev_homepage', {'id': 1 }) }}">{{ men.labelCategory }}</a>
                 {% endif %}<ul class="sousMenu">
                             
                 {% for smen in men.subCategories %}

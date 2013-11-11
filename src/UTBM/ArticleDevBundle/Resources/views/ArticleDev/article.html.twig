@@ -28,7 +28,7 @@
 
 {% block body %}
     <h1>Le développement durable</h1>
-    <h3>{{ article.title }}</h3>
+    <p class='titleDev'>{{ article.title }}</p>
     {#<span><h6>Par {{ article.author|capitalize }}, le {{ article.date|date('d M Y') }}</h6></span>#}
     
 {# 
@@ -36,9 +36,19 @@
     et doivent être interpretées comme tel.autoescape
     Il est a noter que, pour que trutruncate fonctionne, il a fallut activer les options de twig dans le fichier config.yml 
 #}
-    <p>
+    <p class='content'>
+        {% if article.image != '' %}
+            <img src="{{ article.image }}" alt="{{ article.title }}" class='imageDevSup'>
+        {% endif %}
         {{ article.content|raw }}
-        <a href="{{ path('article_dev_homepage', {'id': idSc }) }}" title="retour à la page précédente"><i>«« Retour</i></a>
+        <a href="{{ path('article_dev_homepage', {'id': idSc }) }}" title="retour à la page précédente">
+            <span class='back'>«« Retour</span>
+        </a>
     </p>
+    {% if article.link != '' %}
+        <p class='linkDev'>
+            Pour plus d'informations, <a href='{{ article.link }}'><span class='details'>cliquez ici.</span></a>
+        </p>
+    {% endif %}
         
 {% endblock %}

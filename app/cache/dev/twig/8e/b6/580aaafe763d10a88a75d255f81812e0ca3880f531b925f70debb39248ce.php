@@ -65,26 +65,52 @@ class __TwigTemplate_8eb6580aaafe763d10a88a75d255f81812e0ca3880f531b925f70debb39
     {
         // line 30
         echo "    <h1>Le développement durable</h1>
-    <h3>";
+    <p class='titleDev'>";
         // line 31
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "title"), "html", null, true);
-        echo "</h3>
+        echo "</p>
     ";
         // line 33
         echo "    
 ";
         // line 39
-        echo "    <p>
+        echo "    <p class='content'>
         ";
         // line 40
+        if (($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "image") != "")) {
+            // line 41
+            echo "            <img src=\"";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "image"), "html", null, true);
+            echo "\" alt=\"";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "title"), "html", null, true);
+            echo "\" class='imageDevSup'>
+        ";
+        }
+        // line 43
+        echo "        ";
         echo $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "content");
         echo "
         <a href=\"";
-        // line 41
+        // line 44
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_homepage", array("id" => (isset($context["idSc"]) ? $context["idSc"] : $this->getContext($context, "idSc")))), "html", null, true);
-        echo "\" title=\"retour à la page précédente\"><i>«« Retour</i></a>
+        echo "\" title=\"retour à la page précédente\">
+            <span class='back'>«« Retour</span>
+        </a>
     </p>
-        
+    ";
+        // line 48
+        if (($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "link") != "")) {
+            // line 49
+            echo "        <p class='linkDev'>
+            Pour plus d'informations, <a href='";
+            // line 50
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "link"), "html", null, true);
+            echo "'><span class='details'>cliquez ici.</span></a>
+        </p>
+    ";
+        }
+        // line 53
+        echo "        
 ";
     }
 
@@ -100,6 +126,6 @@ class __TwigTemplate_8eb6580aaafe763d10a88a75d255f81812e0ca3880f531b925f70debb39
 
     public function getDebugInfo()
     {
-        return array (  84 => 41,  80 => 40,  77 => 39,  74 => 33,  70 => 31,  67 => 30,  64 => 29,  56 => 24,  52 => 23,  47 => 21,  42 => 20,  35 => 16,  32 => 15,  27 => 5,);
+        return array (  113 => 53,  107 => 50,  104 => 49,  102 => 48,  95 => 44,  90 => 43,  82 => 41,  80 => 40,  77 => 39,  74 => 33,  70 => 31,  67 => 30,  64 => 29,  56 => 24,  52 => 23,  47 => 21,  42 => 20,  35 => 16,  32 => 15,  27 => 5,);
     }
 }

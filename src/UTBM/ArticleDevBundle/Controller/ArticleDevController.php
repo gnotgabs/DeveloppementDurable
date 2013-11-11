@@ -9,19 +9,19 @@ class ArticleDevController extends Controller
 {
    /**
      * Va afficher les articles d'acceuil correspondant à la rubrique Accueil de la
-     * base de données et possédant l'identifiant numéro 1
+     * base de données et possédant l'identifiant numéro "$id"
      */
     public function indexAction($id){
         
         // On récupère l'EntityManager
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
-        // on récupère tous les articles associés à la page d'accueil du projet
+        // on récupère tous les articles associés à la sous catégorie sélectionée
         $articles = $em->getRepository("ArticleDevBundle:Article")
                        ->getSubCategoryArticles($id);
         
         if($articles === null){
-            throw $this->createNotFoundException('Article[id=1] inexistant.');
+            throw $this->createNotFoundException('Article[id='.$id.'] inexistant.');
         }
         
         // on récupère les menus ainsi que tous les éléments qui leurs sont liés
@@ -42,7 +42,7 @@ class ArticleDevController extends Controller
     public function showTheArticleAction($idSc,$idAr){
         
          // On récupère l'EntityManager
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
 
         // on récupère l'article à affiche en intégralité
         $article = $em->getRepository("ArticleDevBundle:Article")
