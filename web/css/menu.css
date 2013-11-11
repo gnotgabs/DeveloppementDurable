@@ -1,44 +1,86 @@
-#menu {
-    height:100%;
- }
-#menu ul {
-    margin:0;
-    padding:0;
-    list-style-type:none;
-    text-align:center;
- }
-#menu li {
-    float:left;
-    margin:auto;
-    padding:5px;
-    height: auto;
-    background-color: darkgreen;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
- }
-#menu li a {
-    display:block;
-    width:120px;
-    height: auto;
-    color:white;
-    text-decoration:none;
-    padding:0px;
- }
-#menu li a:hover {
-     color:#FFD700;
- }
- #menu ul li ul {
-    display:none;
- }
- #menu ul li:hover ul {
-    display:block;
- }
-#menu li:hover ul li {
-    float:none;
- }
- #menu li ul {
+#menu li ul {
     position:absolute;
- }
+}
+
+#menuDeroulant
+{
+    width: 100%;
+    list-style-type: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: 10px;
+    padding: 0;
+    border: 0;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#menuDeroulant li
+{
+    float: left;
+    width: 130px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#menuDeroulant .sousMenu
+{
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#menuDeroulant .sousMenu li
+{
+    float: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 130px;
+    border-top: 1px solid transparent;
+    border-right: 1px solid transparent;
+}
+
+
+#menuDeroulant li a:link, #menuDeroulant li a:visited
+{
+    display: block;
+    height: 1%;
+    color: #FFF;
+    background: darkgreen;
+    margin: 0;
+    padding: 4px 8px;
+    border-right: 1px solid #fff;
+    text-decoration: none;
+}
+#menuDeroulant li a:hover { background-color: darkgreen; color: yellow; }
+#menuDeroulant li a:active { background-color: #5F879D; }
+
+#menuDeroulant .sousMenu li a:link,
+#menuDeroulant .sousMenu li a:visited
+{
+    display: block;
+    color: #FFF;
+    margin: 0;
+    border: 0;
+    text-decoration: none;
+    background: transparent url("../images/fondTR.png") repeat;
+}
+#menuDeroulant .sousMenu li a:hover
+{
+    background-image: none;
+    background-color: darkgreen; color: yellow;
+}
+#menuDeroulant li:hover > .sousMenu { display: block; }
+
+
+
  
  /*BREADCRUMB GENERAL STYLE*/
 

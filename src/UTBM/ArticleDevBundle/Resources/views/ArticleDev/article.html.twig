@@ -19,7 +19,11 @@
 
 {% block arianne %}    
     {{ parent() }} 
-    <li><a href="#" title="Back to item 2">Article N° {{ article.id }}</a><span class="end">&nbsp;</span></li>
+    <li>
+        <a href="{{ path('article_dev_article', {'idSc': idSc , 'idAr': article.id }) }}" title="Back to item 2">
+            Article N° {{ article.id }}
+        </a><span class="end">&nbsp;</span>
+    </li>
 {% endblock %}
 
 {% block body %}

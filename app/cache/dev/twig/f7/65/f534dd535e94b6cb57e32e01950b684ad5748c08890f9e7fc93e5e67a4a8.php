@@ -30,7 +30,7 @@ class __TwigTemplate_f765f534dd535e94b6cb57e32e01950b684ad5748c08890f9e7fc93e5e6
         try {
             // line 2
             echo "    <div id=\"menu\">
-        <ul>
+        <ul id=\"menuDeroulant\">
             ";
             // line 4
             $context['_parent'] = (array) $context;
@@ -48,7 +48,7 @@ class __TwigTemplate_f765f534dd535e94b6cb57e32e01950b684ad5748c08890f9e7fc93e5e6
                 ";
                 }
                 // line 8
-                echo "<ul>
+                echo "<ul class=\"sousMenu\">
                             
                 ";
                 // line 10

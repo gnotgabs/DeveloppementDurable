@@ -80,6 +80,7 @@
   'ArticleDevBundle:ArticleDev:addCategory.html.twig' => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle/Resources/views/ArticleDev/addCategory.html.twig',
   'ArticleDevBundle:ArticleDev:article.html.twig' => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle/Resources/views/ArticleDev/article.html.twig',
   'ArticleDevBundle:ArticleDev:index.html.twig' => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle/Resources/views/ArticleDev/index.html.twig',
+  'ArticleDevBundle::menu.html.twig' => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle/Resources/views/menu.html.twig',
   'AcmeDemoBundle:Demo:contact.html.twig' => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\Acme\\DemoBundle/Resources/views/Demo/contact.html.twig',
   'AcmeDemoBundle:Demo:hello.html.twig' => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\Acme\\DemoBundle/Resources/views/Demo/hello.html.twig',
   'AcmeDemoBundle:Demo:index.html.twig' => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\Acme\\DemoBundle/Resources/views/Demo/index.html.twig',

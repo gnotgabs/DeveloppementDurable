@@ -1,11 +1,11 @@
 {% macro dynamicMenu(menus) %}
     <div id="menu">
-        <ul>
+        <ul id="menuDeroulant">
             {% for men in menus %}
             
                 {% if men.labelCategory != "Accueil" %}
                     <li><a href="#">{{ men.labelCategory }}</a>
-                {% endif %}<ul>
+                {% endif %}<ul class="sousMenu">
                             
                 {% for smen in men.subCategories %}
                             
