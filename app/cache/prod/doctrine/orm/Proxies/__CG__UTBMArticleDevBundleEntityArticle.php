@@ -111,10 +111,34 @@ class Article extends \UTBM\ArticleDevBundle\Entity\Article implements \Doctrine
         return parent::getSubCategory();
     }
 
+    public function setLink($link)
+    {
+        $this->__load();
+        return parent::setLink($link);
+    }
+
+    public function getLink()
+    {
+        $this->__load();
+        return parent::getLink();
+    }
+
+    public function setImage($image)
+    {
+        $this->__load();
+        return parent::setImage($image);
+    }
+
+    public function getImage()
+    {
+        $this->__load();
+        return parent::getImage();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'date', 'title', 'author', 'content', 'subCategory');
+        return array('__isInitialized__', 'id', 'date', 'title', 'author', 'content', 'link', 'image', 'subCategory');
     }
 
     public function __clone()

@@ -27,8 +27,8 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Le développement durable</h1>
-    <p class='titleDev'>{{ article.title }}</p>
+    {{ parent() }}
+    <div class='titleDev'>{{ article.title }}</div>
     {#<span><h6>Par {{ article.author|capitalize }}, le {{ article.date|date('d M Y') }}</h6></span>#}
     
 {# 

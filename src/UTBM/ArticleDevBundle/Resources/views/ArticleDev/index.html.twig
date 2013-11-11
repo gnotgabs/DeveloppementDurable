@@ -25,40 +25,39 @@
     
     
 {% block body %}
-    <h1>Le développement durable</h1>
-        
-        {% if (articles|length) != 0 %}
-    
-            {% for article in articles %}
-                <p class='titleDev'>{{ article.title }}</p>
-                {#<span><h6>Par {{ article.author|capitalize }}, le {{ article.date|date('d M Y') }}</h6></span>#}
+    {{ parent() }}
+    {% if (articles|length) != 0 %}
 
-            {# 
-                ICI raw nous permet de faire comprendre à twig que les balises <br> contenues dans les articles sont bien des éléments HTML 
-                et doivent être interpretées comme tel.autoescape
-                Il est a noter que, pour que trutruncate fonctionne, il a fallut activer les options de twig dans le fichier config.yml 
-            #}
+        {% for article in articles %}
+            <div class='titleDev'>{{ article.title }}</div>
+            {#<span><h6>Par {{ article.author|capitalize }}, le {{ article.date|date('d M Y') }}</h6></span>#}
 
-                <p class='content'>
-                    
-                    {% if article.image != '' %}
-                        <img src="{{ article.image }}" title="{{ article.title }}" class='imageDev'>
-                    {% endif %}
-                        
-                    {{ article.content|truncate(500, true, ' ... ')|raw }}
-                    <a href="{{ path('article_dev_article', {'idSc': article.subCategory.id , 'idAr': article.id }) }}" title='Plus de détails'>
-                        <span class='back'>lire la suite</span>
-                    </a>
-                        
-                </p>
-            {% endfor %}
-                
-        {% else %}
-            
-                <div class="erreur">
-                    Pas d'article correspondant à cette catégorie !
-                </div>   
-                
-        {% endif %}
+        {# 
+            ICI raw nous permet de faire comprendre à twig que les balises <br> contenues dans les articles sont bien des éléments HTML 
+            et doivent être interpretées comme tel.autoescape
+            Il est a noter que, pour que trutruncate fonctionne, il a fallut activer les options de twig dans le fichier config.yml 
+        #}
+
+            <p class='content'>
+
+                {% if article.image != '' %}
+                    <img src="{{ article.image }}" title="{{ article.title }}" class='imageDev'>
+                {% endif %}
+
+                {{ article.content|truncate(500, true, ' ... ')|raw }}
+                <a href="{{ path('article_dev_article', {'idSc': article.subCategory.id , 'idAr': article.id }) }}" title='Plus de détails'>
+                    <span class='back'>lire la suite</span>
+                </a>
+
+            </p>
+        {% endfor %}
+
+    {% else %}
+
+            <div class="erreur">
+                Pas d'article correspondant à cette catégorie !
+            </div>   
+
+    {% endif %}
         
 {% endblock %}

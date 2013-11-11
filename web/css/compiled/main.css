@@ -89,7 +89,7 @@
 #menuDeroulant .sousMenu li a:hover
 {
     background-image: none;
-    background-color: darkgreen; color: yellow;
+    background-color: darkgreen; color: #F88412;
 }
 #menuDeroulant li:hover > .sousMenu { display: block; }
 
@@ -216,23 +216,33 @@ body{
     border-right:1px solid #006400;
     color:#000;
 }
-#rightContent p{
+#rightContent p.content{
     text-align: justify;
-    width: 95%;
     margin: auto;
     padding: 5px;
 }
-#rightContent h1{
+#rightContent p.linkDev{
+    text-align: center;
+    width: 95%;
+    margin: auto;
+    padding: 5px;
+    font-weight: bold;
+}
+#rightContent p#entete{
+    margin: 0;
     text-align: center;
     color: darkgreen;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: lightblue;
 }
-#rightContent h3{
-    margin-top: 0px;
-    margin-bottom: 10px;
-    padding-left: 5px;
-    background-color: lightskyblue;
+#rightContent div.titleDev{
+    padding: 7px;
+    width:99%;
+    color:#F88412;
+    font-weight: bold;
+    font-size: 20px;
 }
-
 .erreur{
     width: 80%;
     height: 30px;
@@ -242,4 +252,24 @@ body{
     color: red;
     border: 1px solid red;
     text-align: center;
+}
+.imageDev{
+    width:180px;
+    border:0;
+    height:120px;
+    float: right; border: 0pt none; margin: 5px 10px;
+}
+.imageDevSup{
+    width:250px;
+    border:0;
+    height:180px;
+    float: right; border: 0pt none; margin: 5px 10px;
+}
+span.details, span.back{
+    color:blue;
+    font-weight: bold;
+    font-size: 12px;
+}
+a:link{
+    text-decoration: none;
 }

@@ -64,11 +64,13 @@ class __TwigTemplate_8eb6580aaafe763d10a88a75d255f81812e0ca3880f531b925f70debb39
     public function block_body($context, array $blocks = array())
     {
         // line 30
-        echo "    <h1>Le développement durable</h1>
-    <p class='titleDev'>";
+        echo "    ";
+        $this->displayParentBlock("body", $context, $blocks);
+        echo "
+    <div class='titleDev'>";
         // line 31
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "title"), "html", null, true);
-        echo "</p>
+        echo "</div>
     ";
         // line 33
         echo "    
@@ -126,6 +128,6 @@ class __TwigTemplate_8eb6580aaafe763d10a88a75d255f81812e0ca3880f531b925f70debb39
 
     public function getDebugInfo()
     {
-        return array (  113 => 53,  107 => 50,  104 => 49,  102 => 48,  95 => 44,  90 => 43,  82 => 41,  80 => 40,  77 => 39,  74 => 33,  70 => 31,  67 => 30,  64 => 29,  56 => 24,  52 => 23,  47 => 21,  42 => 20,  35 => 16,  32 => 15,  27 => 5,);
+        return array (  115 => 53,  109 => 50,  106 => 49,  104 => 48,  97 => 44,  92 => 43,  84 => 41,  82 => 40,  79 => 39,  76 => 33,  72 => 31,  67 => 30,  64 => 29,  56 => 24,  52 => 23,  47 => 21,  42 => 20,  35 => 16,  32 => 15,  27 => 5,);
     }
 }

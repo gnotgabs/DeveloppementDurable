@@ -89,7 +89,7 @@
 #menuDeroulant .sousMenu li a:hover
 {
     background-image: none;
-    background-color: darkgreen; color: yellow;
+    background-color: darkgreen; color: #F88412;
 }
 #menuDeroulant li:hover > .sousMenu { display: block; }
 
