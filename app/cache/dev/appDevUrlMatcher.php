@@ -179,6 +179,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::adminAction',  '_route' => 'article_dev_admin',);
                 }
 
+                // article_dev_guideAdmin
+                if ($pathinfo === '/devdurable/administration/delSubCategory') {
+                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::guideAdminAction',  '_route' => 'article_dev_guideAdmin',);
+                }
+
                 // article_dev_addArticle
                 if ($pathinfo === '/devdurable/administration/addArticle') {
                     return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::addArticleAction',  '_route' => 'article_dev_addArticle',);

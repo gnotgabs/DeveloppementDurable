@@ -1,0 +1,24 @@
+{% extends "ArticleDevBundle::adminLayout.html.twig" %}
+
+{% import "ArticleDevBundle::menu.html.twig" as macroMenus %}
+
+
+{% block arianne %}
+    {{ parent() }}
+    <li>
+        <a href="{{ path('article_dev_addArticle') }}" title="Ajout de catégorie">
+            Guide administrateur
+        </a><span class="end">&nbsp;</span>
+    </li>
+{% endblock %}
+
+{% block menu %}
+    {{ macroMenus.dynamicMenu(menus) }}
+{% endblock %}
+
+{% block body %}
+   {{ parent() }}
+    <div class="well">
+        <p class="title">Le guide de l'administrateur</p>
+    </div>
+{% endblock %}

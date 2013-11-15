@@ -107,6 +107,15 @@ class __TwigTemplate_2e40cc7968eb82897b56b12dd9ab8651a8897338f18f221d6ec60d83093
         echo "\">Supprimer une sous-catégorie</a></li>
             </ul>
         </div>
+        <div id=\"guideAdmin\">
+            <ul class=\"title\">Consignes d'administration</ul>
+            <ul>
+                <li><a href=\"";
+        // line 51
+        echo $this->env->getExtension('routing')->getPath("article_dev_guideAdmin");
+        echo "\">Accéder au guide administrateur</a></li>
+            </ul>
+        </div>
     </div>
 ";
     }
@@ -123,6 +132,6 @@ class __TwigTemplate_2e40cc7968eb82897b56b12dd9ab8651a8897338f18f221d6ec60d83093
 
     public function getDebugInfo()
     {
-        return array (  106 => 45,  102 => 44,  98 => 43,  89 => 37,  85 => 36,  81 => 35,  72 => 29,  68 => 28,  64 => 27,  55 => 22,  52 => 21,  45 => 18,  42 => 17,  35 => 8,  32 => 7,  27 => 4,);
+        return array (  115 => 51,  106 => 45,  102 => 44,  98 => 43,  89 => 37,  85 => 36,  81 => 35,  72 => 29,  68 => 28,  64 => 27,  55 => 22,  52 => 21,  45 => 18,  42 => 17,  35 => 8,  32 => 7,  27 => 4,);
     }
 }

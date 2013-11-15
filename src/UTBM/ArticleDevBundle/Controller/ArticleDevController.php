@@ -154,4 +154,17 @@ class ArticleDevController extends Controller
             'menus'   => $men,
         ));
     }
+    
+    public function guideAdminAction(){
+        
+         // On récupère l'EntityManager
+        $em = $this->getDoctrine()->getManager();
+
+        $men = $em->getRepository('ArticleDevBundle:Category')
+                  ->getMenus();
+        
+        return $this->render('ArticleDevBundle:ArticleDev:guideAdmin.html.twig', array(
+            'menus'   => $men,
+        ));
+    }
 }

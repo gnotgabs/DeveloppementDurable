@@ -10,6 +10,10 @@ article_dev_admin:
     pattern:  /administration
     defaults: { _controller: ArticleDevBundle:ArticleDev:admin }
     
+article_dev_guideAdmin:
+    pattern:  /administration/delSubCategory
+    defaults: { _controller: ArticleDevBundle:ArticleDev:guideAdmin }
+    
 article_dev_addArticle:
     pattern:  /administration/addArticle
     defaults: { _controller: ArticleDevBundle:ArticleDev:addArticle }
