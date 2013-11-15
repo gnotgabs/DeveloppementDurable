@@ -3,7 +3,9 @@
 namespace UTBM\ArticleDevBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use UTBM\ArticleDevBundle\Entity\Category;
+use UTBM\ArticleDevBundle\Entity\SubCategory;
+use UTBM\ArticleDevBundle\Form\ArticleType;
+use UTBM\ArticleDevBundle\Entity\Article;
 
 class ArticleDevController extends Controller
 {
@@ -64,25 +66,92 @@ class ArticleDevController extends Controller
         ));
     }
     
-    public function addCategoryAction(){
+    public function adminAction(){
         
-        // On crée un objet Article
-        $category = new Category();
-
-        // On crée le FormBuilder grâce à la méthode du contrôleur
-        $formBuilder = $this->createFormBuilder($category);
-
-        // On ajoute les champs de l'entité que l'on veut à notre formulaire
-        $formBuilder
-            ->add('labelCategory', 'text');
-        // Pour l'instant, pas de commentaires, catégories, etc., on les gérera plus tard
-
-        // À partir du formBuilder, on génère le formulaire
-        $form = $formBuilder->getForm();
- 
+         // On récupère l'EntityManager
+        $em = $this->getDoctrine()->getManager();
         
-        return $this->render('ArticleDevBundle:ArticleDev:addCategory.html.twig', array(
-            'form' => $form->createView(),
+         // on récupère les menus ainsi que tous les éléments qui leurs sont liés
+        // Exemple un menu et ses sous-menus
+        $men = $em->getRepository('ArticleDevBundle:Category')
+                  ->getMenus();
+        
+        return $this->render('ArticleDevBundle:ArticleDev:admin.html.twig', array(
+            'menus'   => $men,
+        ));
+    }
+    
+    public function addArticleAction(){
+        
+         // On récupère l'EntityManager
+        $em = $this->getDoctrine()->getManager();
+        
+        // on récupère les menus ainsi que tous les éléments qui leurs sont liés
+        // Exemple un menu et ses sous-menus
+        $men = $em->getRepository('ArticleDevBundle:Category')
+                  ->getMenus();
+        /**
+         * CREATION DU FORMULAIRE D'AJOUT D'ARTICLES
+         */
+        $article = new Article();
+        
+        // CREATION D'UN FORMULAIRE BASE SUR L'OBJET "ArticleType" QUI EST L'OBJET DE CONSTRUCTION DE FORMULAIRE
+        // CORRESPONDANT AUX ATTRIBUTS DE L'OBJET ARTICLE
+        $form = $this->createForm(new ArticleType, $article);
+        
+        // RECUPERATION DU TYPE DE REQUETE EXECUTEE PAR LE USER
+        $request = $this->getRequest();
+        
+        if($request->isMethod('POST')){
+            
+            // RECUPERATION DES DONNEES ENVOYEES VIA LE FORMULAIRE ET CONTENUES DANS "request"
+            $form->bind($request);
+            
+            // ON VERIFIE QUE LE FORMULAIRE EST CORRECT
+            if($form->isValid()){
+                
+                $article = $form->getData();
+                
+                // ON ENREGISTRE L'OBJET ARTICLE DANS LA BDD
+                $em->persist($article);
+                $em->flush();
+                
+                // REDIRECTION VERS LA PAGE D'AJOUT D'ARTICLES
+                return $this->redirect($this->generateUrl("article_dev_addArticle"));
+            }
+        }
+        
+        // ON AFFICHE LE FORMULAIRE AU DEPART SSI, L'UTILISATEUR VIENT D'ARRIVER SUR LA PAGE
+        // OU BIEN LE FORMULAIRE N'EST PAS CORRECT, OU LE TYPE DE REQUETE EST GET
+        return $this->render('ArticleDevBundle:ArticleDev:addArticle.html.twig', array(
+                'form'      =>      $form->createView(),
+                'menus'     =>      $men,
+                ));
+    }
+    
+    public function modifArticleAction(){
+        
+         // On récupère l'EntityManager
+        $em = $this->getDoctrine()->getManager();
+
+        $men = $em->getRepository('ArticleDevBundle:Category')
+                  ->getMenus();
+        
+        return $this->render('ArticleDevBundle:ArticleDev:modifArticle.html.twig', array(
+            'menus'   => $men,
+        ));
+    }
+
+    public function delArticleAction(){
+        
+         // On récupère l'EntityManager
+        $em = $this->getDoctrine()->getManager();
+
+        $men = $em->getRepository('ArticleDevBundle:Category')
+                  ->getMenus();
+        
+        return $this->render('ArticleDevBundle:ArticleDev:delArticle.html.twig', array(
+            'menus'   => $men,
         ));
     }
 }

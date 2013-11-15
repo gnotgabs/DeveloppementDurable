@@ -1,0 +1,21 @@
+#formCateg{
+    background-color: yellow;
+    width:auto;
+    height: auto;
+    padding:30px;
+    margin: auto;
+}
+#formCateg label.formLabel{
+    display: block;
+    width: 150px;
+    float: left;
+}
+#formCateg div{
+    margin: auto;
+    padding: 10px;
+    background: gray;
+    width: 85%;
+}
+#formCateg textArea{
+    width: 400px;
+}

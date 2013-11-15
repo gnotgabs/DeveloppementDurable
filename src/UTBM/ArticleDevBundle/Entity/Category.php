@@ -4,6 +4,8 @@ namespace UTBM\ArticleDevBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use \Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * Category
  *
@@ -37,6 +39,11 @@ class Category
     public function __construct()
     {
         $this->subCategories = new ArrayCollection();
+    }
+    
+    public function __toString()
+    {
+        return $this->getLabelCategory();
     }
 
     /**

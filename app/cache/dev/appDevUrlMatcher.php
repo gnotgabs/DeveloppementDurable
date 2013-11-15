@@ -26,38 +26,25 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $pathinfo = rawurldecode($pathinfo);
 
         if (0 === strpos($pathinfo, '/css/compiled/main')) {
-            // _assetic_3d212fc
+            // _assetic_8b1f94a
             if ($pathinfo === '/css/compiled/main.css') {
-                return array (  '_controller' => 'assetic.controller:render',  'name' => '3d212fc',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_3d212fc',);
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '8b1f94a',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_8b1f94a',);
             }
 
             if (0 === strpos($pathinfo, '/css/compiled/main_')) {
-                // _assetic_3d212fc_0
-                if ($pathinfo === '/css/compiled/main_structPage_1.css') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '3d212fc',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_3d212fc_0',);
-                }
-
-                // _assetic_3d212fc_1
-                if ($pathinfo === '/css/compiled/main_admin_2.css') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '3d212fc',  'pos' => 1,  '_format' => 'css',  '_route' => '_assetic_3d212fc_1',);
-                }
-
-            }
-
-            // _assetic_ebe53c2
-            if ($pathinfo === '/css/compiled/main.css') {
-                return array (  '_controller' => 'assetic.controller:render',  'name' => 'ebe53c2',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_ebe53c2',);
-            }
-
-            if (0 === strpos($pathinfo, '/css/compiled/main_')) {
-                // _assetic_ebe53c2_0
+                // _assetic_8b1f94a_0
                 if ($pathinfo === '/css/compiled/main_menu_1.css') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'ebe53c2',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_ebe53c2_0',);
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '8b1f94a',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_8b1f94a_0',);
                 }
 
-                // _assetic_ebe53c2_1
-                if ($pathinfo === '/css/compiled/main_structPage_2.css') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'ebe53c2',  'pos' => 1,  '_format' => 'css',  '_route' => '_assetic_ebe53c2_1',);
+                // _assetic_8b1f94a_1
+                if ($pathinfo === '/css/compiled/main_admin_2.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '8b1f94a',  'pos' => 1,  '_format' => 'css',  '_route' => '_assetic_8b1f94a_1',);
+                }
+
+                // _assetic_8b1f94a_2
+                if ($pathinfo === '/css/compiled/main_structPage_3.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '8b1f94a',  'pos' => 2,  '_format' => 'css',  '_route' => '_assetic_8b1f94a_2',);
                 }
 
             }
@@ -186,9 +173,57 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            // article_dev_addCategory
-            if ($pathinfo === '/devdurable/addCategory') {
-                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::addCategoryAction',  '_route' => 'article_dev_addCategory',);
+            if (0 === strpos($pathinfo, '/devdurable/administration')) {
+                // article_dev_admin
+                if ($pathinfo === '/devdurable/administration') {
+                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::adminAction',  '_route' => 'article_dev_admin',);
+                }
+
+                // article_dev_addArticle
+                if ($pathinfo === '/devdurable/administration/addArticle') {
+                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::addArticleAction',  '_route' => 'article_dev_addArticle',);
+                }
+
+                // article_dev_modifArticle
+                if ($pathinfo === '/devdurable/administration/modifArticle') {
+                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::modifArticleAction',  '_route' => 'article_dev_modifArticle',);
+                }
+
+                // article_dev_delArticle
+                if ($pathinfo === '/devdurable/administration/delArticle') {
+                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::delArticleAction',  '_route' => 'article_dev_delArticle',);
+                }
+
+                // article_dev_addCategory
+                if ($pathinfo === '/devdurable/administration/addCategory') {
+                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::addCategoryAction',  '_route' => 'article_dev_addCategory',);
+                }
+
+                // article_dev_modifCategory
+                if ($pathinfo === '/devdurable/administration/modifCategory') {
+                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::modifCategoryAction',  '_route' => 'article_dev_modifCategory',);
+                }
+
+                // article_dev_delCategory
+                if ($pathinfo === '/devdurable/administration/delCategory') {
+                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::delCategoryAction',  '_route' => 'article_dev_delCategory',);
+                }
+
+                // article_dev_addSubCategory
+                if ($pathinfo === '/devdurable/administration/addSubCategory') {
+                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\SubCategoryDevController::addSubCategoryAction',  '_route' => 'article_dev_addSubCategory',);
+                }
+
+                // article_dev_modifSubCategory
+                if ($pathinfo === '/devdurable/administration/modifSubCategory') {
+                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\SubCategoryDevController::modifSubCategoryAction',  '_route' => 'article_dev_modifSubCategory',);
+                }
+
+                // article_dev_delSubCategory
+                if ($pathinfo === '/devdurable/administration/delSubCategory') {
+                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\SubCategoryDevController::delSubCategoryAction',  '_route' => 'article_dev_delSubCategory',);
+                }
+
             }
 
         }

@@ -78,6 +78,12 @@ class Article
     private $image;
 
     /**
+     * LE CONSTRUCTEUR INITIALISE LA DATE A CELLE DU JOUR POUR LE FORMULAIRE D'AJOUT D'ARTICLES
+     */
+    public function __construct(){
+        $this->date = new \DateTime;
+    }
+    /**
      * Get id
      *
      * @return integer 

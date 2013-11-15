@@ -1,0 +1,23 @@
+{# Héritage de l'aperçu global de l'application #}
+{% extends "::base.html.twig" %}
+
+
+{% block menu %}
+{% endblock %}
+
+{#
+    FIL D'ARIANNE DE L'APPLICATION
+#}
+{% block arianne %}
+   {{ parent() }}
+    <li>
+       <a href="{{ path('article_dev_admin') }}" title="TX52 Administration">
+           Administration
+       </a><span class="end">&nbsp;</span>
+    </li>
+{% endblock %}
+    
+    
+{% block body %}
+   {{ parent() }}
+{% endblock %}

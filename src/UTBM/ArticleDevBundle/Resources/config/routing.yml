@@ -6,6 +6,42 @@ article_dev_article:
     pattern:  /sc={idSc}/ar={idAr}
     defaults: { _controller: ArticleDevBundle:ArticleDev:showTheArticle }
     
+article_dev_admin:
+    pattern:  /administration
+    defaults: { _controller: ArticleDevBundle:ArticleDev:admin }
+    
+article_dev_addArticle:
+    pattern:  /administration/addArticle
+    defaults: { _controller: ArticleDevBundle:ArticleDev:addArticle }
+
+article_dev_modifArticle:
+    pattern:  /administration/modifArticle
+    defaults: { _controller: ArticleDevBundle:ArticleDev:modifArticle }
+
+article_dev_delArticle:
+    pattern:  /administration/delArticle
+    defaults: { _controller: ArticleDevBundle:ArticleDev:delArticle }
+
 article_dev_addCategory:
-    pattern:  /addCategory
-    defaults: { _controller: ArticleDevBundle:ArticleDev:addCategory }
+    pattern:  /administration/addCategory
+    defaults: { _controller: ArticleDevBundle:CategoryDev:addCategory }
+
+article_dev_modifCategory:
+    pattern:  /administration/modifCategory
+    defaults: { _controller: ArticleDevBundle:CategoryDev:modifCategory }
+
+article_dev_delCategory:
+    pattern:  /administration/delCategory
+    defaults: { _controller: ArticleDevBundle:CategoryDev:delCategory }
+
+article_dev_addSubCategory:
+    pattern:  /administration/addSubCategory
+    defaults: { _controller: ArticleDevBundle:SubCategoryDev:addSubCategory }
+
+article_dev_modifSubCategory:
+    pattern:  /administration/modifSubCategory
+    defaults: { _controller: ArticleDevBundle:SubCategoryDev:modifSubCategory }
+
+article_dev_delSubCategory:
+    pattern:  /administration/delSubCategory
+    defaults: { _controller: ArticleDevBundle:SubCategoryDev:delSubCategory }

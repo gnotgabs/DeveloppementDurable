@@ -26,7 +26,6 @@ class CategoryRepository extends EntityRepository
                         ->addSelect('sc')
                       ->orderBy('c.id', 'ASC')
                       ->getQuery();
-
         return $query->getResult();
     }
 }
