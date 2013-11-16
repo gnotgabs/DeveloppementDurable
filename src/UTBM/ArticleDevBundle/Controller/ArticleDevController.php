@@ -3,7 +3,9 @@
 namespace UTBM\ArticleDevBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use UTBM\ArticleDevBundle\Entity\SubCategory;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+
+use UTBM\ArticleDevBundle\Form\ArticleModifType;
 use UTBM\ArticleDevBundle\Form\ArticleType;
 use UTBM\ArticleDevBundle\Entity\Article;
 
@@ -13,7 +15,33 @@ class ArticleDevController extends Controller
      * Va afficher les articles d'acceuil correspondant à la rubrique Accueil de la
      * base de données et possédant l'identifiant numéro "$id"
      */
-    public function indexAction($id){
+    public function indexAction(){
+
+        $id = 1; // page d'accueil
+        
+        // On récupère l'EntityManager
+        $em = $this->getDoctrine()->getManager();
+
+        // on récupère tous les articles associés à la sous catégorie sélectionée
+        $articles = $em->getRepository("ArticleDevBundle:Article")
+                       ->getSubCategoryArticles($id);
+        
+        if($articles === null){
+            throw $this->createNotFoundException('Article[id='.$id.'] inexistant.');
+        }
+        
+        // on récupère les menus ainsi que tous les éléments qui leurs sont liés
+        // Exemple un menu et ses sous-menus
+        $men = $em->getRepository('ArticleDevBundle:Category')
+                  ->getMenus();
+
+        return $this->render('ArticleDevBundle:ArticleDev:index.html.twig', array(
+            'articles'  => $articles,
+            'menus'     => $men,
+        ));
+    }
+    
+    public function showAction($id){
         
         // On récupère l'EntityManager
         $em = $this->getDoctrine()->getManager();
@@ -83,6 +111,11 @@ class ArticleDevController extends Controller
     
     public function addArticleAction(){
         
+        // On teste que l'utilisateur dispose bien du rôle ROLE_ADMIN
+        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedHttpException("Accès limité à l'administrateur");
+        }
          // On récupère l'EntityManager
         $em = $this->getDoctrine()->getManager();
         
@@ -131,14 +164,35 @@ class ArticleDevController extends Controller
     
     public function modifArticleAction(){
         
-         // On récupère l'EntityManager
         $em = $this->getDoctrine()->getManager();
 
         $men = $em->getRepository('ArticleDevBundle:Category')
                   ->getMenus();
         
+        $article = new Article();
+       
+        $form = $this->createForm(new ArticleModifType, $article);
+        
+        $request = $this->getRequest();
+        
+        if($request->isMethod('POST')){
+            
+            $form->bind($request);
+            
+            if($form->isValid()){
+                
+                $article = $form->getData();
+                
+                $em->persist($article);
+                $em->flush();
+                
+                return $this->redirect($this->generateUrl("article_dev_modifArticle"));
+            }
+        }
+        
         return $this->render('ArticleDevBundle:ArticleDev:modifArticle.html.twig', array(
-            'menus'   => $men,
+            'menus'     =>      $men,
+            'form'      =>      $form->createView(),
         ));
     }
 

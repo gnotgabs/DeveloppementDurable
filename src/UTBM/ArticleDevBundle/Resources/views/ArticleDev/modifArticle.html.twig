@@ -26,14 +26,12 @@
 {% block body %}
    {{ parent() }}
     <div class="well">
-      {#  <form action="{{ path('article_dev_addArticle') }}" method='post' {{ form_enctype(form) }} id="formCateg">
-            {{ form_errors(form) }}
-            
-            <div style="display: none">
-                {{ form_label(form.date, "Date de publication :") }}
-                {{ form_errors(form.date) }}
-                {{ form_widget(form.date) }}                
-            </div>
+        <form action=""> 
+            {{ form_widget(form) }}
+            <input type="submit" class='btn btn-primary' value="Modifier">
+            <input type="reset" class='btn btn-second' value="Annuler">
+        </form>
+            {#{ form_errors(form) }}
             <div>
                 {{ form_label(form.title, "Titre de l'article :") }}
                 {{ form_errors(form.title) }}
@@ -66,10 +64,6 @@
             </div>
 
             <div>
-                {{ form_rest(form) }}
-                <input type="submit" class='btn btn-primary' value="Enrégistrer">
-                <input type="reset" class='btn btn-second' value="Annuler">
-            </div>
-        </form> #}
+                {{ form_rest(form) }#}
     </div>
 {% endblock %}

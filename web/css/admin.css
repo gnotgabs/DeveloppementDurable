@@ -28,7 +28,11 @@ input#dev_author{
 }
 #formCateg input.btn{
     float: right;
-    margin: 10px;;
+    margin: 10px;
+}
+#formCateg input.btn:hover{
+    color: blue;
+    cursor: pointer;
 }
 
 div#devAdmin div#article, div#categorie, div#sousCategorie, div#guideAdmin{

@@ -20,7 +20,7 @@
 {% block arianne %}    
     {{ parent() }} 
     <li>
-        <a href="{{ path('article_dev_article', {'idSc': idSc , 'idAr': article.id }) }}" title="Back to item 2">
+        <a href="{{ path('article_dev_article', {'idSc': idSc , 'idAr': article.id }) }}" title="">
             Article N° {{ article.id }}
         </a><span class="end">&nbsp;</span>
     </li>
@@ -41,7 +41,7 @@
             <img src="{{ article.image }}" alt="{{ article.title }}" class='imageDevSup'>
         {% endif %}
         {{ article.content|raw }}
-        <a href="{{ path('article_dev_homepage', {'id': idSc }) }}" title="retour à la page précédente">
+        <a href="{{ path('article_dev_show', {'id': idSc }) }}" title="retour à la page précédente">
             <span class='back'>«« Retour</span>
         </a>
     </p>

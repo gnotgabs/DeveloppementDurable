@@ -1,4 +1,7 @@
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 article_dev:
     resource: "@ArticleDevBundle/Resources/config/routing.yml"
     prefix:   /devdurable
-

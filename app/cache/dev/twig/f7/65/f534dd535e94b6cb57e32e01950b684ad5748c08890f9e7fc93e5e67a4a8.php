@@ -43,7 +43,7 @@ class __TwigTemplate_f765f534dd535e94b6cb57e32e01950b684ad5748c08890f9e7fc93e5e6
                 if (($this->getAttribute((isset($context["men"]) ? $context["men"] : $this->getContext($context, "men")), "labelCategory") != "Accueil")) {
                     // line 7
                     echo "                    <li><a href=\"";
-                    echo $this->env->getExtension('routing')->getPath("article_dev_homepage", array("id" => 1));
+                    echo $this->env->getExtension('routing')->getPath("article_dev_homepage");
                     echo "\">";
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["men"]) ? $context["men"] : $this->getContext($context, "men")), "labelCategory"), "html", null, true);
                     echo "</a>
@@ -66,7 +66,7 @@ class __TwigTemplate_f765f534dd535e94b6cb57e32e01950b684ad5748c08890f9e7fc93e5e6
                         echo "                        <li>
                             <a href=\"";
                         // line 14
-                        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_homepage", array("id" => $this->getAttribute((isset($context["smen"]) ? $context["smen"] : $this->getContext($context, "smen")), "id"))), "html", null, true);
+                        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_show", array("id" => $this->getAttribute((isset($context["smen"]) ? $context["smen"] : $this->getContext($context, "smen")), "id"))), "html", null, true);
                         echo "\">
                                 ";
                         // line 15
@@ -118,6 +118,6 @@ class __TwigTemplate_f765f534dd535e94b6cb57e32e01950b684ad5748c08890f9e7fc93e5e6
 
     public function getDebugInfo()
     {
-        return array (  87 => 21,  73 => 15,  69 => 14,  61 => 11,  53 => 8,  45 => 7,  43 => 6,  40 => 5,  36 => 4,  21 => 1,  181 => 60,  176 => 56,  171 => 53,  161 => 42,  158 => 41,  155 => 40,  150 => 34,  145 => 21,  138 => 18,  135 => 17,  127 => 18,  124 => 17,  117 => 18,  114 => 17,  110 => 13,  99 => 7,  96 => 25,  88 => 60,  83 => 57,  81 => 56,  75 => 53,  68 => 48,  66 => 13,  59 => 35,  57 => 10,  44 => 24,  41 => 23,  39 => 11,  33 => 6,  26 => 1,  113 => 53,  107 => 12,  104 => 11,  102 => 48,  95 => 44,  90 => 61,  82 => 41,  80 => 19,  77 => 54,  74 => 33,  70 => 31,  67 => 30,  64 => 12,  56 => 24,  52 => 23,  47 => 21,  42 => 20,  35 => 9,  32 => 2,  27 => 5,);
+        return array (  87 => 21,  80 => 19,  73 => 15,  45 => 7,  40 => 5,  32 => 2,  21 => 1,  194 => 63,  189 => 58,  186 => 57,  181 => 54,  171 => 43,  168 => 42,  165 => 41,  160 => 35,  155 => 22,  148 => 19,  145 => 18,  137 => 19,  134 => 18,  127 => 19,  117 => 19,  114 => 18,  110 => 13,  107 => 12,  99 => 7,  96 => 25,  90 => 64,  88 => 63,  81 => 57,  77 => 55,  75 => 54,  68 => 49,  66 => 13,  59 => 36,  57 => 10,  44 => 25,  41 => 24,  39 => 11,  35 => 9,  26 => 1,  132 => 66,  124 => 18,  120 => 58,  108 => 52,  104 => 11,  101 => 50,  93 => 48,  91 => 47,  86 => 44,  83 => 60,  78 => 36,  74 => 35,  71 => 34,  69 => 14,  64 => 12,  61 => 11,  56 => 28,  53 => 8,  46 => 23,  43 => 6,  36 => 4,  33 => 6,  28 => 5,);
     }
 }

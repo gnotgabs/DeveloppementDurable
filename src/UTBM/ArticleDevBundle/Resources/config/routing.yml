@@ -1,6 +1,10 @@
 article_dev_homepage:
+    pattern:  /
+    defaults: { _controller: ArticleDevBundle:ArticleDev:index}
+    
+article_dev_show:
     pattern:  /sc={id}
-    defaults: { _controller: ArticleDevBundle:ArticleDev:index }
+    defaults: { _controller: ArticleDevBundle:ArticleDev:show }
     
 article_dev_article:
     pattern:  /sc={idSc}/ar={idAr}
