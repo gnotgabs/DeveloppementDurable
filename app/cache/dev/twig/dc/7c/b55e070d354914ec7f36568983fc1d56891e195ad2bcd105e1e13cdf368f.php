@@ -28,50 +28,57 @@ class __TwigTemplate_dc7cb55e070d354914ec7f36568983fc1d56891e195ad2bcd105e1e13cd
     public function block_fos_user_content($context, array $blocks = array())
     {
         // line 6
+        echo "    ";
+        $this->displayParentBlock("fos_user_content", $context, $blocks);
+        echo "
+    ";
+        // line 7
         if ((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error"))) {
-            // line 7
-            echo "    <div>";
+            // line 8
+            echo "        <div class='errorConnexion'>";
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), array(), "FOSUserBundle"), "html", null, true);
             echo "</div>
-";
+    ";
         }
-        // line 9
-        echo "
-<form action=\"";
         // line 10
+        echo "
+    <form action=\"";
+        // line 11
         echo $this->env->getExtension('routing')->getPath("fos_user_security_check");
         echo "\" method=\"post\">
-    <input type=\"hidden\" name=\"_csrf_token\" value=\"";
-        // line 11
+        <input type=\"hidden\" name=\"_csrf_token\" value=\"";
+        // line 12
         echo twig_escape_filter($this->env, (isset($context["csrf_token"]) ? $context["csrf_token"] : $this->getContext($context, "csrf_token")), "html", null, true);
         echo "\" />
-
-    <label for=\"username\">";
-        // line 13
+        <div>
+            <label for=\"username\">";
+        // line 14
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("security.login.username", array(), "FOSUserBundle"), "html", null, true);
         echo "</label>
-    <input type=\"text\" id=\"username\" name=\"_username\" value=\"";
-        // line 14
+            <input type=\"text\" id=\"username\" name=\"_username\" value=\"";
+        // line 15
         echo twig_escape_filter($this->env, (isset($context["last_username"]) ? $context["last_username"] : $this->getContext($context, "last_username")), "html", null, true);
         echo "\" required=\"required\" />
-
-    <label for=\"password\">";
-        // line 16
+        </div>
+        <div>
+            <label for=\"password\">";
+        // line 18
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("security.login.password", array(), "FOSUserBundle"), "html", null, true);
         echo "</label>
-    <input type=\"password\" id=\"password\" name=\"_password\" required=\"required\" />
-
-    <input type=\"checkbox\" id=\"remember_me\" name=\"_remember_me\" value=\"on\" />
-    <label for=\"remember_me\">";
-        // line 20
+            <input type=\"password\" id=\"password\" name=\"_password\" required=\"required\" /><br>
+        </div>
+        <div>
+            <label for=\"remember_me\">";
+        // line 22
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("security.login.remember_me", array(), "FOSUserBundle"), "html", null, true);
         echo "</label>
-
-    <input type=\"submit\" id=\"_submit\" name=\"_submit\" value=\"";
-        // line 22
+            <input type=\"checkbox\" id=\"remember_me\" name=\"_remember_me\" value=\"on\" /><br>
+        </div>
+        <input type=\"submit\" id=\"_submit\" name=\"_submit\" value=\"";
+        // line 25
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("security.login.submit", array(), "FOSUserBundle"), "html", null, true);
         echo "\" />
-</form>
+    </form>
 ";
     }
 
@@ -87,6 +94,6 @@ class __TwigTemplate_dc7cb55e070d354914ec7f36568983fc1d56891e195ad2bcd105e1e13cd
 
     public function getDebugInfo()
     {
-        return array (  72 => 22,  67 => 20,  60 => 16,  55 => 14,  51 => 13,  46 => 11,  42 => 10,  39 => 9,  33 => 7,  31 => 6,  28 => 5,);
+        return array (  79 => 25,  73 => 22,  66 => 18,  60 => 15,  56 => 14,  51 => 12,  47 => 11,  44 => 10,  38 => 8,  36 => 7,  31 => 6,  28 => 5,);
     }
 }

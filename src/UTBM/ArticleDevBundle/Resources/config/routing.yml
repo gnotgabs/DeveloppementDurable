@@ -11,45 +11,45 @@ article_dev_article:
     defaults: { _controller: ArticleDevBundle:ArticleDev:showTheArticle }
     
 article_dev_admin:
-    pattern:  /administration
+    pattern:  /admin
     defaults: { _controller: ArticleDevBundle:ArticleDev:admin }
     
 article_dev_guideAdmin:
-    pattern:  /administration/delSubCategory
+    pattern:  /admin/guideAdmin
     defaults: { _controller: ArticleDevBundle:ArticleDev:guideAdmin }
     
 article_dev_addArticle:
-    pattern:  /administration/addArticle
+    pattern:  /admin/addArticle
     defaults: { _controller: ArticleDevBundle:ArticleDev:addArticle }
 
-article_dev_modifArticle:
-    pattern:  /administration/modifArticle
-    defaults: { _controller: ArticleDevBundle:ArticleDev:modifArticle }
+article_dev_editArticle:
+    pattern:  /admin/editArticle
+    defaults: { _controller: ArticleDevBundle:ArticleDev:editArticle }
 
 article_dev_delArticle:
-    pattern:  /administration/delArticle
+    pattern:  /admin/delArticle
     defaults: { _controller: ArticleDevBundle:ArticleDev:delArticle }
 
 article_dev_addCategory:
-    pattern:  /administration/addCategory
+    pattern:  /admin/addCategory
     defaults: { _controller: ArticleDevBundle:CategoryDev:addCategory }
 
-article_dev_modifCategory:
-    pattern:  /administration/modifCategory
-    defaults: { _controller: ArticleDevBundle:CategoryDev:modifCategory }
+article_dev_editCategory:
+    pattern:  /admin/modifCategory
+    defaults: { _controller: ArticleDevBundle:CategoryDev:editCategory }
 
 article_dev_delCategory:
-    pattern:  /administration/delCategory
+    pattern:  /admin/delCategory
     defaults: { _controller: ArticleDevBundle:CategoryDev:delCategory }
 
 article_dev_addSubCategory:
-    pattern:  /administration/addSubCategory
+    pattern:  /admin/addSubCategory
     defaults: { _controller: ArticleDevBundle:SubCategoryDev:addSubCategory }
 
-article_dev_modifSubCategory:
-    pattern:  /administration/modifSubCategory
-    defaults: { _controller: ArticleDevBundle:SubCategoryDev:modifSubCategory }
+article_dev_editSubCategory:
+    pattern:  /admin/modifSubCategory
+    defaults: { _controller: ArticleDevBundle:SubCategoryDev:editSubCategory }
 
 article_dev_delSubCategory:
-    pattern:  /administration/delSubCategory
+    pattern:  /admin/delSubCategory
     defaults: { _controller: ArticleDevBundle:SubCategoryDev:delSubCategory }

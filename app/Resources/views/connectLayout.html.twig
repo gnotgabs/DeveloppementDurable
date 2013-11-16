@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>
+            {% block title %}
+                Développement durable
+            {% endblock %}
+        </title>
+            
+        {% block stylesheets %}
+        
+            {% stylesheets output="css/compiled/main.css" filter="cssrewrite"
+                'css/menu.css'
+                'css/admin.css'
+                'css/structPage.css'
+            %}
+            
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
+            
+            {% endstylesheets %}
+            
+        {% endblock %}
+        
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    
+    <body>
+        <div id="contentC">
+            <div id="connexionContent">
+                {% block body %}
+                    <p id='entete'>Le développement durable</p>
+                {% endblock %}
+            </div>
+        </div>
+  
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

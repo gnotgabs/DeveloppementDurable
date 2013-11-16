@@ -321,85 +321,82 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
         not_fos_user_change_password:
 
-        if (0 === strpos($pathinfo, '/devdurable')) {
-            // article_dev_homepage
-            if (rtrim($pathinfo, '/') === '/devdurable') {
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'article_dev_homepage');
-                }
-
-                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::indexAction',  '_route' => 'article_dev_homepage',);
+        // article_dev_homepage
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'article_dev_homepage');
             }
 
-            if (0 === strpos($pathinfo, '/devdurable/sc')) {
-                // article_dev_show
-                if (preg_match('#^/devdurable/sc\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_show')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::showAction',));
-                }
+            return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::indexAction',  '_route' => 'article_dev_homepage',);
+        }
 
-                // article_dev_article
-                if (preg_match('#^/devdurable/sc\\=(?P<idSc>[^/]++)/ar\\=(?P<idAr>[^/]++)$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_article')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::showTheArticleAction',));
-                }
-
+        if (0 === strpos($pathinfo, '/sc')) {
+            // article_dev_show
+            if (preg_match('#^/sc\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_show')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::showAction',));
             }
 
-            if (0 === strpos($pathinfo, '/devdurable/administration')) {
-                // article_dev_admin
-                if ($pathinfo === '/devdurable/administration') {
-                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::adminAction',  '_route' => 'article_dev_admin',);
-                }
+            // article_dev_article
+            if (preg_match('#^/sc\\=(?P<idSc>[^/]++)/ar\\=(?P<idAr>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_article')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::showTheArticleAction',));
+            }
 
-                // article_dev_guideAdmin
-                if ($pathinfo === '/devdurable/administration/delSubCategory') {
-                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::guideAdminAction',  '_route' => 'article_dev_guideAdmin',);
-                }
+        }
 
-                // article_dev_addArticle
-                if ($pathinfo === '/devdurable/administration/addArticle') {
-                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::addArticleAction',  '_route' => 'article_dev_addArticle',);
-                }
+        if (0 === strpos($pathinfo, '/admin')) {
+            // article_dev_admin
+            if ($pathinfo === '/admin') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::adminAction',  '_route' => 'article_dev_admin',);
+            }
 
-                // article_dev_modifArticle
-                if ($pathinfo === '/devdurable/administration/modifArticle') {
-                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::modifArticleAction',  '_route' => 'article_dev_modifArticle',);
-                }
+            // article_dev_guideAdmin
+            if ($pathinfo === '/admin/guideAdmin') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::guideAdminAction',  '_route' => 'article_dev_guideAdmin',);
+            }
 
-                // article_dev_delArticle
-                if ($pathinfo === '/devdurable/administration/delArticle') {
-                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::delArticleAction',  '_route' => 'article_dev_delArticle',);
-                }
+            // article_dev_addArticle
+            if ($pathinfo === '/admin/addArticle') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::addArticleAction',  '_route' => 'article_dev_addArticle',);
+            }
 
-                // article_dev_addCategory
-                if ($pathinfo === '/devdurable/administration/addCategory') {
-                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::addCategoryAction',  '_route' => 'article_dev_addCategory',);
-                }
+            // article_dev_editArticle
+            if ($pathinfo === '/admin/editArticle') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::editArticleAction',  '_route' => 'article_dev_editArticle',);
+            }
 
-                // article_dev_modifCategory
-                if ($pathinfo === '/devdurable/administration/modifCategory') {
-                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::modifCategoryAction',  '_route' => 'article_dev_modifCategory',);
-                }
+            // article_dev_delArticle
+            if ($pathinfo === '/admin/delArticle') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::delArticleAction',  '_route' => 'article_dev_delArticle',);
+            }
 
-                // article_dev_delCategory
-                if ($pathinfo === '/devdurable/administration/delCategory') {
-                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::delCategoryAction',  '_route' => 'article_dev_delCategory',);
-                }
+            // article_dev_addCategory
+            if ($pathinfo === '/admin/addCategory') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::addCategoryAction',  '_route' => 'article_dev_addCategory',);
+            }
 
-                // article_dev_addSubCategory
-                if ($pathinfo === '/devdurable/administration/addSubCategory') {
-                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\SubCategoryDevController::addSubCategoryAction',  '_route' => 'article_dev_addSubCategory',);
-                }
+            // article_dev_editCategory
+            if ($pathinfo === '/admin/modifCategory') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::editCategoryAction',  '_route' => 'article_dev_editCategory',);
+            }
 
-                // article_dev_modifSubCategory
-                if ($pathinfo === '/devdurable/administration/modifSubCategory') {
-                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\SubCategoryDevController::modifSubCategoryAction',  '_route' => 'article_dev_modifSubCategory',);
-                }
+            // article_dev_delCategory
+            if ($pathinfo === '/admin/delCategory') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::delCategoryAction',  '_route' => 'article_dev_delCategory',);
+            }
 
-                // article_dev_delSubCategory
-                if ($pathinfo === '/devdurable/administration/delSubCategory') {
-                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\SubCategoryDevController::delSubCategoryAction',  '_route' => 'article_dev_delSubCategory',);
-                }
+            // article_dev_addSubCategory
+            if ($pathinfo === '/admin/addSubCategory') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\SubCategoryDevController::addSubCategoryAction',  '_route' => 'article_dev_addSubCategory',);
+            }
 
+            // article_dev_editSubCategory
+            if ($pathinfo === '/admin/modifSubCategory') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\SubCategoryDevController::editSubCategoryAction',  '_route' => 'article_dev_editSubCategory',);
+            }
+
+            // article_dev_delSubCategory
+            if ($pathinfo === '/admin/delSubCategory') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\SubCategoryDevController::delSubCategoryAction',  '_route' => 'article_dev_delSubCategory',);
             }
 
         }

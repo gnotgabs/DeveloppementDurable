@@ -12,8 +12,40 @@ security:
             security: false
         main:
             pattern: .*
+            anonymous: true
+            provider: main
             form_login:
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
-            logout:       true
-            anonymous:    true
+            logout:
+                path: fos_user_security_logout
+                target: /
+            remember_me:
+                key: %secret%
+            
+#security:
+ #   encoders:
+ #       FOS\UserBundle\Model\UserInterface: sha512
+
+ #   providers:
+ #       fos_userbundle:
+ #           id: fos_user.user_provider.username
+ 
+ #   firewalls:
+#        dev:
+ #           pattern: ^/(_(profiler|wdt))/
+ #           security: false
+ #       main:
+#            pattern: .*
+#            form_login:
+#                provider: fos_userbundle
+#                csrf_provider: form.csrf_provider
+#            remember_me:
+ #               key: %secret%
+#                lifetime: 3000000
+ #               path: /
+ #               domain: ~
+ #           logout:       true
+ #           anonymous:    true

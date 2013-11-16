@@ -53,7 +53,9 @@ class __TwigTemplate_f5623865e82f9ebbe64552af8682018ed5244ec488a097790db87c123ee
     public function block_leftCont($context, array $blocks = array())
     {
         // line 28
-        echo "<a href=\"\">Administration</a>
+        echo "<a href=\"";
+        echo $this->env->getExtension('routing')->getPath("article_dev_admin");
+        echo "\">Administration</a>
 ";
     }
 
@@ -145,6 +147,6 @@ class __TwigTemplate_f5623865e82f9ebbe64552af8682018ed5244ec488a097790db87c123ee
 
     public function getDebugInfo()
     {
-        return array (  132 => 66,  124 => 60,  120 => 58,  108 => 52,  104 => 51,  101 => 50,  93 => 48,  91 => 47,  86 => 44,  83 => 38,  78 => 36,  74 => 35,  71 => 34,  69 => 33,  64 => 32,  61 => 31,  56 => 28,  53 => 27,  46 => 23,  43 => 22,  36 => 16,  33 => 15,  28 => 5,);
+        return array (  134 => 66,  126 => 60,  122 => 58,  110 => 52,  106 => 51,  103 => 50,  95 => 48,  93 => 47,  88 => 44,  85 => 38,  80 => 36,  76 => 35,  73 => 34,  71 => 33,  66 => 32,  63 => 31,  56 => 28,  53 => 27,  46 => 23,  43 => 22,  36 => 16,  33 => 15,  28 => 5,);
     }
 }

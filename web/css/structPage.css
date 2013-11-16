@@ -124,3 +124,67 @@ span.details, span.back{
 a:link{
     text-decoration: none;
 }
+
+
+/* CSS DE LA PAGE DE CONNEXION A LA PARTIE ADMINISTRATION DE L'APPLICATION*/
+#contentC{
+    width:30%;
+    margin-top: 12%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    padding: auto;
+    height: auto;
+    background: red;
+}
+#connexionContent{
+    width:100%;
+    height: 250px;// A mettre en auto
+    margin: 10px;
+    padding: 20px;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #eef7ea) );
+    background:-moz-linear-gradient( center top, #ffffff 5%, #eef7ea 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eef7ea');
+    background-image: url("../images/bgContent.png");
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    background-position-x: 200px;
+    background-position-y: 5px;
+    text-indent:0;
+    border:2px solid #006400;
+    color:#000;
+}
+#contentC label{
+    display: block;
+    width: 150px;
+    float: left;
+    font-weight: bold;
+}
+#contentC p{
+    font-weight: bold;
+    font-size: 20px;
+    background: darkgreen;
+    text-align: center;
+    color:#ffffff;
+    padding:5px;
+    margin: 0;
+}
+#contentC input#username,#password{
+    width: 200px;
+}
+#contentC input#_submit{
+    float: right;
+}
+#contentC input#_submit:hover{
+    cursor: pointer;
+    color: blue;
+}
+#contentC div{
+    padding: 15px;
+}
+div.errorConnexion{
+    width:100%;
+    font-weight: bold;
+    color:red;
+    text-align: center;
+}

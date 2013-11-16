@@ -162,7 +162,7 @@ class ArticleDevController extends Controller
                 ));
     }
     
-    public function modifArticleAction(){
+    public function editArticleAction(){
         
         $em = $this->getDoctrine()->getManager();
 
