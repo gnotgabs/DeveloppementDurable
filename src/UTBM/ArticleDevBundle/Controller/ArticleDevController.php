@@ -41,6 +41,10 @@ class ArticleDevController extends Controller
         ));
     }
     
+    /**
+     * 
+     * Affiche les articles d'une catégorie entière
+     */
     public function showAction($id){
         
         // On récupère l'EntityManager
@@ -162,16 +166,14 @@ class ArticleDevController extends Controller
                 ));
     }
     
-    public function editArticleAction(){
+    /**
+     * Edition des articles en fonction de leurs id
+     */
+    public function editArticleAction(Article $article){
+                
+        $form = $this->createForm(new ArticleModifType(), $article);
         
         $em = $this->getDoctrine()->getManager();
-
-        $men = $em->getRepository('ArticleDevBundle:Category')
-                  ->getMenus();
-        
-        $article = new Article();
-       
-        $form = $this->createForm(new ArticleModifType, $article);
         
         $request = $this->getRequest();
         
@@ -181,22 +183,32 @@ class ArticleDevController extends Controller
             
             if($form->isValid()){
                 
-                $article = $form->getData();
+                $a = $form->getData();
                 
-                $em->persist($article);
+                $em->persist($a);
                 $em->flush();
                 
-                return $this->redirect($this->generateUrl("article_dev_modifArticle"));
+                // On définit un message flash
+                $this->get('session')->getFlashBag()->add('info', 'Article bien modifié');
+        
+                // On redirige vers la sous catégoie à laquelle appartient l'article
+                return $this->redirect($this->generateUrl("article_dev_show",array(
+                            'id' => $article->getSubCategory()->getId()
+                        )));
             }
         }
+
+        $men = $em->getRepository('ArticleDevBundle:Category')
+                  ->getMenus();
         
         return $this->render('ArticleDevBundle:ArticleDev:modifArticle.html.twig', array(
             'menus'     =>      $men,
             'form'      =>      $form->createView(),
+            'article'   =>      $article,
         ));
     }
-
-    public function delArticleAction(){
+    
+    public function delArticleAction(Article $article){
         
          // On récupère l'EntityManager
         $em = $this->getDoctrine()->getManager();

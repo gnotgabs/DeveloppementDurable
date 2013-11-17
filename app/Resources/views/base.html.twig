@@ -44,7 +44,20 @@
                              Accueil
                          </a>
                          <span class="end">&nbsp;</span>
-                     </li>  
+                     </li>
+                     <span class="barUser">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            Accéder à l'&nbsp;
+                            <a href='{{ path('article_dev_admin') }}' title='Ajouter: articles, menus, sous-menus'>
+                                {{ app.user.username }}istration
+                            </a> - 
+                            <a href="{{ path('fos_user_security_logout') }}" title='Se déconnecter'>
+                                Déconnexion
+                            </a>
+                        {% else %}
+                            <a href="{{ path('fos_user_security_login') }}" title="Accéder à l'administration">Administration</a>
+                        {% endif %}
+                    </span>
                 {% endblock %}
             </ul>
         </div><!-- /breadcrumb-->

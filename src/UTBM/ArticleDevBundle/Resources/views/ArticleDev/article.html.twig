@@ -28,7 +28,19 @@
 
 {% block body %}
     {{ parent() }}
-    <div class='titleDev'>{{ article.title }}</div>
+    <div class='titleDev'>
+        {{ article.title }}
+        <span class="adminArticle">
+           {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <a href='{{ path('article_dev_editArticle', {'id': article.id}) }}' title="Editer l'article: {{article.title}}">
+                    Editer
+                </a>  - 
+                <a href="{{ path('article_dev_delArticle', {'id': article.id}) }}" title="Supprimer l'article: {{article.title}}">
+                    Supprimer
+                </a>
+           {% endif %}
+       </span>
+    </div>
     {#<span><h6>Par {{ article.author|capitalize }}, le {{ article.date|date('d M Y') }}</h6></span>#}
     
 {# 

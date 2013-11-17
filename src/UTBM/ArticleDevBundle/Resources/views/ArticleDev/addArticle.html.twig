@@ -27,7 +27,7 @@
    {{ parent() }}
     <div class="well">
         <p class="title">Ajout d'articles</p>
-        <form action="{{ path('article_dev_addArticle') }}" method='post' {{ form_enctype(form) }} id="formCateg">
+        <form action="{{ path('article_dev_addArticle') }}" method='post' {{ form_enctype(form) }} class="formCateg">
             {# Les erreurs générales du formulaire. #}
             {{ form_errors(form) }}
             

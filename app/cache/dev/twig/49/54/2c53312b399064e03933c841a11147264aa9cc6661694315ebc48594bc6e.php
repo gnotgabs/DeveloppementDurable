@@ -64,29 +64,29 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
                 ";
         // line 41
         $this->displayBlock('arianne', $context, $blocks);
-        // line 49
+        // line 62
         echo "            </ul>
         </div><!-- /breadcrumb-->
             
         <div id=\"contentDev\">
             <div id=\"leftContent\">
                 ";
-        // line 54
+        // line 67
         $this->displayBlock('leftCont', $context, $blocks);
-        // line 55
+        // line 68
         echo "            </div>
             <div id=\"rightContent\">
                 ";
-        // line 57
+        // line 70
         $this->displayBlock('body', $context, $blocks);
-        // line 60
+        // line 73
         echo "            </div>
         </div>
   
         ";
-        // line 63
+        // line 76
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 64
+        // line 77
         echo "    </body>
 </html>
 ";
@@ -173,24 +173,55 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
                              Accueil
                          </a>
                          <span class=\"end\">&nbsp;</span>
-                     </li>  
+                     </li>
+                     <span class=\"barUser\">
+                        ";
+        // line 49
+        if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+            // line 50
+            echo "                            Accéder à l'&nbsp;
+                            <a href='";
+            // line 51
+            echo $this->env->getExtension('routing')->getPath("article_dev_admin");
+            echo "' title='Ajouter: articles, menus, sous-menus'>
+                                ";
+            // line 52
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user"), "username"), "html", null, true);
+            echo "istration
+                            </a> - 
+                            <a href=\"";
+            // line 54
+            echo $this->env->getExtension('routing')->getPath("fos_user_security_logout");
+            echo "\" title='Se déconnecter'>
+                                Déconnexion
+                            </a>
+                        ";
+        } else {
+            // line 58
+            echo "                            <a href=\"";
+            echo $this->env->getExtension('routing')->getPath("fos_user_security_login");
+            echo "\" title=\"Accéder à l'administration\">Administration</a>
+                        ";
+        }
+        // line 60
+        echo "                    </span>
                 ";
     }
 
-    // line 54
+    // line 67
     public function block_leftCont($context, array $blocks = array())
     {
     }
 
-    // line 57
+    // line 70
     public function block_body($context, array $blocks = array())
     {
-        // line 58
+        // line 71
         echo "                    <p id='entete'>Le développement durable</p>
                 ";
     }
 
-    // line 63
+    // line 76
     public function block_javascripts($context, array $blocks = array())
     {
     }
@@ -207,6 +238,6 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
 
     public function getDebugInfo()
     {
-        return array (  194 => 63,  189 => 58,  186 => 57,  181 => 54,  171 => 43,  168 => 42,  165 => 41,  160 => 35,  155 => 22,  148 => 19,  145 => 18,  137 => 19,  127 => 19,  124 => 18,  117 => 19,  114 => 18,  107 => 12,  104 => 11,  99 => 7,  96 => 6,  90 => 64,  83 => 60,  81 => 57,  77 => 55,  75 => 54,  68 => 49,  59 => 36,  57 => 35,  44 => 25,  41 => 24,  39 => 11,  35 => 9,  26 => 1,  134 => 18,  126 => 60,  122 => 58,  110 => 13,  106 => 51,  103 => 50,  95 => 48,  93 => 47,  88 => 63,  85 => 38,  80 => 36,  76 => 35,  73 => 34,  71 => 33,  66 => 41,  63 => 31,  56 => 28,  53 => 27,  46 => 23,  43 => 22,  36 => 16,  33 => 6,  28 => 5,);
+        return array (  225 => 76,  220 => 71,  217 => 70,  212 => 67,  207 => 60,  201 => 58,  194 => 54,  189 => 52,  185 => 51,  182 => 50,  180 => 49,  171 => 43,  168 => 42,  165 => 41,  160 => 35,  155 => 22,  148 => 19,  145 => 18,  137 => 19,  134 => 18,  127 => 19,  124 => 18,  117 => 19,  114 => 18,  110 => 13,  107 => 12,  104 => 11,  99 => 7,  96 => 6,  90 => 77,  88 => 76,  83 => 73,  81 => 70,  77 => 68,  75 => 67,  68 => 62,  66 => 41,  59 => 36,  57 => 35,  44 => 25,  41 => 24,  39 => 11,  35 => 9,  33 => 6,  26 => 1,);
     }
 }

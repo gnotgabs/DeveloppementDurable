@@ -23,11 +23,11 @@ article_dev_addArticle:
     defaults: { _controller: ArticleDevBundle:ArticleDev:addArticle }
 
 article_dev_editArticle:
-    pattern:  /admin/editArticle
+    pattern:  /admin/editArticle/ar={id}
     defaults: { _controller: ArticleDevBundle:ArticleDev:editArticle }
 
 article_dev_delArticle:
-    pattern:  /admin/delArticle
+    pattern:  /admin/delArticle/ar={id}
     defaults: { _controller: ArticleDevBundle:ArticleDev:delArticle }
 
 article_dev_addCategory:
