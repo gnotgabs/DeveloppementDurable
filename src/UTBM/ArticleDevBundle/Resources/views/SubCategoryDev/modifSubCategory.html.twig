@@ -7,8 +7,8 @@
 {% block arianne %}
     {{ parent() }}
     <li>
-        <a href="{{ path('article_dev_showCategories') }}" title="Ajouter une sous-catégorie">
-            Ajout sous-catégories
+        <a href="{{ path('article_dev_showCategories') }}" title="Retour aux catégories et sous-catégorie">
+            Edition sous-catégories
         </a><span class="end">&nbsp;</span>
     </li>
 {% endblock %}
@@ -26,7 +26,7 @@
 {% block body %}
    {{ parent() }}
     <div class="well">
-        <p class="title">Edition de sous-catégories</p>
+        <p class="title">Edition de la sous-catégorie: <span class="editSup">{{subcategory.labelSubCategory}}</span></p>
         <form action="{{ path('article_dev_editSubCategory', {'id':subcategory.id}) }}" method='post' {{ form_enctype(form) }} class="formCateg">
             {{ form_errors(form) }}
             <div>

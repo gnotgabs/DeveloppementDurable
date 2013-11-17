@@ -36,7 +36,7 @@
 {% block body %}
    {{ parent() }}
     <div class="well">
-        <p class="title">Etes-vous certain de vouloir supprimer l'article "{{ article.title }}" ?</p>
+        <p class="title">Etes-vous certain de vouloir supprimer l'article  <span class="editSup">« {{article.title}} » ?</span></p>
         <form action="{{ path('article_dev_delArticle', {'id': article.id}) }}" method='post' {{ form_enctype(form) }} class="formSup"> 
             {{ form_errors(form) }}
             

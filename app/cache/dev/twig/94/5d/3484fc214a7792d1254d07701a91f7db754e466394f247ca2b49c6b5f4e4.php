@@ -39,8 +39,8 @@ class __TwigTemplate_945d3484fc214a7792d1254d07701a91f7db754e466394f247ca2b49c6b
         <a href=\"";
         // line 10
         echo $this->env->getExtension('routing')->getPath("article_dev_showCategories");
-        echo "\" title=\"Ajouter une sous-catégorie\">
-            Ajout sous-catégories
+        echo "\" title=\"Retour aux catégories et sous-catégorie\">
+            Edition sous-catégories
         </a><span class=\"end\">&nbsp;</span>
     </li>
 ";
@@ -64,7 +64,10 @@ class __TwigTemplate_945d3484fc214a7792d1254d07701a91f7db754e466394f247ca2b49c6b
         $this->displayParentBlock("body", $context, $blocks);
         echo "
     <div class=\"well\">
-        <p class=\"title\">Edition de sous-catégories</p>
+        <p class=\"title\">Edition de la sous-catégorie: <span class=\"editSup\">";
+        // line 29
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["subcategory"]) ? $context["subcategory"] : $this->getContext($context, "subcategory")), "labelSubCategory"), "html", null, true);
+        echo "</span></p>
         <form action=\"";
         // line 30
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_editSubCategory", array("id" => $this->getAttribute((isset($context["subcategory"]) ? $context["subcategory"] : $this->getContext($context, "subcategory")), "id"))), "html", null, true);
@@ -128,6 +131,6 @@ class __TwigTemplate_945d3484fc214a7792d1254d07701a91f7db754e466394f247ca2b49c6b
 
     public function getDebugInfo()
     {
-        return array (  109 => 43,  103 => 40,  99 => 39,  95 => 38,  89 => 35,  85 => 34,  81 => 33,  76 => 31,  70 => 30,  63 => 27,  60 => 26,  53 => 23,  50 => 22,  41 => 10,  35 => 8,  32 => 7,  27 => 4,);
+        return array (  112 => 43,  106 => 40,  102 => 39,  98 => 38,  92 => 35,  88 => 34,  84 => 33,  79 => 31,  73 => 30,  69 => 29,  63 => 27,  60 => 26,  53 => 23,  50 => 22,  41 => 10,  35 => 8,  32 => 7,  27 => 4,);
     }
 }

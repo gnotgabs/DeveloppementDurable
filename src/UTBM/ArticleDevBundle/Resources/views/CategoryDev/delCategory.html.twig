@@ -23,7 +23,7 @@
 {% block body %}
    {{ parent() }}
     <div class="well">
-        <p class="title">Etes-vous certain de vouloir supprimer la catégorie "{{ category.labelCategory }}" ?</p>
+        <p class="title">Etes-vous certain de vouloir supprimer la catégorie  <span class="editSup">« {{category.labelCategory}} » ?</span></p>
         <form action="{{ path('article_dev_delCategory', {'id': category.id}) }}" method='post' {{ form_enctype(form) }} class="formSup"> 
             {{ form_errors(form) }}
             
