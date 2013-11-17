@@ -12,6 +12,7 @@ class __TwigTemplate_8eb6580aaafe763d10a88a75d255f81812e0ca3880f531b925f70debb39
         $this->blocks = array(
             'menu' => array($this, 'block_menu'),
             'arianne' => array($this, 'block_arianne'),
+            'subCat' => array($this, 'block_subCat'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -41,46 +42,91 @@ class __TwigTemplate_8eb6580aaafe763d10a88a75d255f81812e0ca3880f531b925f70debb39
     // line 20
     public function block_arianne($context, array $blocks = array())
     {
-        echo "    
+        echo "  
+
     ";
-        // line 21
+        // line 22
         $this->displayParentBlock("arianne", $context, $blocks);
-        echo " 
-    <li>
-        <a href=\"";
-        // line 23
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_article", array("idSc" => (isset($context["idSc"]) ? $context["idSc"] : null), "idAr" => $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "id"))), "html", null, true);
-        echo "\" title=\"Back to item 2\">
-            Article N° ";
-        // line 24
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "id"), "html", null, true);
         echo "
-        </a><span class=\"end\">&nbsp;</span>
-    </li>
-";
+
+    ";
+        // line 24
+        if (($this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : null), "subCategory"), "labelSubCategory") != "accueil")) {
+            // line 25
+            echo "        ";
+            $this->displayBlock('subCat', $context, $blocks);
+            // line 32
+            echo "    ";
+        }
     }
 
-    // line 29
+    // line 25
+    public function block_subCat($context, array $blocks = array())
+    {
+        // line 26
+        echo "            <li>
+                <a href=\"";
+        // line 27
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_show", array("id" => $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : null), "subCategory"), "id"))), "html", null, true);
+        echo "\" title=\"Retour à : ";
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : null), "subCategory"), "labelSubCategory"), "html", null, true);
+        echo "\">
+                    ";
+        // line 28
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : null), "subCategory"), "labelSubCategory"), "html", null, true);
+        echo "
+                </a><span class=\"end\">&nbsp;</span>
+            </li>
+        ";
+    }
+
+    // line 35
     public function block_body($context, array $blocks = array())
     {
-        // line 30
+        // line 36
         echo "    ";
         $this->displayParentBlock("body", $context, $blocks);
         echo "
-    <div class='titleDev'>";
-        // line 31
+    <div class='titleDev'>
+        ";
+        // line 38
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "title"), "html", null, true);
-        echo "</div>
+        echo "
+        <span class=\"adminArticle\">
+           ";
+        // line 40
+        if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+            // line 41
+            echo "                <a href='";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_editArticle", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "id"))), "html", null, true);
+            echo "' title=\"Editer l'article: ";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "title"), "html", null, true);
+            echo "\">
+                    Editer
+                </a>  - 
+                <a href=\"";
+            // line 44
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_delArticle", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "id"))), "html", null, true);
+            echo "\" title=\"Supprimer l'article: ";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "title"), "html", null, true);
+            echo "\">
+                    Supprimer
+                </a>
+           ";
+        }
+        // line 48
+        echo "       </span>
+    </div>
     ";
-        // line 33
+        // line 51
         echo "    
 ";
-        // line 39
+        // line 57
         echo "    <p class='content'>
         ";
-        // line 40
+        // line 58
         if (($this->getAttribute((isset($context["article"]) ? $context["article"] : null), "image") != "")) {
-            // line 41
+            // line 59
             echo "            <img src=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "image"), "html", null, true);
             echo "\" alt=\"";
@@ -88,30 +134,30 @@ class __TwigTemplate_8eb6580aaafe763d10a88a75d255f81812e0ca3880f531b925f70debb39
             echo "\" class='imageDevSup'>
         ";
         }
-        // line 43
+        // line 61
         echo "        ";
         echo $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "content");
         echo "
         <a href=\"";
-        // line 44
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_homepage", array("id" => (isset($context["idSc"]) ? $context["idSc"] : null))), "html", null, true);
+        // line 62
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_show", array("id" => (isset($context["idSc"]) ? $context["idSc"] : null))), "html", null, true);
         echo "\" title=\"retour à la page précédente\">
             <span class='back'>«« Retour</span>
         </a>
     </p>
     ";
-        // line 48
+        // line 66
         if (($this->getAttribute((isset($context["article"]) ? $context["article"] : null), "link") != "")) {
-            // line 49
+            // line 67
             echo "        <p class='linkDev'>
             Pour plus d'informations, <a href='";
-            // line 50
+            // line 68
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "link"), "html", null, true);
             echo "'><span class='details'>cliquez ici.</span></a>
         </p>
     ";
         }
-        // line 53
+        // line 71
         echo "        
 ";
     }
@@ -128,6 +174,6 @@ class __TwigTemplate_8eb6580aaafe763d10a88a75d255f81812e0ca3880f531b925f70debb39
 
     public function getDebugInfo()
     {
-        return array (  97 => 44,  84 => 41,  76 => 33,  52 => 23,  480 => 162,  474 => 161,  469 => 158,  461 => 155,  457 => 153,  453 => 151,  444 => 149,  440 => 148,  437 => 147,  435 => 146,  430 => 144,  427 => 143,  423 => 142,  413 => 134,  409 => 132,  407 => 131,  402 => 130,  398 => 129,  393 => 126,  387 => 122,  384 => 121,  381 => 120,  379 => 119,  374 => 116,  368 => 112,  365 => 111,  362 => 110,  360 => 109,  355 => 106,  341 => 105,  337 => 103,  322 => 101,  314 => 99,  312 => 98,  309 => 97,  305 => 95,  298 => 91,  294 => 90,  285 => 89,  283 => 88,  278 => 86,  268 => 85,  264 => 84,  258 => 81,  252 => 80,  247 => 78,  241 => 77,  229 => 73,  220 => 70,  214 => 69,  177 => 65,  169 => 60,  140 => 55,  132 => 51,  128 => 49,  111 => 37,  61 => 13,  273 => 96,  269 => 94,  254 => 92,  246 => 90,  243 => 88,  240 => 86,  238 => 85,  235 => 74,  230 => 82,  227 => 81,  224 => 71,  221 => 77,  219 => 76,  217 => 75,  208 => 68,  204 => 72,  159 => 61,  143 => 56,  131 => 52,  119 => 42,  108 => 36,  102 => 32,  71 => 19,  67 => 30,  63 => 15,  47 => 21,  38 => 6,  94 => 28,  89 => 20,  85 => 25,  79 => 39,  56 => 24,  50 => 10,  29 => 3,  87 => 25,  72 => 31,  55 => 25,  21 => 2,  98 => 31,  93 => 28,  78 => 21,  46 => 7,  27 => 5,  40 => 8,  43 => 8,  201 => 92,  196 => 90,  183 => 82,  166 => 71,  163 => 62,  156 => 66,  151 => 63,  142 => 59,  136 => 56,  123 => 47,  121 => 46,  115 => 53,  105 => 40,  101 => 32,  91 => 27,  69 => 25,  62 => 23,  49 => 19,  32 => 15,  25 => 3,  24 => 4,  184 => 62,  179 => 69,  171 => 61,  161 => 42,  158 => 67,  155 => 40,  150 => 34,  145 => 21,  138 => 54,  135 => 53,  127 => 18,  124 => 17,  117 => 44,  114 => 17,  110 => 13,  107 => 36,  104 => 48,  96 => 6,  90 => 63,  88 => 6,  83 => 59,  81 => 56,  77 => 54,  75 => 17,  68 => 14,  66 => 15,  59 => 14,  44 => 12,  41 => 7,  35 => 16,  26 => 6,  31 => 5,  28 => 3,  22 => 2,  19 => 1,  209 => 82,  203 => 78,  199 => 67,  193 => 73,  189 => 71,  187 => 84,  182 => 66,  176 => 56,  173 => 65,  168 => 72,  164 => 59,  162 => 59,  154 => 58,  149 => 51,  147 => 58,  144 => 49,  141 => 48,  133 => 55,  130 => 41,  125 => 44,  122 => 43,  116 => 41,  112 => 42,  109 => 50,  106 => 49,  103 => 32,  99 => 31,  95 => 28,  92 => 43,  86 => 28,  82 => 40,  80 => 19,  73 => 19,  64 => 29,  60 => 13,  57 => 11,  54 => 10,  51 => 24,  48 => 23,  45 => 8,  42 => 20,  39 => 7,  36 => 5,  33 => 4,  30 => 7,);
+        return array (  155 => 68,  152 => 67,  150 => 66,  205 => 96,  185 => 84,  178 => 80,  139 => 62,  134 => 60,  127 => 56,  110 => 48,  83 => 36,  70 => 27,  53 => 22,  37 => 11,  480 => 162,  474 => 161,  469 => 158,  461 => 155,  457 => 153,  453 => 151,  444 => 149,  440 => 148,  437 => 147,  435 => 146,  430 => 144,  427 => 143,  423 => 142,  413 => 134,  409 => 132,  407 => 131,  402 => 130,  398 => 129,  393 => 126,  387 => 122,  384 => 121,  381 => 120,  379 => 119,  374 => 116,  368 => 112,  365 => 111,  362 => 110,  360 => 109,  355 => 106,  341 => 105,  337 => 103,  322 => 101,  314 => 99,  312 => 98,  309 => 97,  305 => 95,  298 => 91,  294 => 90,  285 => 89,  283 => 88,  278 => 86,  268 => 85,  264 => 84,  258 => 81,  252 => 80,  247 => 78,  241 => 77,  229 => 73,  220 => 70,  214 => 69,  177 => 65,  140 => 55,  132 => 51,  107 => 36,  61 => 13,  273 => 96,  269 => 94,  254 => 92,  246 => 90,  243 => 88,  240 => 86,  238 => 85,  235 => 74,  230 => 82,  227 => 81,  224 => 71,  219 => 76,  217 => 75,  204 => 72,  179 => 69,  159 => 61,  143 => 62,  131 => 52,  119 => 42,  102 => 50,  71 => 19,  63 => 26,  59 => 32,  47 => 15,  38 => 6,  94 => 28,  85 => 25,  79 => 18,  75 => 32,  68 => 14,  56 => 25,  50 => 22,  29 => 3,  87 => 36,  72 => 24,  55 => 15,  21 => 2,  26 => 6,  98 => 40,  93 => 38,  88 => 38,  46 => 18,  44 => 12,  35 => 8,  43 => 20,  41 => 10,  201 => 92,  196 => 90,  171 => 61,  163 => 62,  158 => 67,  151 => 68,  142 => 59,  136 => 56,  123 => 47,  121 => 46,  117 => 52,  101 => 32,  66 => 27,  62 => 14,  49 => 22,  32 => 7,  25 => 3,  24 => 4,  232 => 76,  221 => 77,  218 => 70,  213 => 67,  208 => 68,  202 => 95,  195 => 88,  190 => 86,  186 => 51,  183 => 82,  181 => 49,  172 => 43,  169 => 60,  166 => 71,  161 => 71,  156 => 70,  146 => 18,  138 => 61,  135 => 53,  128 => 58,  118 => 48,  115 => 43,  111 => 37,  108 => 36,  105 => 46,  100 => 41,  97 => 6,  91 => 27,  89 => 20,  84 => 35,  78 => 21,  76 => 28,  69 => 25,  67 => 26,  58 => 35,  40 => 12,  34 => 6,  27 => 4,  31 => 5,  28 => 5,  22 => 2,  19 => 1,  209 => 82,  203 => 78,  199 => 67,  193 => 73,  189 => 71,  187 => 84,  182 => 66,  176 => 64,  173 => 78,  168 => 76,  164 => 59,  162 => 59,  154 => 58,  149 => 19,  147 => 58,  144 => 64,  141 => 48,  133 => 55,  130 => 59,  125 => 57,  122 => 51,  116 => 41,  112 => 42,  109 => 44,  106 => 33,  103 => 32,  99 => 31,  95 => 28,  92 => 21,  86 => 28,  82 => 70,  80 => 19,  73 => 19,  64 => 25,  60 => 26,  57 => 11,  54 => 24,  51 => 14,  48 => 13,  45 => 13,  42 => 7,  39 => 9,  36 => 16,  33 => 15,  30 => 7,);
     }
 }

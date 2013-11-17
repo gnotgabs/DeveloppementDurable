@@ -25,30 +25,37 @@
 
 {% block body %}
    {{ parent() }}
+
     <div id="devAdmin">
-        <div id="article">
-            <ul class="title">Articles</ul>
-            <ul>
-                <li><a href="{{ path('article_dev_addArticle') }}">Ajouter un article</a></li>
-            </ul>
-        </div>
-        <div id="categorie">
-            <ul class="title">Catégories</ul>
-            <ul>
-                <li><a href="{{ path('article_dev_addCategory') }}">Ajouter une catégorie</a></li>
-            </ul>
-        </div>
-        <div id="sousCategorie">
-            <ul class="title">Sous-catégories</ul>
-            <ul>
-                <li><a href="{{ path('article_dev_addSubCategory') }}">Ajouter une sous-catégorie</a></li>
-            </ul>
-        </div>
-        <div id="guideAdmin">
-            <ul class="title">Consignes d'administration</ul>
-            <ul>
-                <li><a href="{{ path('article_dev_guideAdmin') }}">Accéder au guide administrateur</a></li>
-            </ul>
-        </div>
+
+        <table>
+            <thead>
+            <tr>
+             <th>Articles</th> <th>Catégories</th> <th>Sous-catégories</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td><a href="{{ path('article_dev_addArticle') }}">Ajouter un article</a></td>
+                <td><a href="{{ path('article_dev_addCategory') }}">Ajouter une catégorie</a></td>
+                <td><a href="{{ path('article_dev_addSubCategory') }}">Ajouter une sous-catégorie</a></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><a href="{{ path('article_dev_showCategories') }}">Editer une catégorie</a></td>
+                <td><a href="{{ path('article_dev_showCategories') }}">Editer une sous-catégorie</a></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><a href="{{ path('article_dev_showCategories') }}">Supprimer une catégorie</a></td>
+                <td><a href="{{ path('article_dev_showCategories') }}">Supprimer une sous-catégorie</a></td>
+            </tr>
+            <tr>
+                <th rowspan="2">Consignes d'administration</th>
+                <td colspan="3"><a href="{{ path('article_dev_guideAdmin') }}">Accéder au guide administrateur</a></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 {% endblock %}

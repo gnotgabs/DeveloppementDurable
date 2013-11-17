@@ -42,6 +42,12 @@ class SubCategory extends \UTBM\ArticleDevBundle\Entity\SubCategory implements \
     }
 
     
+    public function __toString()
+    {
+        $this->__load();
+        return parent::__toString();
+    }
+
     public function getId()
     {
         if ($this->__isInitialized__ === false) {

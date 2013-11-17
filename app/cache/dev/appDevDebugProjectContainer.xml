@@ -531,8 +531,8 @@
     <parameter key="jms_di_extra.disable_grep">false</parameter>
     <parameter key="jms_di_extra.doctrine_integration">true</parameter>
     <parameter key="jms_di_extra.cache_warmer.controller_file_blacklist" type="collection"/>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/xampp/htdocs/DeveloppementDurable/app/cache/dev/jms_diextra/doctrine/EntityManager_5288123a49a59.php</parameter>
-    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager5288123a49a59_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.file">C:/xampp/htdocs/DeveloppementDurable/app/cache/dev/jms_diextra/doctrine/EntityManager_5288cda4c2444.php</parameter>
+    <parameter key="jms_di_extra.doctrine_integration.entity_manager.class">EntityManager5288cda4c2444_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager</parameter>
     <parameter key="fos_user.backend_type_orm">true</parameter>
     <parameter key="fos_user.validator.password.class">FOS\UserBundle\Validator\PasswordValidator</parameter>
     <parameter key="fos_user.validator.unique.class">FOS\UserBundle\Validator\UniqueValidator</parameter>
@@ -2788,7 +2788,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>5288123a17bdc</argument>
+            <argument>5288cda4902d7</argument>
           </service>
         </argument>
       </argument>
@@ -3019,8 +3019,8 @@
                   <argument>b412d90676eab56b4d4c9c3fadb4aa56</argument>
                   <argument>main</argument>
                   <argument type="collection">
+                    <argument key="lifetime">300</argument>
                     <argument key="name">REMEMBERME</argument>
-                    <argument key="lifetime">31536000</argument>
                     <argument key="path">/</argument>
                     <argument key="domain">null</argument>
                     <argument key="secure">false</argument>
@@ -3107,8 +3107,8 @@
                   <argument>b412d90676eab56b4d4c9c3fadb4aa56</argument>
                   <argument>main</argument>
                   <argument type="collection">
+                    <argument key="lifetime">300</argument>
                     <argument key="name">REMEMBERME</argument>
-                    <argument key="lifetime">31536000</argument>
                     <argument key="path">/</argument>
                     <argument key="domain">null</argument>
                     <argument key="secure">false</argument>
@@ -3133,8 +3133,8 @@
                 <argument>b412d90676eab56b4d4c9c3fadb4aa56</argument>
                 <argument>main</argument>
                 <argument type="collection">
+                  <argument key="lifetime">300</argument>
                   <argument key="name">REMEMBERME</argument>
-                  <argument key="lifetime">31536000</argument>
                   <argument key="path">/</argument>
                   <argument key="domain">null</argument>
                   <argument key="secure">false</argument>
@@ -3153,7 +3153,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>5288123a17bdc</argument>
+            <argument>5288cda4902d7</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -3594,8 +3594,8 @@
       <argument type="collection"/>
       <argument type="collection"/>
     </service>
-    <service id="doctrine.orm.default_entity_manager" class="EntityManager5288123a49a59_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
-      <file>C:/xampp/htdocs/DeveloppementDurable/app/cache/dev/jms_diextra/doctrine/EntityManager_5288123a49a59.php</file>
+    <service id="doctrine.orm.default_entity_manager" class="EntityManager5288cda4c2444_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager">
+      <file>C:/xampp/htdocs/DeveloppementDurable/app/cache/dev/jms_diextra/doctrine/EntityManager_5288cda4c2444.php</file>
       <argument type="service">
         <service class="Doctrine\ORM\EntityManager" factory-method="create" public="false">
           <argument type="service" id="doctrine.dbal.default_connection"/>

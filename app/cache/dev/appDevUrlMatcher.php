@@ -369,19 +369,27 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_delArticle')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::delArticleAction',));
             }
 
-            // article_dev_addCategory
-            if ($pathinfo === '/admin/addCategory') {
-                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::addCategoryAction',  '_route' => 'article_dev_addCategory',);
+            if (0 === strpos($pathinfo, '/admin/a')) {
+                // article_dev_addCategory
+                if ($pathinfo === '/admin/addCategory') {
+                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::addCategoryAction',  '_route' => 'article_dev_addCategory',);
+                }
+
+                // article_dev_showCategories
+                if ($pathinfo === '/admin/allCategories') {
+                    return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::showCategoriesAction',  '_route' => 'article_dev_showCategories',);
+                }
+
             }
 
             // article_dev_editCategory
-            if ($pathinfo === '/admin/modifCategory') {
-                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::editCategoryAction',  '_route' => 'article_dev_editCategory',);
+            if (0 === strpos($pathinfo, '/admin/modifCategory/ca') && preg_match('#^/admin/modifCategory/ca\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_editCategory')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::editCategoryAction',));
             }
 
             // article_dev_delCategory
-            if ($pathinfo === '/admin/delCategory') {
-                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::delCategoryAction',  '_route' => 'article_dev_delCategory',);
+            if (0 === strpos($pathinfo, '/admin/delCategory/sc') && preg_match('#^/admin/delCategory/sc\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_delCategory')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::delCategoryAction',));
             }
 
             // article_dev_addSubCategory

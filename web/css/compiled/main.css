@@ -147,6 +147,146 @@
     height:20px;
 } 					
 
+.formCateg{
+    width:80%;
+    height: auto;
+    margin: auto;
+    border: 2px solid #006400;
+    background: lightblue;
+}
+.formCateg label.formLabel{
+    display: block;
+    width: 150px;
+    float: left;
+    font-weight: bold;
+}
+.formCateg div{
+    margin: auto;
+    padding: 5px;
+    width: 100%;
+}
+.formCateg textArea{
+    width: 500px;
+    height: 150px;
+}
+input#dev_title,input#dev_content,input#dev_link,input#dev_image,input#dev_subcat{
+    width: 400px;
+}
+input#dev_author{
+    width: 200px;
+}
+.formCateg input.btn{
+    float: right;
+    margin: 10px;
+}
+.formCateg input.btn:hover{
+    color: blue;
+    cursor: pointer;
+}
+
+div#devAdmin{
+    width: 90%;
+    height: auto;
+    margin: auto;
+}
+div#devAdmin div#article, div#categorie, div#sousCategorie, div#guideAdmin{
+    width: 30%;
+    height: 50px;
+    margin: auto;
+    padding: 10px;
+}
+div#devAdmin ul.title{
+    text-decoration: underline;
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    color:blue;
+}
+
+div#devAdmin ul {
+    padding:0;
+    margin:0;
+    list-style-type:none;
+}
+div#devAdmin li {
+    margin-left:2px;
+    float:left; /*pour IE*/
+}
+div#devAdmin ul li a {
+    display:block;  
+    width:200px;
+    height: auto;
+    background-color:#ADD8E6;
+    color:darkgreen;
+    font-weight:bold;
+    text-decoration:none;
+    text-align:center;
+    padding:5px;
+    border:2px solid;
+    /*pour avoir un effet "outset" avec IE :*/
+    border-color:#DCDCDC #696969 #696969 #DCDCDC;
+}
+div#devAdmin ul li a:hover {
+    background-color:#D3D3D3;
+    border-color:#696969 #DCDCDC #DCDCDC #696969;
+    color:black;
+} 
+div.well p.title{
+    text-decoration: underline;
+    margin-left:20px;
+    font-weight: bold;
+    font-size:20px;
+    color:blue;
+}
+span.adminArticle{
+    margin-left: 25px;
+    font-size:13px;
+}
+span.editSup{
+    margin-left: 25px;
+    font-size:15px;
+    text-decoration: none;
+    color:black;
+}
+input#devModif_title, input#devModif_content, input#devModif_link, input#devModif_image, input#devModif_subcat {
+    width: 400px;
+}
+.btn-back{
+    background-image: url("../../images/chevron-left.png");
+    background-repeat: no-repeat;
+    padding-right: 10px;
+}
+.a-back{
+    background: lawngreen;
+    padding:5px;
+    float:left;
+    font-weight: bold;
+    color: black;
+}
+.a-back:hover{
+    color: darkgreen;
+    cursor: pointer;
+}
+.btn-danger{
+    background-image: url("../../images/close-icon.png");
+    background-repeat: no-repeat;
+    background-color:lightcoral;
+    background-position: left;
+    text-align: right;
+    padding: 7px;
+    float:right;
+    border: none;
+    width: 100px;
+    font-weight: bold;
+}
+.btn-danger:hover{
+    color: red;
+    cursor: pointer;
+}
+.formSup{
+    width:300px;
+    margin:auto;
+}
 body{
     background: url("../../images/bodyBg.png");
     background-attachment: fixed;
@@ -241,7 +381,7 @@ body{
     width:99%;
     color:#F88412;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
 }
 .erreur{
     width: 80%;
@@ -272,4 +412,77 @@ span.details, span.back{
 }
 a:link{
     text-decoration: none;
+}
+
+
+/* CSS DE LA PAGE DE CONNEXION A LA PARTIE ADMINISTRATION DE L'APPLICATION*/
+#contentC{
+    width:30%;
+    margin-top: 12%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    padding: auto;
+    height: auto;
+    background: red;
+}
+#connexionContent{
+    width:100%;
+    height: 250px;// A mettre en auto
+    margin: 10px;
+    padding: 20px;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #eef7ea) );
+    background:-moz-linear-gradient( center top, #ffffff 5%, #eef7ea 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eef7ea');
+    background-image: url("../../images/bgContent.png");
+    background-repeat: no-repeat;
+    background-color: #ffffff;
+    background-position-x: 200px;
+    background-position-y: 5px;
+    text-indent:0;
+    border:2px solid #006400;
+    color:#000;
+}
+#contentC label{
+    display: block;
+    width: 150px;
+    float: left;
+    font-weight: bold;
+}
+#contentC p{
+    font-weight: bold;
+    font-size: 20px;
+    background: darkgreen;
+    text-align: center;
+    color:#ffffff;
+    padding:5px;
+    margin: 0;
+}
+#contentC input#username,#password{
+    width: 200px;
+}
+#contentC input#_submit{
+    float: right;
+}
+#contentC input#_submit:hover{
+    cursor: pointer;
+    color: blue;
+}
+#contentC div{
+    padding: 15px;
+}
+div.errorConnexion{
+    width:100%;
+    font-weight: bold;
+    color:red;
+    text-align: center;
+}
+span.barUser{
+    float:right;
+    font-size: 11px;
+    font-weight: bold;
+    color:#ffffff;
+}
+span#barUser a{
+    color:blue;
 }

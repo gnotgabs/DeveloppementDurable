@@ -24,6 +24,7 @@ security:
                 target: /
             remember_me:
                 key: %secret%
+                lifetime: 300
             
 #security:
  #   encoders:

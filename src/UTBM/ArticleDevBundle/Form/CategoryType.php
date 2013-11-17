@@ -34,6 +34,6 @@ class CategoryType extends AbstractType
      */
     public function getName()
     {
-        return 'utbm_articledevbundle_category';
+        return 'devCat';
     }
 }

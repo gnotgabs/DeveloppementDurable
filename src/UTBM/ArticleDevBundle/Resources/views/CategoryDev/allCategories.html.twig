@@ -1,0 +1,76 @@
+{% extends "ArticleDevBundle::adminLayout.html.twig" %}
+
+    {# IMPORTATION DE LA MACRO CHARGEE DE LA CREATION DES MENUS #}
+{% import "ArticleDevBundle::menu.html.twig" as macroMenus %}
+
+
+{% block arianne %}
+    {{ parent() }}
+    <li>
+        <a href="{{ path('article_dev_showCategories') }}" title="Toutes les catégories et sous-catégories">
+            Catégories et Sous-catégories
+        </a><span class="end">&nbsp;</span>
+    </li>
+{% endblock %}
+
+{# 
+    CREATION DU MENU DE L'APPLICATION
+    
+    Les menus récupérés de la base de données sont passés à la méthode "dynamicMenu" de la macro de création de menus 
+    Celle-ci se charge de les placer comme il faut dans le code html préparé à cet effet contenu dans la fichier "menu.html.twig"
+#}
+{% block menu %}
+    {{ macroMenus.dynamicMenu(menus) }}
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        <div class="good">
+
+            <ul class='men'>
+                
+            {% for men in menus %}
+                {% if men.labelCategory != "Accueil" %}
+                
+                    <li><a href="{{ path('article_dev_homepage') }}">{{ men.labelCategory }}</a>
+                        <span class="adminArticle">
+                            <a href='{{ path('article_dev_editCategory', {'id': men.id}) }}' title="Editer la catégorie: {{men.labelCategory}}">
+                                <font color='black'><u>Editer</u></font>
+                            </a>  - 
+                            <a href="{{ path('article_dev_delCategory', {'id': men.id}) }}" title="Supprimer la catégorie: {{men.labelCategory}}">
+                                <font color='black'><u>Supprimer</u></font>
+                            </a>
+                        </span>
+                        
+                {% endif %}<ul class='smen'>
+
+                {% for smen in men.subCategories %}
+
+                    {% if smen.labelSubCategory != "accueil" %}
+                        <li>
+                            <a href="{{ path('article_dev_show', {'id': smen.id }) }}">
+                                {{ smen.labelSubCategory }}
+                            </a>
+                            <span class="adminArticle">
+                                <a href='{{ path('article_dev_editSubCategory', {'id': smen.id}) }}' title="Editer la sous-catégorie: {{smen.labelSubCategory}}">
+                                    <font color='blue'><i>Editer</i></font>
+                                </a>  - 
+                                <a href="{{ path('article_dev_delSubCategory', {'id': smen.id}) }}" title="Supprimer la sous-catégorie: {{smen.labelSubCategory}}">
+                                    <font color='red'><i>Supprimer</i></font>
+                                </a>
+                            </span>
+                        </li>
+                    {% endif %}
+
+                {% endfor %}
+
+                </ul></li>
+
+            {% endfor %}
+            </ul>
+
+        </div>
+
+    {% endif %}
+{% endblock %}

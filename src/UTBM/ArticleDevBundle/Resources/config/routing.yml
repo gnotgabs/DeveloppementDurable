@@ -34,12 +34,16 @@ article_dev_addCategory:
     pattern:  /admin/addCategory
     defaults: { _controller: ArticleDevBundle:CategoryDev:addCategory }
 
+article_dev_showCategories:
+    pattern:  /admin/allCategories
+    defaults: { _controller: ArticleDevBundle:CategoryDev:showCategories }
+
 article_dev_editCategory:
-    pattern:  /admin/modifCategory
+    pattern:  /admin/modifCategory/ca={id}
     defaults: { _controller: ArticleDevBundle:CategoryDev:editCategory }
 
 article_dev_delCategory:
-    pattern:  /admin/delCategory
+    pattern:  /admin/delCategory/sc={id}
     defaults: { _controller: ArticleDevBundle:CategoryDev:delCategory }
 
 article_dev_addSubCategory:

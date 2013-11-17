@@ -2,8 +2,8 @@
     width:80%;
     height: auto;
     margin: auto;
-    border: 2px solid #006400;
-    background: lightblue;
+    border:3px solid #6495ed;
+    background: #D0E3FA;
 }
 .formCateg label.formLabel{
     display: block;
@@ -37,51 +37,51 @@ input#dev_author{
 
 div#devAdmin{
     width: 90%;
-    height: auto;
+    height: 500px;
     margin: auto;
 }
-div#devAdmin div#article, div#categorie, div#sousCategorie, div#guideAdmin{
-    width: 30%;
-    height: 50px;
-    margin: auto;
-    padding: 10px;
+div#devAdmin table {
+    border:3px solid #6495ed;
+    width:90%;
+    margin-top:30px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:auto;
 }
-div#devAdmin ul.title{
-    text-decoration: underline;
-    font-size: 18px;
+div#devAdmin thead{
+    background-color:#D0E3FA;
+    border:1px solid #6495ed;
+}
+div#devAdmin tbody {
+    background-color:#FFFFFF;
+    border:1px solid #6495ed;
+}
+div#devAdmin th {
+    font-family:monospace;
+    border:1px dotted #6495ed;
+    padding:10px;
+    background-color:#EFF6FF;
+    width:25%;
+}
+div#devAdmin td {
+    font-family:sans-serif;
+    font-size:75%;
     font-weight: bold;
-    padding-bottom: 5px;
+    border:1px solid #6495ed;
+    padding:10px;
+    text-align:center;
+    background: lightblue;
+}
+div#devAdmin td:hover {
+    background: lawngreen;
+}
+div#devAdmin a {
     color:blue;
 }
+div#devAdmin a:hover {
+    color: black;
+}
 
-div#devAdmin ul {
-    padding:0;
-    margin:0;
-    list-style-type:none;
-}
-div#devAdmin li {
-    margin-left:2px;
-    float:left; /*pour IE*/
-}
-div#devAdmin ul li a {
-    display:block;  
-    width:200px;
-    height: auto;
-    background-color:#ADD8E6;
-    color:darkgreen;
-    font-weight:bold;
-    text-decoration:none;
-    text-align:center;
-    padding:5px;
-    border:2px solid;
-    /*pour avoir un effet "outset" avec IE :*/
-    border-color:#DCDCDC #696969 #696969 #DCDCDC;
-}
-div#devAdmin ul li a:hover {
-    background-color:#D3D3D3;
-    border-color:#696969 #DCDCDC #DCDCDC #696969;
-    color:black;
-} 
 div.well p.title{
     text-decoration: underline;
     margin-left:20px;
@@ -137,4 +137,24 @@ input#devModif_title, input#devModif_content, input#devModif_link, input#devModi
 .formSup{
     width:300px;
     margin:auto;
+}
+#devModifCat_labelCategory{
+    width: 300px;
+}
+.good{
+    background: lightblue;
+    width:80%;
+    padding-top: 20px;
+    margin:auto;
+    text-decoration: none;
+}
+.good ul.men{
+    color:darkgreen;
+}
+.good li{
+    margin: 5px;
+    text-decoration: none;
+}
+.good li:last-child{
+    border-bottom: 1px solid black;
 }

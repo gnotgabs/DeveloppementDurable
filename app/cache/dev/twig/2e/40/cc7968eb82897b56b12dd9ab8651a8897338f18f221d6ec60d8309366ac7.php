@@ -66,43 +66,62 @@ class __TwigTemplate_2e40cc7968eb82897b56b12dd9ab8651a8897338f18f221d6ec60d83093
         echo "   ";
         $this->displayParentBlock("body", $context, $blocks);
         echo "
+
     <div id=\"devAdmin\">
-        <div id=\"article\">
-            <ul class=\"title\">Articles</ul>
-            <ul>
-                <li><a href=\"";
-        // line 32
+
+        <table>
+            <thead>
+            <tr>
+             <th>Articles</th> <th>Catégories</th> <th>Sous-catégories</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td><a href=\"";
+        // line 40
         echo $this->env->getExtension('routing')->getPath("article_dev_addArticle");
-        echo "\">Ajouter un article</a></li>
-            </ul>
-        </div>
-        <div id=\"categorie\">
-            <ul class=\"title\">Catégories</ul>
-            <ul>
-                <li><a href=\"";
-        // line 38
+        echo "\">Ajouter un article</a></td>
+                <td><a href=\"";
+        // line 41
         echo $this->env->getExtension('routing')->getPath("article_dev_addCategory");
-        echo "\">Ajouter une catégorie</a></li>
-            </ul>
-        </div>
-        <div id=\"sousCategorie\">
-            <ul class=\"title\">Sous-catégories</ul>
-            <ul>
-                <li><a href=\"";
-        // line 44
+        echo "\">Ajouter une catégorie</a></td>
+                <td><a href=\"";
+        // line 42
         echo $this->env->getExtension('routing')->getPath("article_dev_addSubCategory");
-        echo "\">Ajouter une sous-catégorie</a></li>
-            </ul>
-        </div>
-        <div id=\"guideAdmin\">
-            <ul class=\"title\">Consignes d'administration</ul>
-            <ul>
-                <li><a href=\"";
-        // line 50
+        echo "\">Ajouter une sous-catégorie</a></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><a href=\"";
+        // line 46
+        echo $this->env->getExtension('routing')->getPath("article_dev_showCategories");
+        echo "\">Editer une catégorie</a></td>
+                <td><a href=\"";
+        // line 47
+        echo $this->env->getExtension('routing')->getPath("article_dev_showCategories");
+        echo "\">Editer une sous-catégorie</a></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><a href=\"";
+        // line 51
+        echo $this->env->getExtension('routing')->getPath("article_dev_showCategories");
+        echo "\">Supprimer une catégorie</a></td>
+                <td><a href=\"";
+        // line 52
+        echo $this->env->getExtension('routing')->getPath("article_dev_showCategories");
+        echo "\">Supprimer une sous-catégorie</a></td>
+            </tr>
+            <tr>
+                <th rowspan=\"2\">Consignes d'administration</th>
+                <td colspan=\"3\"><a href=\"";
+        // line 56
         echo $this->env->getExtension('routing')->getPath("article_dev_guideAdmin");
-        echo "\">Accéder au guide administrateur</a></li>
-            </ul>
-        </div>
+        echo "\">Accéder au guide administrateur</a></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 ";
     }
@@ -119,6 +138,6 @@ class __TwigTemplate_2e40cc7968eb82897b56b12dd9ab8651a8897338f18f221d6ec60d83093
 
     public function getDebugInfo()
     {
-        return array (  102 => 50,  93 => 44,  84 => 38,  75 => 32,  66 => 27,  63 => 26,  56 => 23,  53 => 22,  46 => 18,  43 => 17,  36 => 8,  33 => 7,  28 => 4,);
+        return array (  120 => 56,  113 => 52,  109 => 51,  102 => 47,  98 => 46,  91 => 42,  87 => 41,  83 => 40,  66 => 27,  63 => 26,  56 => 23,  53 => 22,  46 => 18,  43 => 17,  36 => 8,  33 => 7,  28 => 4,);
     }
 }

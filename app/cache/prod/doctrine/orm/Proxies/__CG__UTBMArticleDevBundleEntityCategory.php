@@ -42,6 +42,12 @@ class Category extends \UTBM\ArticleDevBundle\Entity\Category implements \Doctri
     }
 
     
+    public function __toString()
+    {
+        $this->__load();
+        return parent::__toString();
+    }
+
     public function getId()
     {
         if ($this->__isInitialized__ === false) {

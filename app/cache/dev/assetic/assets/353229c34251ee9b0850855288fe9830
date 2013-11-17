@@ -1,0 +1,151 @@
+.formCateg{
+    width:80%;
+    height: auto;
+    margin: auto;
+    border: 2px solid #006400;
+    background: lightblue;
+}
+.formCateg label.formLabel{
+    display: block;
+    width: 150px;
+    float: left;
+    font-weight: bold;
+}
+.formCateg div{
+    margin: auto;
+    padding: 5px;
+    width: 100%;
+}
+.formCateg textArea{
+    width: 500px;
+    height: 150px;
+}
+input#dev_title,input#dev_content,input#dev_link,input#dev_image,input#dev_subcat{
+    width: 400px;
+}
+input#dev_author{
+    width: 200px;
+}
+.formCateg input.btn{
+    float: right;
+    margin: 10px;
+}
+.formCateg input.btn:hover{
+    color: blue;
+    cursor: pointer;
+}
+
+div#devAdmin{
+    width: 90%;
+    height: 500px;
+    margin: auto;
+}
+div#devAdmin table {
+    border:3px solid #6495ed;
+    width:90%;
+    margin-top:30px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:auto;
+}
+div#devAdmin thead, tfoot {
+    background-color:#D0E3FA;
+    background-image:url(../../../css/sky.jpg);
+    border:1px solid #6495ed;
+}
+div#devAdmin tbody {
+    background-color:#FFFFFF;
+    border:1px solid #6495ed;
+}
+div#devAdmin th {
+    font-family:monospace;
+    border:1px dotted #6495ed;
+    padding:5px;
+    background-color:#EFF6FF;
+    width:25%;
+}
+div#devAdmin td {
+    font-family:sans-serif;
+    font-size:80%;
+    font-weight: bold;
+    border:1px solid #6495ed;
+    padding:5px;
+    text-align:center;
+}
+
+div.well p.title{
+    text-decoration: underline;
+    margin-left:20px;
+    font-weight: bold;
+    font-size:20px;
+    color:blue;
+}
+span.adminArticle{
+    margin-left: 25px;
+    font-size:13px;
+}
+span.editSup{
+    margin-left: 25px;
+    font-size:15px;
+    text-decoration: none;
+    color:black;
+}
+input#devModif_title, input#devModif_content, input#devModif_link, input#devModif_image, input#devModif_subcat {
+    width: 400px;
+}
+.btn-back{
+    background-image: url("../../../images/chevron-left.png");
+    background-repeat: no-repeat;
+    padding-right: 10px;
+}
+.a-back{
+    background: lawngreen;
+    padding:5px;
+    float:left;
+    font-weight: bold;
+    color: black;
+}
+.a-back:hover{
+    color: darkgreen;
+    cursor: pointer;
+}
+.btn-danger{
+    background-image: url("../../../images/close-icon.png");
+    background-repeat: no-repeat;
+    background-color:lightcoral;
+    background-position: left;
+    text-align: right;
+    padding: 7px;
+    float:right;
+    border: none;
+    width: 100px;
+    font-weight: bold;
+}
+.btn-danger:hover{
+    color: red;
+    cursor: pointer;
+}
+.formSup{
+    width:300px;
+    margin:auto;
+}
+#devModifCat_labelCategory{
+    width: 300px;
+}
+.good{
+    background: lightblue;
+    width:80%;
+    padding-top: 20px;
+    margin:auto;
+    text-decoration: none;
+}
+.good ul.men{
+    color:darkgreen;
+}
+.good li{
+    margin: 5px;
+    text-decoration: none;
+}
+.good li:last-child{
+    border-bottom: 1px solid black;
+}
