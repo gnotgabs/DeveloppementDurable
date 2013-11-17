@@ -69,10 +69,10 @@ class __TwigTemplate_f1abdfb82e1ff8e1e7fd4a29891d4329d6a1d78a804b65f46cd16d1cec3
         $this->displayParentBlock("body", $context, $blocks);
         echo "
     <div class=\"well\">
-        <p class=\"title\">Etes-vous certain de vouloir supprimer la catégorie \"";
+        <p class=\"title\">Etes-vous certain de vouloir supprimer la catégorie  <span class=\"editSup\">« ";
         // line 26
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["category"]) ? $context["category"] : null), "labelCategory"), "html", null, true);
-        echo "\" ?</p>
+        echo " » ?</span></p>
         <form action=\"";
         // line 27
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_delCategory", array("id" => $this->getAttribute((isset($context["category"]) ? $context["category"] : null), "id"))), "html", null, true);

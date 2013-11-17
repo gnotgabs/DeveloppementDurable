@@ -86,6 +86,7 @@
   'ArticleDevBundle:ArticleDev:index.html.twig' => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle/Resources/views/ArticleDev/index.html.twig',
   'ArticleDevBundle:ArticleDev:modifArticle.html.twig' => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle/Resources/views/ArticleDev/modifArticle.html.twig',
   'ArticleDevBundle:CategoryDev:addCategory.html.twig' => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle/Resources/views/CategoryDev/addCategory.html.twig',
+  'ArticleDevBundle:CategoryDev:allCategories.html.twig' => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle/Resources/views/CategoryDev/allCategories.html.twig',
   'ArticleDevBundle:CategoryDev:delCategory.html.twig' => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle/Resources/views/CategoryDev/delCategory.html.twig',
   'ArticleDevBundle:CategoryDev:modifCategory.html.twig' => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle/Resources/views/CategoryDev/modifCategory.html.twig',
   'ArticleDevBundle::menu.html.twig' => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle/Resources/views/menu.html.twig',

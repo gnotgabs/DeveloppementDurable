@@ -90,10 +90,10 @@ class __TwigTemplate_8336ae3ce6c0bd30603348d7f16e69e5c93ab8ca6da9fe356eeefe8dd06
         $this->displayParentBlock("body", $context, $blocks);
         echo "
     <div class=\"well\">
-        <p class=\"title\">Etes-vous certain de vouloir supprimer l'article \"";
+        <p class=\"title\">Etes-vous certain de vouloir supprimer l'article  <span class=\"editSup\">« ";
         // line 39
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "title"), "html", null, true);
-        echo "\" ?</p>
+        echo " » ?</span></p>
         <form action=\"";
         // line 40
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_delArticle", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : null), "id"))), "html", null, true);

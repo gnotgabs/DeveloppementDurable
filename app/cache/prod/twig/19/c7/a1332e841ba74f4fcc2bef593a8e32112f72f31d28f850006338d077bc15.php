@@ -67,10 +67,10 @@ class __TwigTemplate_19c7a1332e841ba74f4fcc2bef593a8e32112f72f31d28f850006338d07
         $this->displayParentBlock("body", $context, $blocks);
         echo "
     <div class=\"well\">
-        <p class=\"title\">Etes-vous certain de vouloir supprimer la sous-catégorie \"";
+        <p class=\"title\">Etes-vous certain de vouloir supprimer la sous-catégorie <span class=\"editSup\">« ";
         // line 26
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["subcategory"]) ? $context["subcategory"] : null), "labelSubCategory"), "html", null, true);
-        echo "\" ?</p>
+        echo " » ?</span></p>
         <form action=\"";
         // line 27
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_delSubCategory", array("id" => $this->getAttribute((isset($context["subcategory"]) ? $context["subcategory"] : null), "id"))), "html", null, true);
