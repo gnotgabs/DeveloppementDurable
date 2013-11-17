@@ -383,12 +383,12 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             // article_dev_editCategory
-            if (0 === strpos($pathinfo, '/admin/modifCategory/ca') && preg_match('#^/admin/modifCategory/ca\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            if (0 === strpos($pathinfo, '/admin/modifCategory') && preg_match('#^/admin/modifCategory\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_editCategory')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::editCategoryAction',));
             }
 
             // article_dev_delCategory
-            if (0 === strpos($pathinfo, '/admin/delCategory/sc') && preg_match('#^/admin/delCategory/sc\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            if (0 === strpos($pathinfo, '/admin/delCategory') && preg_match('#^/admin/delCategory\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_delCategory')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\CategoryDevController::delCategoryAction',));
             }
 
@@ -398,13 +398,13 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             // article_dev_editSubCategory
-            if ($pathinfo === '/admin/modifSubCategory') {
-                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\SubCategoryDevController::editSubCategoryAction',  '_route' => 'article_dev_editSubCategory',);
+            if (0 === strpos($pathinfo, '/admin/editSubCategory') && preg_match('#^/admin/editSubCategory\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_editSubCategory')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\SubCategoryDevController::editSubCategoryAction',));
             }
 
             // article_dev_delSubCategory
-            if ($pathinfo === '/admin/delSubCategory') {
-                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\SubCategoryDevController::delSubCategoryAction',  '_route' => 'article_dev_delSubCategory',);
+            if (0 === strpos($pathinfo, '/admin/delSubCategory') && preg_match('#^/admin/delSubCategory\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_delSubCategory')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\SubCategoryDevController::delSubCategoryAction',));
             }
 
         }

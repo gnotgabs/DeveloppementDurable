@@ -35,6 +35,6 @@ class SubCategoryType extends AbstractType
      */
     public function getName()
     {
-        return 'utbm_articledevbundle_subcategory';
+        return 'dev';
     }
 }

@@ -5,20 +5,17 @@
 
 
 {% block arianne %}
+
     {{ parent() }}
+ 
     <li>
-        <a href="{{ path('article_dev_addArticle') }}" title="Ajout de catégorie">
-            Ajout article
+        <a href="{{ path('article_dev_showCategories') }}" title="Retour aux catégories et sous-catégories">
+            Suppression Sous-Catégories
         </a><span class="end">&nbsp;</span>
     </li>
 {% endblock %}
 
-{# 
-    CREATION DU MENU DE L'APPLICATION
-    
-    Les menus récupérés de la base de données sont passés à la méthode "dynamicMenu" de la macro de création de menus 
-    Celle-ci se charge de les placer comme il faut dans le code html préparé à cet effet contenu dans la fichier "menu.html.twig"
-#}
+
 {% block menu %}
     {{ macroMenus.dynamicMenu(menus) }}
 {% endblock %}
@@ -26,76 +23,17 @@
 {% block body %}
    {{ parent() }}
     <div class="well">
-        <form action="{{ path('article_dev_addArticle') }}" method='post' {{ form_enctype(form) }} id="formCateg">
-            {# Les erreurs générales du formulaire. #}
+        <p class="title">Etes-vous certain de vouloir supprimer la sous-catégorie "{{ subcategory.labelSubCategory }}" ?</p>
+        <form action="{{ path('article_dev_delSubCategory', {'id': subcategory.id}) }}" method='post' {{ form_enctype(form) }} class="formSup"> 
             {{ form_errors(form) }}
             
-            <div style="display: none">
-                {# Génération du label. #}
-                {{ form_label(form.date, "Date de publication :") }}
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.date) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.date) }}                
-            </div>
-            <div>
-                {# Génération du label. #}
-                {{ form_label(form.title, "Titre de l'article :") }}
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.title) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.title, { 'attr': {'id': 'formTitle'}}) }}                
-            </div>
-            <div>
-                {# Génération du label. #}
-                {{ form_label(form.author, "Nom de l'auteur :") }}
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.author) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.author, { 'attr': {'id': 'formAuthor'}}) }}                
-            </div>
-            <div>
-                {# Génération du label. #}
-                {{ form_label(form.content, "Contenu de l'article :") }}
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.content) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.content, { 'attr': {'id': 'formContent'}}) }}                
-            </div>
-            <div>
-                {# Génération du label. #}
-                {{ form_label(form.link, "Lien important :") }}
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.link) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.link, { 'attr': {'id': 'formLink'}}) }}                
-            </div>
-            <div>
-                {# Génération du label. #}
-                {{ form_label(form.image, "Image de l'article :") }}
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.image) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.image, { 'attr': {'id': 'formImage'}}) }}                
-            </div>
-            <div>
-                {# Génération du label. #}
-                {{ form_label(form.subCategory, "Sous catégorie :", { 'label_attr': {'class': 'formLabel'}} ) }}
-                {# Affichage des erreurs pour ce champ précis. #}
-                {{ form_errors(form.subCategory) }}
-                {# Génération de l'input. #}
-                {{ form_widget(form.subCategory, { 'attr': {'id': 'formSubcat'}}) }}                
-            </div>
+            <a href="{{ path('article_dev_showCategories') }}" class='a-back'>
+              <i class="btn-back"></i>
+              Retour aux catégories
+            </a>
             
-            {#  Génération des champs pas encore écrits et du champ CSRF
-                Permettant de confirmer que l'utilisateur qui valide de formulaire
-                est celui qui l'a affiché
-             #}
-            <div>
-                {{ form_rest(form) }}
-                <input type="submit" class='btn btn-primary' value="Enrégistrer">
-                <input type="reset" class='btn btn-second' value="Annuler">
-            </div>
+            <input type="submit" value="Supprimer" class="btn-danger" />
+            {{ form_rest(form) }}
         </form>
     </div>
 {% endblock %}

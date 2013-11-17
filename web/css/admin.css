@@ -138,7 +138,7 @@ input#devModif_title, input#devModif_content, input#devModif_link, input#devModi
     width:300px;
     margin:auto;
 }
-#devModifCat_labelCategory{
+#devModifCat_labelCategory, #dev_labelSubCategory, #dev_category{
     width: 300px;
 }
 .good{

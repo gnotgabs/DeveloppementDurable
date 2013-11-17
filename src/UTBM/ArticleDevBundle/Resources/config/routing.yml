@@ -39,11 +39,11 @@ article_dev_showCategories:
     defaults: { _controller: ArticleDevBundle:CategoryDev:showCategories }
 
 article_dev_editCategory:
-    pattern:  /admin/modifCategory/ca={id}
+    pattern:  /admin/modifCategory={id}
     defaults: { _controller: ArticleDevBundle:CategoryDev:editCategory }
 
 article_dev_delCategory:
-    pattern:  /admin/delCategory/sc={id}
+    pattern:  /admin/delCategory={id}
     defaults: { _controller: ArticleDevBundle:CategoryDev:delCategory }
 
 article_dev_addSubCategory:
@@ -51,9 +51,9 @@ article_dev_addSubCategory:
     defaults: { _controller: ArticleDevBundle:SubCategoryDev:addSubCategory }
 
 article_dev_editSubCategory:
-    pattern:  /admin/modifSubCategory
+    pattern:  /admin/editSubCategory={id}
     defaults: { _controller: ArticleDevBundle:SubCategoryDev:editSubCategory }
 
 article_dev_delSubCategory:
-    pattern:  /admin/delSubCategory
+    pattern:  /admin/delSubCategory={id}
     defaults: { _controller: ArticleDevBundle:SubCategoryDev:delSubCategory }
