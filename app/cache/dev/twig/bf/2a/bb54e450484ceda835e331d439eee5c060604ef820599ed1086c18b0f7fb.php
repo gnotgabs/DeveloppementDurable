@@ -12,6 +12,8 @@ class __TwigTemplate_bf2abb54e450484ceda835e331d439eee5c060604ef820599ed1086c18b
         $this->blocks = array(
             'menu' => array($this, 'block_menu'),
             'arianne' => array($this, 'block_arianne'),
+            'subCat' => array($this, 'block_subCat'),
+            'catSelect' => array($this, 'block_catSelect'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -38,9 +40,13 @@ class __TwigTemplate_bf2abb54e450484ceda835e331d439eee5c060604ef820599ed1086c18b
         echo "   ";
         $this->displayParentBlock("arianne", $context, $blocks);
         echo "
-    <li>
+    ";
+        // line 13
+        $this->displayBlock('subCat', $context, $blocks);
+        // line 15
+        echo "    <li>
        <a href=\"";
-        // line 14
+        // line 16
         echo $this->env->getExtension('routing')->getPath("article_dev_admin");
         echo "\" title=\"TX52 Administration\">
            Administration
@@ -49,11 +55,24 @@ class __TwigTemplate_bf2abb54e450484ceda835e331d439eee5c060604ef820599ed1086c18b
 ";
     }
 
-    // line 21
+    // line 13
+    public function block_subCat($context, array $blocks = array())
+    {
+        // line 14
+        echo "    ";
+    }
+
+    // line 23
+    public function block_catSelect($context, array $blocks = array())
+    {
+        echo "  -  Administration ";
+    }
+
+    // line 24
     public function block_body($context, array $blocks = array())
     {
-        // line 22
-        echo "   ";
+        // line 25
+        echo "    ";
         $this->displayParentBlock("body", $context, $blocks);
         echo "
 ";
@@ -71,6 +90,6 @@ class __TwigTemplate_bf2abb54e450484ceda835e331d439eee5c060604ef820599ed1086c18b
 
     public function getDebugInfo()
     {
-        return array (  56 => 22,  44 => 14,  38 => 12,  30 => 5,  160 => 63,  153 => 59,  149 => 58,  145 => 57,  139 => 54,  135 => 53,  131 => 52,  125 => 49,  121 => 48,  117 => 47,  111 => 44,  107 => 43,  103 => 42,  97 => 39,  93 => 38,  89 => 37,  83 => 34,  79 => 33,  75 => 32,  70 => 30,  63 => 27,  60 => 26,  53 => 21,  50 => 22,  41 => 10,  35 => 11,  32 => 7,  27 => 4,);
+        return array (  72 => 24,  62 => 14,  59 => 13,  50 => 16,  47 => 15,  45 => 13,  40 => 12,  37 => 11,  32 => 5,  102 => 50,  93 => 44,  84 => 38,  75 => 25,  66 => 23,  63 => 26,  56 => 23,  53 => 22,  46 => 18,  43 => 17,  36 => 8,  33 => 7,  28 => 4,);
     }
 }

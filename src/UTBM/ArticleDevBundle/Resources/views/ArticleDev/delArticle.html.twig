@@ -5,9 +5,19 @@
 
 
 {% block arianne %}
+
     {{ parent() }}
+
+    {% if article.subCategory.labelSubCategory!="accueil" %}
+        <li>
+            <a href="{{ path('article_dev_show', {'id':article.subCategory.id}) }}" title="Retour à : {{ article.subCategory.labelSubCategory }}">
+                {{ article.subCategory.labelSubCategory }}
+            </a><span class="end">&nbsp;</span>
+        </li>
+    {% endif %}
+ 
     <li>
-        <a href="{{ path('article_dev_addArticle') }}" title="Ajout de catégorie">
+        <a href="{{ path('article_dev_delArticle', {'id': article.id}) }}" title="Supprimer l'article: {{ article.title }}">
             Suppression article
         </a><span class="end">&nbsp;</span>
     </li>
@@ -26,50 +36,17 @@
 {% block body %}
    {{ parent() }}
     <div class="well">
-          {#  <form action="{{ path('article_dev_addArticle') }}" method='post' {{ form_enctype(form) }} id="formCateg">
+        <p class="title">Etes-vous certain de vouloir supprimer l'article "{{ article.title }}" ?</p>
+        <form action="{{ path('article_dev_delArticle', {'id': article.id}) }}" method='post' {{ form_enctype(form) }} class="formSup"> 
             {{ form_errors(form) }}
             
-            <div style="display: none">
-                {{ form_label(form.date, "Date de publication :") }}
-                {{ form_errors(form.date) }}
-                {{ form_widget(form.date) }}                
-            </div>
-            <div>
-                {{ form_label(form.title, "Titre de l'article :") }}
-                {{ form_errors(form.title) }}
-                {{ form_widget(form.title, { 'attr': {'id': 'formTitle'}}) }}                
-            </div>
-            <div>
-                {{ form_label(form.author, "Nom de l'auteur :") }}
-                {{ form_errors(form.author) }}
-                {{ form_widget(form.author, { 'attr': {'id': 'formAuthor'}}) }}                
-            </div>
-            <div>
-                {{ form_label(form.content, "Contenu de l'article :") }}
-                {{ form_errors(form.content) }}
-                {{ form_widget(form.content, { 'attr': {'id': 'formContent'}}) }}                
-            </div>
-            <div>
-                {{ form_label(form.link, "Lien important :") }}
-                {{ form_errors(form.link) }}
-                {{ form_widget(form.link, { 'attr': {'id': 'formLink'}}) }}                
-            </div>
-            <div>
-                {{ form_label(form.image, "Image de l'article :") }}
-                {{ form_errors(form.image) }}
-                {{ form_widget(form.image, { 'attr': {'id': 'formImage'}}) }}                
-            </div>
-            <div>
-                {{ form_label(form.subCategory, "Sous catégorie :", { 'label_attr': {'class': 'formLabel'}} ) }}
-                {{ form_errors(form.subCategory) }}
-                {{ form_widget(form.subCategory, { 'attr': {'id': 'formSubcat'}}) }}                
-            </div>
-
-            <div>
-                {{ form_rest(form) }}
-                <input type="submit" class='btn btn-primary' value="Enrégistrer">
-                <input type="reset" class='btn btn-second' value="Annuler">
-            </div>
-        </form> #}
+            <a href="{{ path('article_dev_show', {'id': article.subCategory.id}) }}" class='a-back'>
+              <i class="btn-back"></i>
+              Retour à l'article
+            </a>
+            
+            <input type="submit" value="Supprimer" class="btn-danger" />
+            {{ form_rest(form) }}
+        </form>
     </div>
 {% endblock %}

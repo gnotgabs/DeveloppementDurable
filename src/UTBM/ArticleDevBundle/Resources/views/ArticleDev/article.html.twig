@@ -17,13 +17,19 @@
 {% endblock %}
 
 
-{% block arianne %}    
-    {{ parent() }} 
-    <li>
-        <a href="{{ path('article_dev_article', {'idSc': idSc , 'idAr': article.id }) }}" title="">
-            Article N° {{ article.id }}
-        </a><span class="end">&nbsp;</span>
-    </li>
+{% block arianne %}  
+
+    {{ parent() }}
+
+    {% if article.subCategory.labelSubCategory!="accueil" %}
+        {% block subCat %}
+            <li>
+                <a href="{{ path('article_dev_show', {'id':article.subCategory.id}) }}" title="Retour à : {{ article.subCategory.labelSubCategory }}">
+                    {{ article.subCategory.labelSubCategory }}
+                </a><span class="end">&nbsp;</span>
+            </li>
+        {% endblock %}
+    {% endif %}
 {% endblock %}
 
 {% block body %}

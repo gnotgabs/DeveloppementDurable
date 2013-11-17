@@ -102,3 +102,39 @@ span.editSup{
 input#devModif_title, input#devModif_content, input#devModif_link, input#devModif_image, input#devModif_subcat {
     width: 400px;
 }
+.btn-back{
+    background-image: url("../images/chevron-left.png");
+    background-repeat: no-repeat;
+    padding-right: 10px;
+}
+.a-back{
+    background: lawngreen;
+    padding:5px;
+    float:left;
+    font-weight: bold;
+    color: black;
+}
+.a-back:hover{
+    color: darkgreen;
+    cursor: pointer;
+}
+.btn-danger{
+    background-image: url("../images/close-icon.png");
+    background-repeat: no-repeat;
+    background-color:lightcoral;
+    background-position: left;
+    text-align: right;
+    padding: 7px;
+    float:right;
+    border: none;
+    width: 100px;
+    font-weight: bold;
+}
+.btn-danger:hover{
+    color: red;
+    cursor: pointer;
+}
+.formSup{
+    width:300px;
+    margin:auto;
+}

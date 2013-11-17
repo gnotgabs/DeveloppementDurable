@@ -18,6 +18,11 @@
     {{ macroMenus.dynamicMenu(menus) }}
 {% endblock %}
 
+{# BLOCK RESERVE A LA SOUS-CATEGORIE SELECTIONNEE #}
+{% block catSelect %}
+    {{ parent() }}
+{% endblock %}
+
 {% block body %}
    {{ parent() }}
     <div id="devAdmin">

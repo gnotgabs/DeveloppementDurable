@@ -12,6 +12,7 @@ class __TwigTemplate_2e40cc7968eb82897b56b12dd9ab8651a8897338f18f221d6ec60d83093
         $this->blocks = array(
             'arianne' => array($this, 'block_arianne'),
             'menu' => array($this, 'block_menu'),
+            'catSelect' => array($this, 'block_catSelect'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -48,10 +49,20 @@ class __TwigTemplate_2e40cc7968eb82897b56b12dd9ab8651a8897338f18f221d6ec60d83093
 ";
     }
 
-    // line 21
+    // line 22
+    public function block_catSelect($context, array $blocks = array())
+    {
+        // line 23
+        echo "    ";
+        $this->displayParentBlock("catSelect", $context, $blocks);
+        echo "
+";
+    }
+
+    // line 26
     public function block_body($context, array $blocks = array())
     {
-        // line 22
+        // line 27
         echo "   ";
         $this->displayParentBlock("body", $context, $blocks);
         echo "
@@ -60,7 +71,7 @@ class __TwigTemplate_2e40cc7968eb82897b56b12dd9ab8651a8897338f18f221d6ec60d83093
             <ul class=\"title\">Articles</ul>
             <ul>
                 <li><a href=\"";
-        // line 27
+        // line 32
         echo $this->env->getExtension('routing')->getPath("article_dev_addArticle");
         echo "\">Ajouter un article</a></li>
             </ul>
@@ -69,7 +80,7 @@ class __TwigTemplate_2e40cc7968eb82897b56b12dd9ab8651a8897338f18f221d6ec60d83093
             <ul class=\"title\">Catégories</ul>
             <ul>
                 <li><a href=\"";
-        // line 33
+        // line 38
         echo $this->env->getExtension('routing')->getPath("article_dev_addCategory");
         echo "\">Ajouter une catégorie</a></li>
             </ul>
@@ -78,7 +89,7 @@ class __TwigTemplate_2e40cc7968eb82897b56b12dd9ab8651a8897338f18f221d6ec60d83093
             <ul class=\"title\">Sous-catégories</ul>
             <ul>
                 <li><a href=\"";
-        // line 39
+        // line 44
         echo $this->env->getExtension('routing')->getPath("article_dev_addSubCategory");
         echo "\">Ajouter une sous-catégorie</a></li>
             </ul>
@@ -87,7 +98,7 @@ class __TwigTemplate_2e40cc7968eb82897b56b12dd9ab8651a8897338f18f221d6ec60d83093
             <ul class=\"title\">Consignes d'administration</ul>
             <ul>
                 <li><a href=\"";
-        // line 45
+        // line 50
         echo $this->env->getExtension('routing')->getPath("article_dev_guideAdmin");
         echo "\">Accéder au guide administrateur</a></li>
             </ul>
@@ -108,6 +119,6 @@ class __TwigTemplate_2e40cc7968eb82897b56b12dd9ab8651a8897338f18f221d6ec60d83093
 
     public function getDebugInfo()
     {
-        return array (  91 => 45,  82 => 39,  73 => 33,  64 => 27,  55 => 22,  52 => 21,  45 => 18,  42 => 17,  35 => 8,  32 => 7,  27 => 4,);
+        return array (  102 => 50,  93 => 44,  84 => 38,  75 => 32,  66 => 27,  63 => 26,  56 => 23,  53 => 22,  46 => 18,  43 => 17,  36 => 8,  33 => 7,  28 => 4,);
     }
 }

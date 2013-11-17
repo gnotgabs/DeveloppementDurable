@@ -39,7 +39,7 @@ class __TwigTemplate_45675b3da4768b4ed09af6bff97a44fd55d0aee24123ef2307969eaedac
         <a href=\"";
         // line 10
         echo $this->env->getExtension('routing')->getPath("article_dev_addArticle");
-        echo "\" title=\"Ajout de catégorie\">
+        echo "\" title=\"Ajouter un article\">
             Ajout article
         </a><span class=\"end\">&nbsp;</span>
     </li>

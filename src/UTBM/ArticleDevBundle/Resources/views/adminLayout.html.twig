@@ -10,6 +10,8 @@
 #}
 {% block arianne %}
    {{ parent() }}
+    {% block subCat %}
+    {% endblock %}
     <li>
        <a href="{{ path('article_dev_admin') }}" title="TX52 Administration">
            Administration
@@ -17,7 +19,8 @@
     </li>
 {% endblock %}
     
-    
+{# BLOCK RESERVE A LA SOUS-CATEGORIE SELECTIONNEE #}
+{% block catSelect %}  -  Administration {% endblock %}
 {% block body %}
-   {{ parent() }}
+    {{ parent() }}
 {% endblock %}

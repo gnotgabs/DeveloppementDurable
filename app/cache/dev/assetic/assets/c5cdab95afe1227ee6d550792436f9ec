@@ -1,0 +1,141 @@
+.formCateg{
+    width:80%;
+    height: auto;
+    margin: auto;
+    border: 2px solid #006400;
+    background: lightblue;
+}
+.formCateg label.formLabel{
+    display: block;
+    width: 150px;
+    float: left;
+    font-weight: bold;
+}
+.formCateg div{
+    margin: auto;
+    padding: 5px;
+    width: 100%;
+}
+.formCateg textArea{
+    width: 500px;
+    height: 150px;
+}
+input#dev_title,input#dev_content,input#dev_link,input#dev_image,input#dev_subcat{
+    width: 400px;
+}
+input#dev_author{
+    width: 200px;
+}
+.formCateg input.btn{
+    float: right;
+    margin: 10px;
+}
+.formCateg input.btn:hover{
+    color: blue;
+    cursor: pointer;
+}
+
+div#devAdmin{
+    width: 90%;
+    height: auto;
+    margin: auto;
+}
+div#devAdmin div#article, div#categorie, div#sousCategorie, div#guideAdmin{
+    width: 30%;
+    height: 50px;
+    margin: auto;
+    padding: 10px;
+}
+div#devAdmin ul.title{
+    text-decoration: underline;
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    color:blue;
+}
+
+div#devAdmin ul {
+    padding:0;
+    margin:0;
+    list-style-type:none;
+}
+div#devAdmin li {
+    margin-left:2px;
+    float:left; /*pour IE*/
+}
+div#devAdmin ul li a {
+    display:block;  
+    width:200px;
+    height: auto;
+    background-color:#ADD8E6;
+    color:darkgreen;
+    font-weight:bold;
+    text-decoration:none;
+    text-align:center;
+    padding:5px;
+    border:2px solid;
+    /*pour avoir un effet "outset" avec IE :*/
+    border-color:#DCDCDC #696969 #696969 #DCDCDC;
+}
+div#devAdmin ul li a:hover {
+    background-color:#D3D3D3;
+    border-color:#696969 #DCDCDC #DCDCDC #696969;
+    color:black;
+} 
+div.well p.title{
+    text-decoration: underline;
+    margin-left:20px;
+    font-weight: bold;
+    font-size:20px;
+    color:blue;
+}
+span.adminArticle{
+    margin-left: 25px;
+    font-size:13px;
+}
+span.editSup{
+    margin-left: 25px;
+    font-size:15px;
+    text-decoration: none;
+    color:black;
+}
+input#devModif_title, input#devModif_content, input#devModif_link, input#devModif_image, input#devModif_subcat {
+    width: 400px;
+}
+.btn-back{
+    background-image: url("../../../images/chevron-left.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-color: lawngreen;
+    text-align: right;
+    padding: 7px;
+    border: none;
+    width: 200px;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+.btn-back:hover{
+    color: darkgreen;
+}
+
+.btn-danger{
+    background-image: url("../../../images/close-icon.png");
+    background-repeat: no-repeat;
+    background-color:lightcoral;
+    background-position: left;
+    text-align: right;
+    padding: 7px;
+    float:right;
+    border: none;
+    width: 100px;
+    font-weight: bold;
+}
+.btn-danger:hover{
+    color: red;
+    cursor: pointer;
+}
+.formSup{
+    width:300px;
+    margin:auto;
+}

@@ -19,7 +19,7 @@ paragraph) which is executed prior to invoking a method:
             // ...
         }
     }
-
+    ?>
 .. tip ::
 
     If you like to secure all actions of the controller with the same rule, you
@@ -47,6 +47,8 @@ This annotation lets you define who is allowed to invoke a method:
         }
     }
 
+    ?>
+
 @SecureParam
 ~~~~~~~~~~~~
 This annotation lets you define restrictions for parameters which are passed to
@@ -69,6 +71,8 @@ the method. This is only useful if the parameters are domain objects:
             // ...
         }
     }
+
+    ?>
 
 @SecureReturn
 ~~~~~~~~~~~~~
@@ -93,6 +97,8 @@ the method. This is also only useful if the returned value is a domain object:
             return $domainObject;
         }
     }
+
+    ?>
 
 @RunAs
 ~~~~~~
@@ -135,6 +141,8 @@ through a specific public service:
             return $this->myPrivateService->aMethodOnlyToBeInvokedThroughASpecificChannel();
         }
     }
+
+    ?>
 
 @SatisfiesParentSecurityPolicy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -20,13 +20,36 @@
     FIL D'ARIANNE DE L'APPLICATION
 #}
 {% block arianne %}
-   {{ parent() }}
+    {{ parent() }}
+
+    {% for article in articles|slice(0, 1) %}
+        {% if article.subCategory.labelSubCategory!="accueil" %}
+            {% block subCat %}
+                <li>
+                    <a href="{{ path('article_dev_show', {'id':article.subCategory.id}) }}" title="Retour à : {{ article.subCategory.labelSubCategory }}">
+                        {{ article.subCategory.labelSubCategory }}
+                    </a><span class="end">&nbsp;</span>
+                </li>
+            {% endblock %}
+        {% endif %}
+    {% endfor %}
+                
 {% endblock %}
     
+                
 {# VOLET GAUCHE DE L'APPLICATION #}
 {% block leftCont %}
 {% endblock %}
 
+{# BLOCK RESERVE A LA SOUS-CATEGORIE SELECTIONNEE #}
+{% block catSelect %}
+    {% for article in articles|slice(0, 1) %}
+        {% if article.subCategory.labelSubCategory!="accueil" %}
+              -  {{ article.subCategory.labelSubCategory }}
+        {% endif %}
+    {% endfor %}    
+{% endblock %}
+                
 {% block body %}
     {{ parent() }}
     {% if (articles|length) != 0 %}

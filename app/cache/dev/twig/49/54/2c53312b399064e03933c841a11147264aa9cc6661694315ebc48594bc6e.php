@@ -16,6 +16,7 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
             'arianne' => array($this, 'block_arianne'),
             'leftCont' => array($this, 'block_leftCont'),
             'body' => array($this, 'block_body'),
+            'catSelect' => array($this, 'block_catSelect'),
             'javascripts' => array($this, 'block_javascripts'),
         );
     }
@@ -170,7 +171,7 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
         // line 43
         echo $this->env->getExtension('routing')->getPath("article_dev_homepage");
         echo "\" title=\"Retour à l'accueil\">
-                             Accueil
+                             Home
                          </a>
                          <span class=\"end\">&nbsp;</span>
                      </li>
@@ -217,8 +218,14 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
     public function block_body($context, array $blocks = array())
     {
         // line 71
-        echo "                    <p id='entete'>Le développement durable</p>
+        echo "                <p id='entete'>Le développement durable <font color='black'> ";
+        $this->displayBlock('catSelect', $context, $blocks);
+        echo "</font></p>
                 ";
+    }
+
+    public function block_catSelect($context, array $blocks = array())
+    {
     }
 
     // line 76
@@ -238,6 +245,6 @@ class __TwigTemplate_49542c53312b399064e03933c841a11147264aa9cc6661694315ebc4859
 
     public function getDebugInfo()
     {
-        return array (  225 => 76,  220 => 71,  217 => 70,  212 => 67,  207 => 60,  201 => 58,  194 => 54,  189 => 52,  185 => 51,  182 => 50,  180 => 49,  171 => 43,  168 => 42,  165 => 41,  160 => 35,  155 => 22,  148 => 19,  145 => 18,  137 => 19,  134 => 18,  127 => 19,  124 => 18,  117 => 19,  114 => 18,  110 => 13,  107 => 12,  104 => 11,  99 => 7,  96 => 6,  90 => 77,  88 => 76,  83 => 73,  81 => 70,  77 => 68,  75 => 67,  68 => 62,  66 => 41,  59 => 36,  57 => 35,  44 => 25,  41 => 24,  39 => 11,  35 => 9,  33 => 6,  26 => 1,);
+        return array (  232 => 76,  221 => 71,  218 => 70,  213 => 67,  208 => 60,  202 => 58,  195 => 54,  190 => 52,  186 => 51,  183 => 50,  181 => 49,  172 => 43,  169 => 42,  166 => 41,  161 => 35,  156 => 22,  149 => 19,  146 => 18,  138 => 19,  135 => 18,  128 => 19,  125 => 18,  118 => 19,  115 => 18,  111 => 13,  108 => 12,  105 => 11,  100 => 7,  97 => 6,  91 => 77,  89 => 76,  84 => 73,  82 => 70,  78 => 68,  76 => 67,  69 => 62,  67 => 41,  60 => 36,  58 => 35,  45 => 25,  42 => 24,  40 => 11,  36 => 9,  34 => 6,  27 => 1,);
     }
 }

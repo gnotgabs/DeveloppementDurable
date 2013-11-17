@@ -41,7 +41,7 @@
                 {% block arianne %}
                      <li class="first">
                          <a href="{{ path('article_dev_homepage') }}" title="Retour à l'accueil">
-                             Accueil
+                             Home
                          </a>
                          <span class="end">&nbsp;</span>
                      </li>
@@ -68,7 +68,7 @@
             </div>
             <div id="rightContent">
                 {% block body %}
-                    <p id='entete'>Le développement durable</p>
+                <p id='entete'>Le développement durable <font color='black'> {%block catSelect%}{% endblock %}</font></p>
                 {% endblock %}
             </div>
         </div>

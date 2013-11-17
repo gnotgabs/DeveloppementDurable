@@ -5,12 +5,23 @@
 
 
 {% block arianne %}
+
     {{ parent() }}
+
+    {% if article.subCategory.labelSubCategory!="accueil" %}
+        <li>
+            <a href="{{ path('article_dev_show', {'id':article.subCategory.id}) }}" title="Retour à : {{ article.subCategory.labelSubCategory }}">
+                {{ article.subCategory.labelSubCategory }}
+            </a><span class="end">&nbsp;</span>
+        </li>
+    {% endif %}
+            
     <li>
-        <a href="{{ path('article_dev_addArticle') }}" title="Ajout de catégorie">
-            Modification article
+        <a href="{{ path('article_dev_editArticle', {'id':article.id}) }}" title="Editer l'article: {{ article.title }}">
+            Edition article
         </a><span class="end">&nbsp;</span>
     </li>
+
 {% endblock %}
 
 {# 

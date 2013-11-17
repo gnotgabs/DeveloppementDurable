@@ -98,6 +98,9 @@ class ArticleDevController extends Controller
         ));
     }
     
+    /**
+     * Nous conduit à la page d'administration
+     */
     public function adminAction(){
         
          // On récupère l'EntityManager
@@ -113,6 +116,10 @@ class ArticleDevController extends Controller
         ));
     }
     
+    /**
+     * Affiche le formulaire d'ajout des articles et hydrate aussi l'objet Article une fois que le formulaire est
+     * validé. Puis, remplit l'entité Article avec les infos saisies par l'utilisateur
+     */
     public function addArticleAction(){
         
         // On teste que l'utilisateur dispose bien du rôle ROLE_ADMIN
@@ -208,16 +215,43 @@ class ArticleDevController extends Controller
         ));
     }
     
+    /**
+     * Va nous permettre de supprimer des articles
+     */
     public function delArticleAction(Article $article){
         
          // On récupère l'EntityManager
         $em = $this->getDoctrine()->getManager();
+        
+        $form = $this->createFormBuilder()->getForm();
+        
+        $request = $this->getRequest();
+        
+        if($request->isMethod('POST')){
+            
+            $form->bind($request);
+            
+            if($form->isValid()){
+                
+                $em->remove($article);
 
+                $em->flush();
+
+                // On redirige vers la sous catégoie à laquelle appartient l'article
+                return $this->redirect($this->generateUrl("article_dev_show",array(
+                            'id' => $article->getSubCategory()->getId()
+                        )));
+            }
+
+        }
+        
         $men = $em->getRepository('ArticleDevBundle:Category')
                   ->getMenus();
         
         return $this->render('ArticleDevBundle:ArticleDev:delArticle.html.twig', array(
-            'menus'   => $men,
+            'menus'     => $men,
+            'form'      => $form->createView(),
+            'article'   => $article,
         ));
     }
     

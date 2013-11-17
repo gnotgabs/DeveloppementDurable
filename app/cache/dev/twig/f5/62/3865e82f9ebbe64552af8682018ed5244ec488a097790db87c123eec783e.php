@@ -12,7 +12,9 @@ class __TwigTemplate_f5623865e82f9ebbe64552af8682018ed5244ec488a097790db87c123ee
         $this->blocks = array(
             'menu' => array($this, 'block_menu'),
             'arianne' => array($this, 'block_arianne'),
+            'subCat' => array($this, 'block_subCat'),
             'leftCont' => array($this, 'block_leftCont'),
+            'catSelect' => array($this, 'block_catSelect'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -43,45 +45,136 @@ class __TwigTemplate_f5623865e82f9ebbe64552af8682018ed5244ec488a097790db87c123ee
     public function block_arianne($context, array $blocks = array())
     {
         // line 23
-        echo "   ";
+        echo "    ";
         $this->displayParentBlock("arianne", $context, $blocks);
         echo "
+
+    ";
+        // line 25
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable(twig_slice($this->env, (isset($context["articles"]) ? $context["articles"] : $this->getContext($context, "articles")), 0, 1));
+        $context['loop'] = array(
+          'parent' => $context['_parent'],
+          'index0' => 0,
+          'index'  => 1,
+          'first'  => true,
+        );
+        if (is_array($context['_seq']) || (is_object($context['_seq']) && $context['_seq'] instanceof Countable)) {
+            $length = count($context['_seq']);
+            $context['loop']['revindex0'] = $length - 1;
+            $context['loop']['revindex'] = $length;
+            $context['loop']['length'] = $length;
+            $context['loop']['last'] = 1 === $length;
+        }
+        foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
+            // line 26
+            echo "        ";
+            if (($this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "subCategory"), "labelSubCategory") != "accueil")) {
+                // line 27
+                echo "            ";
+                $this->displayBlock('subCat', $context, $blocks);
+                // line 34
+                echo "        ";
+            }
+            // line 35
+            echo "    ";
+            ++$context['loop']['index0'];
+            ++$context['loop']['index'];
+            $context['loop']['first'] = false;
+            if (isset($context['loop']['length'])) {
+                --$context['loop']['revindex0'];
+                --$context['loop']['revindex'];
+                $context['loop']['last'] = 0 === $context['loop']['revindex0'];
+            }
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 36
+        echo "                
 ";
     }
 
     // line 27
+    public function block_subCat($context, array $blocks = array())
+    {
+        // line 28
+        echo "                <li>
+                    <a href=\"";
+        // line 29
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_show", array("id" => $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "subCategory"), "id"))), "html", null, true);
+        echo "\" title=\"Retour à : ";
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "subCategory"), "labelSubCategory"), "html", null, true);
+        echo "\">
+                        ";
+        // line 30
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "subCategory"), "labelSubCategory"), "html", null, true);
+        echo "
+                    </a><span class=\"end\">&nbsp;</span>
+                </li>
+            ";
+    }
+
+    // line 41
     public function block_leftCont($context, array $blocks = array())
     {
     }
 
-    // line 30
+    // line 45
+    public function block_catSelect($context, array $blocks = array())
+    {
+        // line 46
+        echo "    ";
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable(twig_slice($this->env, (isset($context["articles"]) ? $context["articles"] : $this->getContext($context, "articles")), 0, 1));
+        foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
+            // line 47
+            echo "        ";
+            if (($this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "subCategory"), "labelSubCategory") != "accueil")) {
+                // line 48
+                echo "              -  ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "subCategory"), "labelSubCategory"), "html", null, true);
+                echo "
+        ";
+            }
+            // line 50
+            echo "    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        echo "    
+";
+    }
+
+    // line 53
     public function block_body($context, array $blocks = array())
     {
-        // line 31
+        // line 54
         echo "    ";
         $this->displayParentBlock("body", $context, $blocks);
         echo "
     ";
-        // line 32
+        // line 55
         if ((twig_length_filter($this->env, (isset($context["articles"]) ? $context["articles"] : $this->getContext($context, "articles"))) != 0)) {
-            // line 33
+            // line 56
             echo "
         ";
-            // line 34
+            // line 57
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) ? $context["articles"] : $this->getContext($context, "articles")));
             foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-                // line 35
+                // line 58
                 echo "            <div class='titleDev'>
                 ";
-                // line 36
+                // line 59
                 echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "title"), "html", null, true);
                 echo "
                 <span class=\"adminArticle\">
                    ";
-                // line 38
+                // line 61
                 if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-                    // line 39
+                    // line 62
                     echo "                       <a href='";
                     echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_editArticle", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
                     echo "' title=\"Editer l'article: ";
@@ -90,7 +183,7 @@ class __TwigTemplate_f5623865e82f9ebbe64552af8682018ed5244ec488a097790db87c123ee
                            Editer
                        </a>  - 
                        <a href=\"";
-                    // line 42
+                    // line 65
                     echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_delArticle", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
                     echo "\" title=\"Supprimer l'article: ";
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "title"), "html", null, true);
@@ -99,21 +192,21 @@ class __TwigTemplate_f5623865e82f9ebbe64552af8682018ed5244ec488a097790db87c123ee
                        </a>
                    ";
                 }
-                // line 46
+                // line 69
                 echo "               </span>
             </div>
             ";
-                // line 49
+                // line 72
                 echo "
         ";
-                // line 55
+                // line 78
                 echo "
             <p class='content'>
 
                 ";
-                // line 58
+                // line 81
                 if (($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "image") != "")) {
-                    // line 59
+                    // line 82
                     echo "                    <img src=\"";
                     echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "image"), "html", null, true);
                     echo "\" title=\"";
@@ -121,14 +214,14 @@ class __TwigTemplate_f5623865e82f9ebbe64552af8682018ed5244ec488a097790db87c123ee
                     echo "\" class='imageDev'>
                 ";
                 }
-                // line 61
+                // line 84
                 echo "
                 ";
-                // line 62
+                // line 85
                 echo twig_truncate_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "content"), 500, true, " ... ");
                 echo "
                 <a href=\"";
-                // line 63
+                // line 86
                 echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_article", array("idSc" => $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "subCategory"), "id"), "idAr" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
                 echo "\" title='Plus de détails'>
                     <span class='back'>lire la suite</span>
@@ -140,11 +233,11 @@ class __TwigTemplate_f5623865e82f9ebbe64552af8682018ed5244ec488a097790db87c123ee
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 69
+            // line 92
             echo "
     ";
         } else {
-            // line 71
+            // line 94
             echo "
             <div class=\"erreur\">
                 Pas d'article correspondant à cette catégorie !
@@ -152,7 +245,7 @@ class __TwigTemplate_f5623865e82f9ebbe64552af8682018ed5244ec488a097790db87c123ee
 
     ";
         }
-        // line 77
+        // line 100
         echo "        
 ";
     }
@@ -169,6 +262,6 @@ class __TwigTemplate_f5623865e82f9ebbe64552af8682018ed5244ec488a097790db87c123ee
 
     public function getDebugInfo()
     {
-        return array (  156 => 77,  148 => 71,  144 => 69,  132 => 63,  128 => 62,  125 => 61,  117 => 59,  115 => 58,  110 => 55,  107 => 49,  103 => 46,  94 => 42,  85 => 39,  83 => 38,  78 => 36,  75 => 35,  71 => 34,  68 => 33,  66 => 32,  61 => 31,  58 => 30,  53 => 27,  46 => 23,  43 => 22,  36 => 16,  33 => 15,  28 => 5,);
+        return array (  249 => 100,  241 => 94,  237 => 92,  225 => 86,  221 => 85,  218 => 84,  210 => 82,  208 => 81,  203 => 78,  200 => 72,  196 => 69,  187 => 65,  178 => 62,  176 => 61,  171 => 59,  168 => 58,  164 => 57,  161 => 56,  159 => 55,  154 => 54,  151 => 53,  141 => 50,  135 => 48,  132 => 47,  127 => 46,  124 => 45,  119 => 41,  111 => 30,  105 => 29,  102 => 28,  99 => 27,  94 => 36,  80 => 35,  77 => 34,  74 => 27,  71 => 26,  54 => 25,  48 => 23,  45 => 22,  38 => 16,  35 => 15,  30 => 5,);
     }
 }

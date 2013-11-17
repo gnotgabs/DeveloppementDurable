@@ -12,6 +12,7 @@ class __TwigTemplate_8eb6580aaafe763d10a88a75d255f81812e0ca3880f531b925f70debb39
         $this->blocks = array(
             'menu' => array($this, 'block_menu'),
             'arianne' => array($this, 'block_arianne'),
+            'subCat' => array($this, 'block_subCat'),
             'body' => array($this, 'block_body'),
         );
     }
@@ -41,42 +42,61 @@ class __TwigTemplate_8eb6580aaafe763d10a88a75d255f81812e0ca3880f531b925f70debb39
     // line 20
     public function block_arianne($context, array $blocks = array())
     {
-        echo "    
+        echo "  
+
     ";
-        // line 21
+        // line 22
         $this->displayParentBlock("arianne", $context, $blocks);
-        echo " 
-    <li>
-        <a href=\"";
-        // line 23
-        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_article", array("idSc" => (isset($context["idSc"]) ? $context["idSc"] : $this->getContext($context, "idSc")), "idAr" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
-        echo "\" title=\"\">
-            Article N° ";
-        // line 24
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"), "html", null, true);
         echo "
-        </a><span class=\"end\">&nbsp;</span>
-    </li>
-";
+
+    ";
+        // line 24
+        if (($this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "subCategory"), "labelSubCategory") != "accueil")) {
+            // line 25
+            echo "        ";
+            $this->displayBlock('subCat', $context, $blocks);
+            // line 32
+            echo "    ";
+        }
     }
 
-    // line 29
+    // line 25
+    public function block_subCat($context, array $blocks = array())
+    {
+        // line 26
+        echo "            <li>
+                <a href=\"";
+        // line 27
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_show", array("id" => $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "subCategory"), "id"))), "html", null, true);
+        echo "\" title=\"Retour à : ";
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "subCategory"), "labelSubCategory"), "html", null, true);
+        echo "\">
+                    ";
+        // line 28
+        echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "subCategory"), "labelSubCategory"), "html", null, true);
+        echo "
+                </a><span class=\"end\">&nbsp;</span>
+            </li>
+        ";
+    }
+
+    // line 35
     public function block_body($context, array $blocks = array())
     {
-        // line 30
+        // line 36
         echo "    ";
         $this->displayParentBlock("body", $context, $blocks);
         echo "
     <div class='titleDev'>
         ";
-        // line 32
+        // line 38
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "title"), "html", null, true);
         echo "
         <span class=\"adminArticle\">
            ";
-        // line 34
+        // line 40
         if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
-            // line 35
+            // line 41
             echo "                <a href='";
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_editArticle", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
             echo "' title=\"Editer l'article: ";
@@ -85,7 +105,7 @@ class __TwigTemplate_8eb6580aaafe763d10a88a75d255f81812e0ca3880f531b925f70debb39
                     Editer
                 </a>  - 
                 <a href=\"";
-            // line 38
+            // line 44
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_delArticle", array("id" => $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "id"))), "html", null, true);
             echo "\" title=\"Supprimer l'article: ";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "title"), "html", null, true);
@@ -94,19 +114,19 @@ class __TwigTemplate_8eb6580aaafe763d10a88a75d255f81812e0ca3880f531b925f70debb39
                 </a>
            ";
         }
-        // line 42
+        // line 48
         echo "       </span>
     </div>
     ";
-        // line 45
+        // line 51
         echo "    
 ";
-        // line 51
+        // line 57
         echo "    <p class='content'>
         ";
-        // line 52
+        // line 58
         if (($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "image") != "")) {
-            // line 53
+            // line 59
             echo "            <img src=\"";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "image"), "html", null, true);
             echo "\" alt=\"";
@@ -114,30 +134,30 @@ class __TwigTemplate_8eb6580aaafe763d10a88a75d255f81812e0ca3880f531b925f70debb39
             echo "\" class='imageDevSup'>
         ";
         }
-        // line 55
+        // line 61
         echo "        ";
         echo $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "content");
         echo "
         <a href=\"";
-        // line 56
+        // line 62
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_show", array("id" => (isset($context["idSc"]) ? $context["idSc"] : $this->getContext($context, "idSc")))), "html", null, true);
         echo "\" title=\"retour à la page précédente\">
             <span class='back'>«« Retour</span>
         </a>
     </p>
     ";
-        // line 60
+        // line 66
         if (($this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "link") != "")) {
-            // line 61
+            // line 67
             echo "        <p class='linkDev'>
             Pour plus d'informations, <a href='";
-            // line 62
+            // line 68
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["article"]) ? $context["article"] : $this->getContext($context, "article")), "link"), "html", null, true);
             echo "'><span class='details'>cliquez ici.</span></a>
         </p>
     ";
         }
-        // line 65
+        // line 71
         echo "        
 ";
     }
@@ -154,6 +174,6 @@ class __TwigTemplate_8eb6580aaafe763d10a88a75d255f81812e0ca3880f531b925f70debb39
 
     public function getDebugInfo()
     {
-        return array (  141 => 65,  135 => 62,  132 => 61,  130 => 60,  123 => 56,  118 => 55,  110 => 53,  108 => 52,  105 => 51,  102 => 45,  98 => 42,  89 => 38,  80 => 35,  78 => 34,  73 => 32,  67 => 30,  64 => 29,  56 => 24,  52 => 23,  47 => 21,  42 => 20,  35 => 16,  32 => 15,  27 => 5,);
+        return array (  161 => 71,  155 => 68,  152 => 67,  150 => 66,  143 => 62,  138 => 61,  130 => 59,  128 => 58,  125 => 57,  122 => 51,  118 => 48,  109 => 44,  100 => 41,  98 => 40,  93 => 38,  87 => 36,  84 => 35,  76 => 28,  70 => 27,  67 => 26,  64 => 25,  59 => 32,  56 => 25,  54 => 24,  49 => 22,  43 => 20,  36 => 16,  33 => 15,  28 => 5,);
     }
 }

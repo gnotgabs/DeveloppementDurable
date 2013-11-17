@@ -34,6 +34,8 @@ This marks a property, or parameter for injection:
         private $session;
     }
 
+    ?>
+
 .. tip :: 
 
     If you do not specify the service explicitly, we will try to guess it based on the name
@@ -69,6 +71,8 @@ This marks the parameters of a method for injection:
         }
     }
     
+    ?>
+
 If you don't define all parameters in the param map, we will try to guess which services
 should be injected into the remaining parameters based on their name.
 
@@ -88,6 +92,8 @@ Marks a class as service:
     class Listener
     {
     }
+
+    ?>
 
 If you do not explicitly define a service id, then we will generated a sensible default
 based on the fully qualified class name for you.
@@ -111,6 +117,8 @@ Adds a tag to the service:
     {
         // ...
     }
+
+    ?>
 
 @Observe
 ~~~~~~~~
@@ -136,6 +144,8 @@ Automatically registers a method as listener to a certain event:
             // ...
         }
     }
+
+    ?>
 
 @Validator
 ~~~~~~~~~~
@@ -165,6 +175,8 @@ Automatically registers the given class as constraint validator for the Validato
             return 'my_alias';
         }
     }
+
+    ?>
 
 The @Validator annotation also implies the @Service annotation if you do not specify it explicitly.
 The alias which is passed to the @Validator annotation must match the string that is returned from
@@ -197,6 +209,8 @@ Automatically, registers the given class as a form type with Symfony2's Form Com
     // Controller.php
     $form = $this->formFactory->create('my_form');
     
+    ?>
+
 .. note :: 
 
     ``@FormType`` implies ``@Service`` if not explicitly defined.
