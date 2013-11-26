@@ -28,7 +28,7 @@ class SubCategory
     private $category;
     
     /**
-     * @ORM\OneToMany(targetEntity="UTBM\ArticleDevBundle\Entity\Article", mappedBy="subCategory")
+     * @ORM\OneToMany(targetEntity="UTBM\ArticleDevBundle\Entity\Article", mappedBy="subCategory", cascade={"remove"})
      */
     private $articles;
     
