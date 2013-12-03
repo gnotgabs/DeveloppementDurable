@@ -1,8 +1,6 @@
 
 #navtabs {
-  background:darkgreen;
-  border-bottom-left-radius:5px;
-  border-bottom-right-radius:5px;
+  background:#483D8B;
   color:white;
   font-size:1em;
   height:24px;
@@ -23,7 +21,6 @@
     margin-top: 0;
     margin-bottom: 0;
     margin-right: 0;
-    margin-left: 10px;
     padding: 0;
     border: 0;
     top: 0;
@@ -67,7 +64,7 @@
     display: block;
     height: 1%;
     color: #FFF;
-    background: darkgreen;
+    background: #483D8B;
     margin: 0;
     padding: 4px 8px;
     border-right: 1px solid #fff;
@@ -84,12 +81,12 @@
     margin: 0;
     border: 0;
     text-decoration: none;
-    background: transparent url("../images/fondTR.png") repeat;
+    background: #483D8B;
 }
 #menuDeroulant .sousMenu li a:hover
 {
     background-image: none;
-    background-color: darkgreen; color: #F88412;
+    background-color: #483D8B; color: #F88412;
 }
 #menuDeroulant li:hover > .sousMenu { display: block; }
 
@@ -101,10 +98,12 @@
 /*Styles du div englobant*/
 #breadcrumb{
     font-family:"Lucida Grande","Lucida Sans Unicode",Arial,Verdana,sans-serif;
-    width: 80%;
+    width: 90%;
     padding-top: 5px;
     margin-left: auto;
     margin-right: auto;
+    margin-top:5px;
+    background: #5F879D;
 }
 /*Reset sur la liste*/
 #breadcrumb ul, #breadcrumb li {
@@ -113,7 +112,7 @@
 }		
 /*Styles sur la liste*/
 #breadcrumb ul{
-    height:20px;
+    height:22px;
     margin:5px auto;
 }	
 /*Premier élément de la liste*/
