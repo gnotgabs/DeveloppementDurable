@@ -241,12 +241,12 @@ class appProdProjectContainer extends Container
     }
     protected function getAnnotationReaderService()
     {
-        return $this->services['annotation_reader'] = new \Doctrine\Common\Annotations\FileCacheReader(new \Doctrine\Common\Annotations\AnnotationReader(), 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/annotations', false);
+        return $this->services['annotation_reader'] = new \Doctrine\Common\Annotations\FileCacheReader(new \Doctrine\Common\Annotations\AnnotationReader(), 'C:/wamp/www/DeveloppementDurable/app/cache/prod/annotations', false);
     }
     protected function getAssetic_AssetManagerService()
     {
-        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/assetic/config'), false)));
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($this->get('templating.loader'), '', 'C:/xampp/htdocs/DeveloppementDurable/app/Resources/views', '/\\.[^.]+\\.twig$/'), 'twig');
+        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('C:/wamp/www/DeveloppementDurable/app/cache/prod/assetic/config'), false)));
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($this->get('templating.loader'), '', 'C:/wamp/www/DeveloppementDurable/app/Resources/views', '/\\.[^.]+\\.twig$/'), 'twig');
         return $instance;
     }
     protected function getAssetic_Filter_CssrewriteService()
@@ -265,7 +265,7 @@ class appProdProjectContainer extends Container
     {
         $a = $this->get('kernel');
         $b = $this->get('templating.filename_parser');
-        $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, 'C:/xampp/htdocs/DeveloppementDurable/app/Resources');
+        $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, 'C:/wamp/www/DeveloppementDurable/app/Resources');
         return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => new \Symfony\Bundle\AsseticBundle\CacheWarmer\AssetManagerCacheWarmer($this), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 3 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c), 4 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine')), 5 => new \JMS\DiExtraBundle\HttpKernel\ControllerInjectorsWarmer($a, $this->get('jms_di_extra.controller_resolver'), array())));
     }
     protected function getDebug_EmergencyLoggerListenerService()
@@ -288,29 +288,29 @@ class appProdProjectContainer extends Container
     }
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        require_once 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/jms_diextra/doctrine/EntityManager_52892d845cb92.php';
+        require_once 'C:/wamp/www/DeveloppementDurable/app/cache/prod/jms_diextra/doctrine/EntityManager_52a60ff4b8d42.php';
         $a = $this->get('annotation_reader');
         $b = new \Doctrine\Common\Cache\ArrayCache();
-        $b->setNamespace('sf2orm_default_d35ea9b357e95fbaae8e69c05d0f1ab6');
+        $b->setNamespace('sf2orm_default_a89c2f30ebb0a6fc8c0e1c7d48ed22b3');
         $c = new \Doctrine\Common\Cache\ArrayCache();
-        $c->setNamespace('sf2orm_default_d35ea9b357e95fbaae8e69c05d0f1ab6');
+        $c->setNamespace('sf2orm_default_a89c2f30ebb0a6fc8c0e1c7d48ed22b3');
         $d = new \Doctrine\Common\Cache\ArrayCache();
-        $d->setNamespace('sf2orm_default_d35ea9b357e95fbaae8e69c05d0f1ab6');
-        $e = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($a, array(0 => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle\\Entity', 1 => 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\UserBundle\\Entity'));
-        $f = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array('C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle\\Resources\\config\\doctrine' => 'FOS\\UserBundle\\Entity'));
+        $d->setNamespace('sf2orm_default_a89c2f30ebb0a6fc8c0e1c7d48ed22b3');
+        $e = new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($a, array(0 => 'C:\\wamp\\www\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle\\Entity', 1 => 'C:\\wamp\\www\\DeveloppementDurable\\src\\UTBM\\UserBundle\\Entity'));
+        $f = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array('C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle\\Resources\\config\\doctrine' => 'FOS\\UserBundle\\Entity'));
         $f->setGlobalBasename('mapping');
         $g = new \Doctrine\ORM\Mapping\Driver\DriverChain();
         $g->addDriver($e, 'UTBM\\ArticleDevBundle\\Entity');
         $g->addDriver($e, 'UTBM\\UserBundle\\Entity');
         $g->addDriver($f, 'FOS\\UserBundle\\Entity');
-        $g->addDriver(new \Doctrine\ORM\Mapping\Driver\XmlDriver(new \Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator(array('C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle\\Resources\\config\\doctrine\\model' => 'FOS\\UserBundle\\Model'), '.orm.xml')), 'FOS\\UserBundle\\Model');
+        $g->addDriver(new \Doctrine\ORM\Mapping\Driver\XmlDriver(new \Doctrine\Common\Persistence\Mapping\Driver\SymfonyFileLocator(array('C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle\\Resources\\config\\doctrine\\model' => 'FOS\\UserBundle\\Model'), '.orm.xml')), 'FOS\\UserBundle\\Model');
         $h = new \Doctrine\ORM\Configuration();
         $h->setEntityNamespaces(array('ArticleDevBundle' => 'UTBM\\ArticleDevBundle\\Entity', 'UserBundle' => 'UTBM\\UserBundle\\Entity', 'FOSUserBundle' => 'FOS\\UserBundle\\Entity'));
         $h->setMetadataCacheImpl($b);
         $h->setQueryCacheImpl($c);
         $h->setResultCacheImpl($d);
         $h->setMetadataDriverImpl($g);
-        $h->setProxyDir('C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/doctrine/orm/Proxies');
+        $h->setProxyDir('C:/wamp/www/DeveloppementDurable/app/cache/prod/doctrine/orm/Proxies');
         $h->setProxyNamespace('Proxies');
         $h->setAutoGenerateProxyClasses(false);
         $h->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
@@ -318,7 +318,7 @@ class appProdProjectContainer extends Container
         $h->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
         $i = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $h);
         $this->get('doctrine.orm.default_manager_configurator')->configure($i);
-        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager52892d845cb92_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($i, $this);
+        return $this->services['doctrine.orm.default_entity_manager'] = new \EntityManager52a60ff4b8d42_546a8d27f194334ee012bfe64f629947b07e4919\__CG__\Doctrine\ORM\EntityManager($i, $this);
     }
     protected function getDoctrine_Orm_DefaultManagerConfiguratorService()
     {
@@ -358,7 +358,7 @@ class appProdProjectContainer extends Container
     }
     protected function getFileLocatorService()
     {
-        return $this->services['file_locator'] = new \Symfony\Component\HttpKernel\Config\FileLocator($this->get('kernel'), 'C:/xampp/htdocs/DeveloppementDurable/app/Resources');
+        return $this->services['file_locator'] = new \Symfony\Component\HttpKernel\Config\FileLocator($this->get('kernel'), 'C:/wamp/www/DeveloppementDurable/app/Resources');
     }
     protected function getFilesystemService()
     {
@@ -652,7 +652,7 @@ class appProdProjectContainer extends Container
     protected function getJmsDiExtra_Metadata_MetadataFactoryService()
     {
         $this->services['jms_di_extra.metadata.metadata_factory'] = $instance = new \Metadata\MetadataFactory(new \Metadata\Driver\LazyLoadingDriver($this, 'jms_di_extra.metadata_driver'), 'Metadata\\ClassHierarchyMetadata', false);
-        $instance->setCache(new \Metadata\Cache\FileCache('C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/jms_diextra/metadata'));
+        $instance->setCache(new \Metadata\Cache\FileCache('C:/wamp/www/DeveloppementDurable/app/cache/prod/jms_diextra/metadata'));
         return $instance;
     }
     protected function getJmsDiExtra_MetadataDriverService()
@@ -681,7 +681,7 @@ class appProdProjectContainer extends Container
     }
     protected function getMonolog_Handler_NestedService()
     {
-        return $this->services['monolog.handler.nested'] = new \Monolog\Handler\StreamHandler('C:/xampp/htdocs/DeveloppementDurable/app/logs/prod.log', 100, true);
+        return $this->services['monolog.handler.nested'] = new \Monolog\Handler\StreamHandler('C:/wamp/www/DeveloppementDurable/app/logs/prod.log', 100, true);
     }
     protected function getMonolog_Logger_DoctrineService()
     {
@@ -730,7 +730,7 @@ class appProdProjectContainer extends Container
     }
     protected function getRouterService()
     {
-        return $this->services['router'] = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, 'C:/xampp/htdocs/DeveloppementDurable/app/config/routing.yml', array('cache_dir' => 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod', 'debug' => false, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appProdUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appProdUrlMatcher', 'strict_requirements' => NULL), $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['router'] = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, 'C:/wamp/www/DeveloppementDurable/app/config/routing.yml', array('cache_dir' => 'C:/wamp/www/DeveloppementDurable/app/cache/prod', 'debug' => false, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appProdUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appProdUrlMatcher', 'strict_requirements' => NULL), $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
     protected function getRouterListenerService()
     {
@@ -756,7 +756,7 @@ class appProdProjectContainer extends Container
     {
         $a = new \JMS\SecurityExtraBundle\Security\Authorization\Expression\LazyLoadingExpressionVoter($this->get('security.expressions.handler'), $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE));
         $a->setLazyCompiler($this, 'security.expressions.compiler');
-        $a->setCacheDir('C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/jms_security/expressions');
+        $a->setCacheDir('C:/wamp/www/DeveloppementDurable/app/cache/prod/jms_security/expressions');
         return $this->services['security.access.decision_manager'] = new \JMS\SecurityExtraBundle\Security\Authorization\RememberingAccessDecisionManager(new \Symfony\Component\Security\Core\Authorization\AccessDecisionManager(array(0 => $a, 1 => new \Symfony\Component\Security\Core\Authorization\Voter\RoleHierarchyVoter($this->get('security.role_hierarchy')), 2 => new \Symfony\Component\Security\Core\Authorization\Voter\AuthenticatedVoter($this->get('security.authentication.trust_resolver'))), 'affirmative', false, true));
     }
     protected function getSecurity_Access_MethodInterceptorService()
@@ -834,7 +834,7 @@ class appProdProjectContainer extends Container
         $p->setProviderKey('main');
         $q = new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $g, $this->get('security.authentication.session_strategy'), $m, 'main', $p, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($f, $m, array('login_path' => 'fos_user_security_login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => 'fos_user_security_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $d, $this->get('form.csrf_provider'));
         $q->setRememberMeServices($n);
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($l, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $o, 3 => $q, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $n, $g, $a, $d), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '52892d842cfa8', $a), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $l, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $m, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $m, 'fos_user_security_login', false), NULL, NULL, $a));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($l, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $c), 'main', $a, $d), 2 => $o, 3 => $q, 4 => new \Symfony\Component\Security\Http\Firewall\RememberMeListener($b, $n, $g, $a, $d), 5 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '52a60ff46f670', $a), 6 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $l, $g)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $m, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($f, $m, 'fos_user_security_login', false), NULL, NULL, $a));
     }
     protected function getSecurity_Rememberme_ResponseListenerService()
     {
@@ -846,7 +846,7 @@ class appProdProjectContainer extends Container
     }
     protected function getSecurity_SecureRandomService()
     {
-        return $this->services['security.secure_random'] = new \Symfony\Component\Security\Core\Util\SecureRandom('C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/secure_random.seed', $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['security.secure_random'] = new \Symfony\Component\Security\Core\Util\SecureRandom('C:/wamp/www/DeveloppementDurable/app/cache/prod/secure_random.seed', $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
     protected function getSecurity_Validator_UserPasswordService()
     {
@@ -897,11 +897,11 @@ class appProdProjectContainer extends Container
     }
     protected function getSession_HandlerService()
     {
-        return $this->services['session.handler'] = new \Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler('C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/sessions');
+        return $this->services['session.handler'] = new \Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler('C:/wamp/www/DeveloppementDurable/app/cache/prod/sessions');
     }
     protected function getSession_Storage_FilesystemService()
     {
-        return $this->services['session.storage.filesystem'] = new \Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage('C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/sessions');
+        return $this->services['session.storage.filesystem'] = new \Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage('C:/wamp/www/DeveloppementDurable/app/cache/prod/sessions');
     }
     protected function getSession_Storage_NativeService()
     {
@@ -979,7 +979,7 @@ class appProdProjectContainer extends Container
     }
     protected function getTemplating_Helper_CodeService()
     {
-        return $this->services['templating.helper.code'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper(NULL, 'C:/xampp/htdocs/DeveloppementDurable/app', 'UTF-8');
+        return $this->services['templating.helper.code'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper(NULL, 'C:/wamp/www/DeveloppementDurable/app', 'UTF-8');
     }
     protected function getTemplating_Helper_FormService()
     {
@@ -1146,197 +1146,197 @@ class appProdProjectContainer extends Container
     }
     protected function getTranslator_DefaultService()
     {
-        $this->services['translator.default'] = $instance = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, new \Symfony\Component\Translation\MessageSelector(), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini')), array('cache_dir' => 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/translations', 'debug' => false));
+        $this->services['translator.default'] = $instance = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, new \Symfony\Component\Translation\MessageSelector(), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini')), array('cache_dir' => 'C:/wamp/www/DeveloppementDurable/app/cache/prod/translations', 'debug' => false));
         $instance->setFallbackLocales(array(0 => 'fr'));
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.af.xlf', 'af', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ar.xlf', 'ar', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.bg.xlf', 'bg', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ca.xlf', 'ca', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cs.xlf', 'cs', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cy.xlf', 'cy', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.da.xlf', 'da', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.de.xlf', 'de', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.el.xlf', 'el', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.en.xlf', 'en', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.es.xlf', 'es', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.et.xlf', 'et', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.eu.xlf', 'eu', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fa.xlf', 'fa', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fi.xlf', 'fi', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fr.xlf', 'fr', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.gl.xlf', 'gl', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.he.xlf', 'he', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hr.xlf', 'hr', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hu.xlf', 'hu', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hy.xlf', 'hy', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.id.xlf', 'id', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.it.xlf', 'it', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ja.xlf', 'ja', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lb.xlf', 'lb', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lt.xlf', 'lt', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.mn.xlf', 'mn', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nb.xlf', 'nb', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nl.xlf', 'nl', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.no.xlf', 'no', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pl.xlf', 'pl', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt.xlf', 'pt', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt_BR.xlf', 'pt_BR', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ro.xlf', 'ro', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ru.xlf', 'ru', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sk.xlf', 'sk', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sl.xlf', 'sl', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sq.xlf', 'sq', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Latn.xlf', 'sr_Latn', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sv.xlf', 'sv', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.tr.xlf', 'tr', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.uk.xlf', 'uk', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.zh_CN.xlf', 'zh_CN', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ar.xlf', 'ar', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.bg.xlf', 'bg', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ca.xlf', 'ca', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.cs.xlf', 'cs', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.da.xlf', 'da', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.de.xlf', 'de', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.el.xlf', 'el', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.en.xlf', 'en', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.es.xlf', 'es', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.et.xlf', 'et', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.eu.xlf', 'eu', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fa.xlf', 'fa', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fi.xlf', 'fi', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fr.xlf', 'fr', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.gl.xlf', 'gl', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.he.xlf', 'he', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hr.xlf', 'hr', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hu.xlf', 'hu', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hy.xlf', 'hy', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.id.xlf', 'id', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.it.xlf', 'it', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ja.xlf', 'ja', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lb.xlf', 'lb', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lt.xlf', 'lt', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lv.xlf', 'lv', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.mn.xlf', 'mn', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.nb.xlf', 'nb', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.nl.xlf', 'nl', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pl.xlf', 'pl', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt.xlf', 'pt', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt_BR.xlf', 'pt_BR', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ro.xlf', 'ro', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ru.xlf', 'ru', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sk.xlf', 'sk', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sl.xlf', 'sl', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Latn.xlf', 'sr_Latn', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sv.xlf', 'sv', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ua.xlf', 'ua', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.zh_CN.xlf', 'zh_CN', 'validators');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.ar.xlf', 'ar', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.ca.xlf', 'ca', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.cs.xlf', 'cs', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.da.xlf', 'da', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.de.xlf', 'de', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.el.xlf', 'el', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.en.xlf', 'en', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.es.xlf', 'es', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.fa.xlf', 'fa', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.fr.xlf', 'fr', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.gl.xlf', 'gl', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.hu.xlf', 'hu', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.it.xlf', 'it', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.ja.xlf', 'ja', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.lb.xlf', 'lb', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.nl.xlf', 'nl', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.no.xlf', 'no', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.pl.xlf', 'pl', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.pt_BR.xlf', 'pt_BR', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.pt_PT.xlf', 'pt_PT', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.ro.xlf', 'ro', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.ru.xlf', 'ru', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.sk.xlf', 'sk', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.sl.xlf', 'sl', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.sr_Cyrl.xlf', 'sr_Cyrl', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.sr_Latn.xlf', 'sr_Latn', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.sv.xlf', 'sv', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.tr.xlf', 'tr', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.ua.xlf', 'ua', 'security');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle/Resources/translations\\messages.fr.xlf', 'fr', 'messages');
-        $instance->addResource('xlf', 'C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\UserBundle/Resources/translations\\messages.fr.xlf', 'fr', 'messages');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.ar.yml', 'ar', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.bg.yml', 'bg', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.ca.yml', 'ca', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.cs.yml', 'cs', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.da.yml', 'da', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.de.yml', 'de', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.en.yml', 'en', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.es.yml', 'es', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.et.yml', 'et', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.fa.yml', 'fa', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.fi.yml', 'fi', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.fr.yml', 'fr', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.hr.yml', 'hr', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.hu.yml', 'hu', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.id.yml', 'id', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.it.yml', 'it', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.ja.yml', 'ja', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.lb.yml', 'lb', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.lt.yml', 'lt', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.lv.yml', 'lv', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.nb.yml', 'nb', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.nl.yml', 'nl', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.pl.yml', 'pl', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.pt_BR.yml', 'pt_BR', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.pt_PT.yml', 'pt_PT', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.ro.yml', 'ro', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.ru.yml', 'ru', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.sk.yml', 'sk', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.sl.yml', 'sl', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.sr_Latn.yml', 'sr_Latn', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.sv.yml', 'sv', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.tr.yml', 'tr', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.uk.yml', 'uk', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.vi.yml', 'vi', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.zh_CN.yml', 'zh_CN', 'FOSUserBundle');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.ar.yml', 'ar', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.bg.yml', 'bg', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.ca.yml', 'ca', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.cs.yml', 'cs', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.da.yml', 'da', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.de.yml', 'de', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.en.yml', 'en', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.es.yml', 'es', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.fa.yml', 'fa', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.fi.yml', 'fi', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.fr.yml', 'fr', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.hr.yml', 'hr', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.hu.yml', 'hu', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.id.yml', 'id', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.it.yml', 'it', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.ja.yml', 'ja', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.lt.yml', 'lt', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.lv.yml', 'lv', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.nb.yml', 'nb', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.nl.yml', 'nl', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.pl.yml', 'pl', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.pt.yml', 'pt', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.pt_BR.yml', 'pt_BR', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.ro.yml', 'ro', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.ru.yml', 'ru', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.sk.yml', 'sk', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.sl.yml', 'sl', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.sr_Latn.yml', 'sr_Latn', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.sv.yml', 'sv', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.tr.yml', 'tr', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.uk.yml', 'uk', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.vi.yml', 'vi', 'validators');
-        $instance->addResource('yml', 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.zh_CN.yml', 'zh_CN', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.af.xlf', 'af', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ar.xlf', 'ar', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.bg.xlf', 'bg', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ca.xlf', 'ca', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cs.xlf', 'cs', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cy.xlf', 'cy', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.da.xlf', 'da', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.de.xlf', 'de', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.el.xlf', 'el', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.en.xlf', 'en', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.es.xlf', 'es', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.et.xlf', 'et', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.eu.xlf', 'eu', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fa.xlf', 'fa', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fi.xlf', 'fi', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fr.xlf', 'fr', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.gl.xlf', 'gl', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.he.xlf', 'he', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hr.xlf', 'hr', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hu.xlf', 'hu', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hy.xlf', 'hy', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.id.xlf', 'id', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.it.xlf', 'it', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ja.xlf', 'ja', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lb.xlf', 'lb', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lt.xlf', 'lt', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.mn.xlf', 'mn', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nb.xlf', 'nb', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nl.xlf', 'nl', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.no.xlf', 'no', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pl.xlf', 'pl', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt.xlf', 'pt', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt_BR.xlf', 'pt_BR', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ro.xlf', 'ro', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ru.xlf', 'ru', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sk.xlf', 'sk', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sl.xlf', 'sl', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sq.xlf', 'sq', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Latn.xlf', 'sr_Latn', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sv.xlf', 'sv', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.tr.xlf', 'tr', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.uk.xlf', 'uk', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.zh_CN.xlf', 'zh_CN', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ar.xlf', 'ar', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.bg.xlf', 'bg', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ca.xlf', 'ca', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.cs.xlf', 'cs', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.da.xlf', 'da', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.de.xlf', 'de', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.el.xlf', 'el', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.en.xlf', 'en', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.es.xlf', 'es', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.et.xlf', 'et', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.eu.xlf', 'eu', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fa.xlf', 'fa', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fi.xlf', 'fi', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fr.xlf', 'fr', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.gl.xlf', 'gl', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.he.xlf', 'he', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hr.xlf', 'hr', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hu.xlf', 'hu', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hy.xlf', 'hy', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.id.xlf', 'id', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.it.xlf', 'it', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ja.xlf', 'ja', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lb.xlf', 'lb', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lt.xlf', 'lt', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lv.xlf', 'lv', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.mn.xlf', 'mn', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.nb.xlf', 'nb', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.nl.xlf', 'nl', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pl.xlf', 'pl', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt.xlf', 'pt', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt_BR.xlf', 'pt_BR', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ro.xlf', 'ro', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ru.xlf', 'ru', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sk.xlf', 'sk', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sl.xlf', 'sl', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Latn.xlf', 'sr_Latn', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sv.xlf', 'sv', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ua.xlf', 'ua', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.zh_CN.xlf', 'zh_CN', 'validators');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.ar.xlf', 'ar', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.ca.xlf', 'ca', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.cs.xlf', 'cs', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.da.xlf', 'da', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.de.xlf', 'de', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.el.xlf', 'el', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.en.xlf', 'en', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.es.xlf', 'es', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.fa.xlf', 'fa', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.fr.xlf', 'fr', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.gl.xlf', 'gl', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.hu.xlf', 'hu', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.it.xlf', 'it', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.ja.xlf', 'ja', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.lb.xlf', 'lb', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.nl.xlf', 'nl', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.no.xlf', 'no', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.pl.xlf', 'pl', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.pt_BR.xlf', 'pt_BR', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.pt_PT.xlf', 'pt_PT', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.ro.xlf', 'ro', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.ru.xlf', 'ru', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.sk.xlf', 'sk', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.sl.xlf', 'sl', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.sr_Cyrl.xlf', 'sr_Cyrl', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.sr_Latn.xlf', 'sr_Latn', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.sv.xlf', 'sv', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.tr.xlf', 'tr', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../../Resources/translations\\security.ua.xlf', 'ua', 'security');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle/Resources/translations\\messages.fr.xlf', 'fr', 'messages');
+        $instance->addResource('xlf', 'C:\\wamp\\www\\DeveloppementDurable\\src\\UTBM\\UserBundle/Resources/translations\\messages.fr.xlf', 'fr', 'messages');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.ar.yml', 'ar', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.bg.yml', 'bg', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.ca.yml', 'ca', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.cs.yml', 'cs', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.da.yml', 'da', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.de.yml', 'de', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.en.yml', 'en', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.es.yml', 'es', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.et.yml', 'et', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.fa.yml', 'fa', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.fi.yml', 'fi', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.fr.yml', 'fr', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.hr.yml', 'hr', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.hu.yml', 'hu', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.id.yml', 'id', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.it.yml', 'it', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.ja.yml', 'ja', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.lb.yml', 'lb', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.lt.yml', 'lt', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.lv.yml', 'lv', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.nb.yml', 'nb', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.nl.yml', 'nl', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.pl.yml', 'pl', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.pt_BR.yml', 'pt_BR', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.pt_PT.yml', 'pt_PT', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.ro.yml', 'ro', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.ru.yml', 'ru', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.sk.yml', 'sk', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.sl.yml', 'sl', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.sr_Latn.yml', 'sr_Latn', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.sv.yml', 'sv', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.tr.yml', 'tr', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.uk.yml', 'uk', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.vi.yml', 'vi', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\FOSUserBundle.zh_CN.yml', 'zh_CN', 'FOSUserBundle');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.ar.yml', 'ar', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.bg.yml', 'bg', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.ca.yml', 'ca', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.cs.yml', 'cs', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.da.yml', 'da', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.de.yml', 'de', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.en.yml', 'en', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.es.yml', 'es', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.fa.yml', 'fa', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.fi.yml', 'fi', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.fr.yml', 'fr', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.hr.yml', 'hr', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.hu.yml', 'hu', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.id.yml', 'id', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.it.yml', 'it', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.ja.yml', 'ja', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.lt.yml', 'lt', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.lv.yml', 'lv', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.nb.yml', 'nb', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.nl.yml', 'nl', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.pl.yml', 'pl', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.pt.yml', 'pt', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.pt_BR.yml', 'pt_BR', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.ro.yml', 'ro', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.ru.yml', 'ru', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.sk.yml', 'sk', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.sl.yml', 'sl', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.sr_Latn.yml', 'sr_Latn', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.sv.yml', 'sv', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.tr.yml', 'tr', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.uk.yml', 'uk', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.vi.yml', 'vi', 'validators');
+        $instance->addResource('yml', 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/translations\\validators.zh_CN.yml', 'zh_CN', 'validators');
         return $instance;
     }
     protected function getTwigService()
     {
         $a = $this->get('security.context');
-        $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('debug' => false, 'strict_variables' => false, 'exception_controller' => 'twig.controller.exception:showAction', 'autoescape_service' => NULL, 'autoescape_service_method' => NULL, 'cache' => 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/twig', 'charset' => 'UTF-8', 'paths' => array()));
+        $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('debug' => false, 'strict_variables' => false, 'exception_controller' => 'twig.controller.exception:showAction', 'autoescape_service' => NULL, 'autoescape_service_method' => NULL, 'cache' => 'C:/wamp/www/DeveloppementDurable/app/cache/prod/twig', 'charset' => 'UTF-8', 'paths' => array()));
         $instance->addExtension($this->get('twig.extension.text'));
         $instance->addExtension($this->get('twig.extension.intl'));
         $instance->addExtension($this->get('twig.extension.debug'));
@@ -1345,7 +1345,7 @@ class appProdProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\TranslationExtension($this->get('translator.default')));
         $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\AssetsExtension($this));
         $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\ActionsExtension($this));
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension(NULL, 'C:/xampp/htdocs/DeveloppementDurable/app', 'UTF-8'));
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension(NULL, 'C:/wamp/www/DeveloppementDurable/app', 'UTF-8'));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\RoutingExtension($this->get('router')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\YamlExtension());
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\HttpKernelExtension($this->get('fragment.handler')));
@@ -1379,17 +1379,17 @@ class appProdProjectContainer extends Container
     protected function getTwig_LoaderService()
     {
         $this->services['twig.loader'] = $instance = new \Symfony\Bundle\TwigBundle\Loader\FilesystemLoader($this->get('templating.locator'), $this->get('templating.name_parser'));
-        $instance->addPath('C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views', 'Framework');
-        $instance->addPath('C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle/Resources/views', 'Security');
-        $instance->addPath('C:/xampp/htdocs/DeveloppementDurable/app/Resources/TwigBundle/views', 'Twig');
-        $instance->addPath('C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views', 'Twig');
-        $instance->addPath('C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\swiftmailer-bundle\\Symfony\\Bundle\\SwiftmailerBundle/Resources/views', 'Swiftmailer');
-        $instance->addPath('C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\doctrine\\doctrine-bundle\\Doctrine\\Bundle\\DoctrineBundle/Resources/views', 'Doctrine');
-        $instance->addPath('C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle/Resources/views', 'ArticleDev');
-        $instance->addPath('C:\\xampp\\htdocs\\DeveloppementDurable\\src\\UTBM\\UserBundle/Resources/views', 'User');
-        $instance->addPath('C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/views', 'FOSUser');
-        $instance->addPath('C:/xampp/htdocs/DeveloppementDurable/app/Resources/views');
-        $instance->addPath('C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Bridge\\Twig/Resources/views/Form');
+        $instance->addPath('C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views', 'Framework');
+        $instance->addPath('C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle/Resources/views', 'Security');
+        $instance->addPath('C:/wamp/www/DeveloppementDurable/app/Resources/TwigBundle/views', 'Twig');
+        $instance->addPath('C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views', 'Twig');
+        $instance->addPath('C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\swiftmailer-bundle\\Symfony\\Bundle\\SwiftmailerBundle/Resources/views', 'Swiftmailer');
+        $instance->addPath('C:\\wamp\\www\\DeveloppementDurable\\vendor\\doctrine\\doctrine-bundle\\Doctrine\\Bundle\\DoctrineBundle/Resources/views', 'Doctrine');
+        $instance->addPath('C:\\wamp\\www\\DeveloppementDurable\\src\\UTBM\\ArticleDevBundle/Resources/views', 'ArticleDev');
+        $instance->addPath('C:\\wamp\\www\\DeveloppementDurable\\src\\UTBM\\UserBundle/Resources/views', 'User');
+        $instance->addPath('C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle/Resources/views', 'FOSUser');
+        $instance->addPath('C:/wamp/www/DeveloppementDurable/app/Resources/views');
+        $instance->addPath('C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Bridge\\Twig/Resources/views/Form');
         return $instance;
     }
     protected function getTwig_Translation_ExtractorService()
@@ -1418,7 +1418,7 @@ class appProdProjectContainer extends Container
     }
     protected function getAssetic_AssetFactoryService()
     {
-        return $this->services['assetic.asset_factory'] = new \Symfony\Bundle\AsseticBundle\Factory\AssetFactory($this->get('kernel'), $this, $this->getParameterBag(), 'C:/xampp/htdocs/DeveloppementDurable/app/../web', false);
+        return $this->services['assetic.asset_factory'] = new \Symfony\Bundle\AsseticBundle\Factory\AssetFactory($this->get('kernel'), $this, $this->getParameterBag(), 'C:/wamp/www/DeveloppementDurable/app/../web', false);
     }
     protected function getControllerNameConverterService()
     {
@@ -1439,7 +1439,7 @@ class appProdProjectContainer extends Container
     protected function getSecurity_Authentication_ManagerService()
     {
         $a = $this->get('security.user_checker');
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'b412d90676eab56b4d4c9c3fadb4aa56', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('52892d842cfa8')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('fos_user.user_provider.username'), $a, 'main', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\RememberMeAuthenticationProvider($a, 'b412d90676eab56b4d4c9c3fadb4aa56', 'main'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('52a60ff46f670')), true);
         $instance->setEventDispatcher($this->get('event_dispatcher'));
         return $instance;
     }
@@ -1453,7 +1453,7 @@ class appProdProjectContainer extends Container
     }
     protected function getSecurity_Extra_MetadataFactoryService()
     {
-        $this->services['security.extra.metadata_factory'] = $instance = new \Metadata\MetadataFactory(new \Metadata\Driver\LazyLoadingDriver($this, 'security.extra.metadata_driver'), new \Metadata\Cache\FileCache('C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/jms_security', false));
+        $this->services['security.extra.metadata_factory'] = $instance = new \Metadata\MetadataFactory(new \Metadata\Driver\LazyLoadingDriver($this, 'security.extra.metadata_driver'), new \Metadata\Cache\FileCache('C:/wamp/www/DeveloppementDurable/app/cache/prod/jms_security', false));
         $instance->setIncludeInterfaces(true);
         return $instance;
     }
@@ -1467,11 +1467,11 @@ class appProdProjectContainer extends Container
     }
     protected function getTemplating_LocatorService()
     {
-        return $this->services['templating.locator'] = new \Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator($this->get('file_locator'), 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod');
+        return $this->services['templating.locator'] = new \Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator($this->get('file_locator'), 'C:/wamp/www/DeveloppementDurable/app/cache/prod');
     }
     protected function getValidator_Mapping_ClassMetadataFactoryService()
     {
-        return $this->services['validator.mapping.class_metadata_factory'] = new \Symfony\Component\Validator\Mapping\ClassMetadataFactory(new \Symfony\Component\Validator\Mapping\Loader\LoaderChain(array(0 => new \Symfony\Component\Validator\Mapping\Loader\AnnotationLoader($this->get('annotation_reader')), 1 => new \Symfony\Component\Validator\Mapping\Loader\StaticMethodLoader(), 2 => new \Symfony\Component\Validator\Mapping\Loader\XmlFilesLoader(array(0 => 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/config/validation.xml', 1 => 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle\\Resources\\config\\validation.xml', 2 => 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle\\Resources\\config\\validation\\orm.xml')), 3 => new \Symfony\Component\Validator\Mapping\Loader\YamlFilesLoader(array()))), NULL);
+        return $this->services['validator.mapping.class_metadata_factory'] = new \Symfony\Component\Validator\Mapping\ClassMetadataFactory(new \Symfony\Component\Validator\Mapping\Loader\LoaderChain(array(0 => new \Symfony\Component\Validator\Mapping\Loader\AnnotationLoader($this->get('annotation_reader')), 1 => new \Symfony\Component\Validator\Mapping\Loader\StaticMethodLoader(), 2 => new \Symfony\Component\Validator\Mapping\Loader\XmlFilesLoader(array(0 => 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/config/validation.xml', 1 => 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle\\Resources\\config\\validation.xml', 2 => 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle\\Resources\\config\\validation\\orm.xml')), 3 => new \Symfony\Component\Validator\Mapping\Loader\YamlFilesLoader(array()))), NULL);
     }
     public function getParameter($name)
     {
@@ -1500,12 +1500,12 @@ class appProdProjectContainer extends Container
     protected function getDefaultParameters()
     {
         return array(
-            'kernel.root_dir' => 'C:/xampp/htdocs/DeveloppementDurable/app',
+            'kernel.root_dir' => 'C:/wamp/www/DeveloppementDurable/app',
             'kernel.environment' => 'prod',
             'kernel.debug' => false,
             'kernel.name' => 'ap_',
-            'kernel.cache_dir' => 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod',
-            'kernel.logs_dir' => 'C:/xampp/htdocs/DeveloppementDurable/app/logs',
+            'kernel.cache_dir' => 'C:/wamp/www/DeveloppementDurable/app/cache/prod',
+            'kernel.logs_dir' => 'C:/wamp/www/DeveloppementDurable/app/logs',
             'kernel.bundles' => array(
                 'FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle',
                 'SecurityBundle' => 'Symfony\\Bundle\\SecurityBundle\\SecurityBundle',
@@ -1598,7 +1598,7 @@ class appProdProjectContainer extends Container
             'session_listener.class' => 'Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener',
             'session.storage.options' => array(
             ),
-            'session.save_path' => 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/sessions',
+            'session.save_path' => 'C:/wamp/www/DeveloppementDurable/app/cache/prod/sessions',
             'form.resolved_type_factory.class' => 'Symfony\\Component\\Form\\ResolvedFormTypeFactory',
             'form.registry.class' => 'Symfony\\Component\\Form\\FormRegistry',
             'form.factory.class' => 'Symfony\\Component\\Form\\FormFactory',
@@ -1652,9 +1652,9 @@ class appProdProjectContainer extends Container
             'validator.mapping.loader.yaml_files_loader.class' => 'Symfony\\Component\\Validator\\Mapping\\Loader\\YamlFilesLoader',
             'validator.validator_factory.class' => 'Symfony\\Bundle\\FrameworkBundle\\Validator\\ConstraintValidatorFactory',
             'validator.mapping.loader.xml_files_loader.mapping_files' => array(
-                0 => 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/config/validation.xml',
-                1 => 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle\\Resources\\config\\validation.xml',
-                2 => 'C:\\xampp\\htdocs\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle\\Resources\\config\\validation\\orm.xml',
+                0 => 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/config/validation.xml',
+                1 => 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle\\Resources\\config\\validation.xml',
+                2 => 'C:\\wamp\\www\\DeveloppementDurable\\vendor\\friendsofsymfony\\user-bundle\\FOS\\UserBundle\\Resources\\config\\validation\\orm.xml',
             ),
             'validator.mapping.loader.yaml_files_loader.mapping_files' => array(
             ),
@@ -1682,7 +1682,7 @@ class appProdProjectContainer extends Container
             'router.request_context.host' => 'localhost',
             'router.request_context.scheme' => 'http',
             'router.request_context.base_url' => '',
-            'router.resource' => 'C:/xampp/htdocs/DeveloppementDurable/app/config/routing.yml',
+            'router.resource' => 'C:/wamp/www/DeveloppementDurable/app/config/routing.yml',
             'router.cache_class_prefix' => 'appProd',
             'request_listener.http_port' => 80,
             'request_listener.https_port' => 443,
@@ -1791,7 +1791,7 @@ class appProdProjectContainer extends Container
                 'exception_controller' => 'twig.controller.exception:showAction',
                 'autoescape_service' => NULL,
                 'autoescape_service_method' => NULL,
-                'cache' => 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/twig',
+                'cache' => 'C:/wamp/www/DeveloppementDurable/app/cache/prod/twig',
                 'charset' => 'UTF-8',
                 'paths' => array(
                 ),
@@ -1843,7 +1843,7 @@ class appProdProjectContainer extends Container
             'swiftmailer.mailer.default.transport.smtp.auth_mode' => NULL,
             'swiftmailer.mailer.default.transport.smtp.timeout' => 30,
             'swiftmailer.mailer.default.transport.smtp.source_ip' => NULL,
-            'swiftmailer.spool.default.memory.path' => 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/swiftmailer/spool/default',
+            'swiftmailer.spool.default.memory.path' => 'C:/wamp/www/DeveloppementDurable/app/cache/prod/swiftmailer/spool/default',
             'swiftmailer.mailer.default.spool.enabled' => true,
             'swiftmailer.mailer.default.single_address' => NULL,
             'swiftmailer.spool.enabled' => true,
@@ -1867,7 +1867,7 @@ class appProdProjectContainer extends Container
             'assetic.value_supplier.class' => 'Symfony\\Bundle\\AsseticBundle\\DefaultValueSupplier',
             'assetic.node.paths' => array(
             ),
-            'assetic.cache_dir' => 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/assetic',
+            'assetic.cache_dir' => 'C:/wamp/www/DeveloppementDurable/app/cache/prod/assetic',
             'assetic.bundles' => array(
             ),
             'assetic.twig_extension.class' => 'Symfony\\Bundle\\AsseticBundle\\Twig\\AsseticExtension',
@@ -1878,11 +1878,11 @@ class appProdProjectContainer extends Container
             'assetic.debug' => false,
             'assetic.use_controller' => false,
             'assetic.enable_profiler' => false,
-            'assetic.read_from' => 'C:/xampp/htdocs/DeveloppementDurable/app/../web',
-            'assetic.write_to' => 'C:/xampp/htdocs/DeveloppementDurable/app/../web',
+            'assetic.read_from' => 'C:/wamp/www/DeveloppementDurable/app/../web',
+            'assetic.write_to' => 'C:/wamp/www/DeveloppementDurable/app/../web',
             'assetic.variables' => array(
             ),
-            'assetic.java.bin' => '/usr/bin/java',
+            'assetic.java.bin' => 'c:\\Windows\\system32\\java.EXE',
             'assetic.node.bin' => '/usr/bin/node',
             'assetic.ruby.bin' => '/usr/bin/ruby',
             'assetic.sass.bin' => '/usr/bin/sass',
@@ -1944,7 +1944,7 @@ class appProdProjectContainer extends Container
             'doctrine.orm.naming_strategy.default.class' => 'Doctrine\\ORM\\Mapping\\DefaultNamingStrategy',
             'doctrine.orm.naming_strategy.underscore.class' => 'Doctrine\\ORM\\Mapping\\UnderscoreNamingStrategy',
             'doctrine.orm.auto_generate_proxy_classes' => false,
-            'doctrine.orm.proxy_dir' => 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/doctrine/orm/Proxies',
+            'doctrine.orm.proxy_dir' => 'C:/wamp/www/DeveloppementDurable/app/cache/prod/doctrine/orm/Proxies',
             'doctrine.orm.proxy_namespace' => 'Proxies',
             'sensio_framework_extra.view.guesser.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Templating\\TemplateGuesser',
             'sensio_framework_extra.controller.listener.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\ControllerListener',
@@ -1956,7 +1956,7 @@ class appProdProjectContainer extends Container
             'sensio_framework_extra.converter.doctrine.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DoctrineParamConverter',
             'sensio_framework_extra.converter.datetime.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DateTimeParamConverter',
             'sensio_framework_extra.view.listener.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\TemplateListener',
-            'jms_aop.cache_dir' => 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/jms_aop',
+            'jms_aop.cache_dir' => 'C:/wamp/www/DeveloppementDurable/app/cache/prod/jms_aop',
             'jms_aop.interceptor_loader.class' => 'JMS\\AopBundle\\Aop\\InterceptorLoader',
             'security.secured_services' => array(
             ),
@@ -1977,7 +1977,7 @@ class appProdProjectContainer extends Container
             'security.extra.annotation_driver.class' => 'JMS\\SecurityExtraBundle\\Metadata\\Driver\\AnnotationDriver',
             'security.extra.file_cache.class' => 'Metadata\\Cache\\FileCache',
             'security.access.secure_all_services' => false,
-            'security.extra.cache_dir' => 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/jms_security',
+            'security.extra.cache_dir' => 'C:/wamp/www/DeveloppementDurable/app/cache/prod/jms_security',
             'security.acl.permission_evaluator.class' => 'JMS\\SecurityExtraBundle\\Security\\Acl\\Expression\\PermissionEvaluator',
             'security.acl.has_permission_compiler.class' => 'JMS\\SecurityExtraBundle\\Security\\Acl\\Expression\\HasPermissionFunctionCompiler',
             'security.expressions.voter.class' => 'JMS\\SecurityExtraBundle\\Security\\Authorization\\Expression\\LazyLoadingExpressionVoter',
@@ -2010,13 +2010,13 @@ class appProdProjectContainer extends Container
             ),
             'jms_di_extra.directories' => array(
             ),
-            'jms_di_extra.cache_dir' => 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/jms_diextra',
+            'jms_di_extra.cache_dir' => 'C:/wamp/www/DeveloppementDurable/app/cache/prod/jms_diextra',
             'jms_di_extra.disable_grep' => false,
             'jms_di_extra.doctrine_integration' => true,
             'jms_di_extra.cache_warmer.controller_file_blacklist' => array(
             ),
-            'jms_di_extra.doctrine_integration.entity_manager.file' => 'C:/xampp/htdocs/DeveloppementDurable/app/cache/prod/jms_diextra/doctrine/EntityManager_52892d845cb92.php',
-            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager52892d845cb92_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
+            'jms_di_extra.doctrine_integration.entity_manager.file' => 'C:/wamp/www/DeveloppementDurable/app/cache/prod/jms_diextra/doctrine/EntityManager_52a60ff4b8d42.php',
+            'jms_di_extra.doctrine_integration.entity_manager.class' => 'EntityManager52a60ff4b8d42_546a8d27f194334ee012bfe64f629947b07e4919\\__CG__\\Doctrine\\ORM\\EntityManager',
             'fos_user.backend_type_orm' => true,
             'fos_user.validator.password.class' => 'FOS\\UserBundle\\Validator\\PasswordValidator',
             'fos_user.validator.unique.class' => 'FOS\\UserBundle\\Validator\\UniqueValidator',
