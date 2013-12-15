@@ -273,6 +273,84 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_delSubCategory')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\SubCategoryDevController::delSubCategoryAction',));
             }
 
+            // article_dev_addQuestion
+            if ($pathinfo === '/admin/addQuestion') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\QuestionDevController::addQuestionAction',  '_route' => 'article_dev_addQuestion',);
+            }
+
+            // article_dev_editQuestion
+            if (0 === strpos($pathinfo, '/admin/editQuestion') && preg_match('#^/admin/editQuestion\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_editQuestion')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\QuestionDevController::editQuestionAction',));
+            }
+
+            // article_dev_delQuestion
+            if (0 === strpos($pathinfo, '/admin/delQuestion') && preg_match('#^/admin/delQuestion\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_delQuestion')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\QuestionDevController::delQuestionAction',));
+            }
+
+            // article_dev_addProposal
+            if ($pathinfo === '/admin/addProposal') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ProposalDevController::addProposalAction',  '_route' => 'article_dev_addProposal',);
+            }
+
+            // article_dev_editProposal
+            if (0 === strpos($pathinfo, '/admin/editProposal') && preg_match('#^/admin/editProposal\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_editProposal')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ProposalDevController::editProposalAction',));
+            }
+
+            // article_dev_delProposal
+            if (0 === strpos($pathinfo, '/admin/delProposal') && preg_match('#^/admin/delProposal\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_delProposal')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ProposalDevController::delProposalAction',));
+            }
+
+        }
+
+        // article_dev_question
+        if (0 === strpos($pathinfo, '/sc') && preg_match('#^/sc\\=(?P<idSC>[^/]++)/q\\=(?P<idQ>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_question')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::questionAction',));
+        }
+
+        // article_dev_response
+        if ($pathinfo === '/response') {
+            return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ProposalDevController::checkAction',  '_route' => 'article_dev_response',);
+        }
+
+        if (0 === strpos($pathinfo, '/admin')) {
+            // article_dev_LMenu
+            if ($pathinfo === '/admin/LMenu') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\LMenuDevController::LMenuAction',  '_route' => 'article_dev_LMenu',);
+            }
+
+            // article_dev_addLMenu
+            if ($pathinfo === '/admin/addLMenu') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\LMenuDevController::addLMenuAction',  '_route' => 'article_dev_addLMenu',);
+            }
+
+            // article_dev_editLMenu
+            if (0 === strpos($pathinfo, '/admin/editLMenu') && preg_match('#^/admin/editLMenu\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_editLMenu')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\LMenuDevController::editLMenuAction',));
+            }
+
+            // article_dev_delLMenu
+            if (0 === strpos($pathinfo, '/admin/delLMenu') && preg_match('#^/admin/delLMenu\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_delLMenu')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\LMenuDevController::delLMenuAction',));
+            }
+
+            // article_dev_addLMenuElt
+            if ($pathinfo === '/admin/addLMenuElt') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\LMenuEltDevController::addLMenuEltAction',  '_route' => 'article_dev_addLMenuElt',);
+            }
+
+            // article_dev_editLMenuElt
+            if (0 === strpos($pathinfo, '/admin/editLMenuElt') && preg_match('#^/admin/editLMenuElt\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_editLMenuElt')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\LMenuEltDevController::editLMenuEltAction',));
+            }
+
+            // article_dev_delLMenuElt
+            if (0 === strpos($pathinfo, '/admin/delLMenuElt') && preg_match('#^/admin/delLMenuElt\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_delLMenuElt')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\LMenuEltDevController::delLMenuEltAction',));
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

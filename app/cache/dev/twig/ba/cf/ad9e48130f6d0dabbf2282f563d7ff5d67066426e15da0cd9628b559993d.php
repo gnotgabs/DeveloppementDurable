@@ -18,10 +18,11 @@ class __TwigTemplate_bacfad9e48130f6d0dabbf2282f563d7ff5d67066426e15da0cd9628b55
     }
 
     // line 1
-    public function getvoletGauche($_articles = null)
+    public function getvoletGauche($_articles = null, $_lMenus = null)
     {
         $context = $this->env->mergeGlobals(array(
             "articles" => $_articles,
+            "lMenus" => $_lMenus,
         ));
 
         $blocks = array();
@@ -29,33 +30,72 @@ class __TwigTemplate_bacfad9e48130f6d0dabbf2282f563d7ff5d67066426e15da0cd9628b55
         ob_start();
         try {
             // line 2
-            echo "    ";
-            $context['_parent'] = (array) $context;
-            $context['_seq'] = twig_ensure_traversable(twig_slice($this->env, $this->getContext($context, "articles"), 0, 1));
-            foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-                // line 3
-                echo "        <div id=\"question\">
-            <p class=\"title\">Exercez vous</p>
-            <a href=\"";
-                // line 5
-                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_question", array("idSC" => $this->getAttribute($this->getAttribute($this->getContext($context, "article"), "subCategory"), "id"), "idQ" => $this->getAttribute($this->getAttribute($this->getContext($context, "article"), "subCategory"), "id"))), "html", null, true);
-                echo "\" class=\"aQuiz\">
-                Accédez aux questions
-            </a>
-        </div>
+            echo "
     ";
+            // line 3
+            if ((twig_length_filter($this->env, $this->getContext($context, "articles")) != 0)) {
+                // line 4
+                echo "        ";
+                $context['_parent'] = (array) $context;
+                $context['_seq'] = twig_ensure_traversable(twig_slice($this->env, $this->getContext($context, "articles"), 0, 1));
+                foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
+                    // line 5
+                    echo "            <div id=\"question\">
+                <p class=\"title\">Exercez vous</p>
+                <a href=\"";
+                    // line 7
+                    echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_question", array("idSC" => $this->getAttribute($this->getAttribute($this->getContext($context, "article"), "subCategory"), "id"), "idQ" => $this->getAttribute($this->getAttribute($this->getContext($context, "article"), "subCategory"), "id"))), "html", null, true);
+                    echo "\" class=\"aQuiz\">
+                    ?&nbsp;&nbsp;Accédez aux questions
+                </a>
+            </div>
+        ";
+                }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 12
+                echo "    ";
+            }
+            // line 13
+            echo "    <div id=\"autres\">
+        ";
+            // line 14
+            $context['_parent'] = (array) $context;
+            $context['_seq'] = twig_ensure_traversable($this->getContext($context, "lMenus"));
+            foreach ($context['_seq'] as $context["_key"] => $context["lmenu"]) {
+                // line 15
+                echo "            <p class=\"title\">";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "lmenu"), "title"), "html", null, true);
+                echo "</p>
+            ";
+                // line 16
+                $context['_parent'] = (array) $context;
+                $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getContext($context, "lmenu"), "lMenuElts"));
+                foreach ($context['_seq'] as $context["_key"] => $context["elt"]) {
+                    // line 17
+                    echo "                <a href=\"";
+                    echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "elt"), "linkElt"), "html", null, true);
+                    echo "\" class=\"aQuiz\" target='_blank'>
+                    >&nbsp;&nbsp;";
+                    // line 18
+                    echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "elt"), "labelElt"), "html", null, true);
+                    echo "
+                </a>
+            <br>
+            ";
+                }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['elt'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 22
+                echo "        ";
             }
             $_parent = $context['_parent'];
-            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['lmenu'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 10
-            echo "    <div id=\"autres\">
-        <p class=\"title\">Titre</p>
-        <a href=\"\" class=\"aQuiz\">
-            lien/liens
-        </a>
-        <br>
-    </div>
+            // line 23
+            echo "    </div>
 ";
         } catch (Exception $e) {
             ob_end_clean();
@@ -78,6 +118,6 @@ class __TwigTemplate_bacfad9e48130f6d0dabbf2282f563d7ff5d67066426e15da0cd9628b55
 
     public function getDebugInfo()
     {
-        return array (  52 => 10,  41 => 5,  37 => 3,  32 => 2,  21 => 1,);
+        return array (  98 => 23,  92 => 22,  82 => 18,  77 => 17,  73 => 16,  68 => 15,  64 => 14,  61 => 13,  58 => 12,  47 => 7,  43 => 5,  38 => 4,  36 => 3,  33 => 2,  21 => 1,);
     }
 }

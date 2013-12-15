@@ -21,8 +21,12 @@
     height: 150px;
 }
 input#dev_title,input#dev_content,input#dev_link,input#dev_image,input#dev_subcat, 
-select#proposal_question, input#proposal_pEntitled{
+select#proposal_question, input#proposal_pEntitled, input#lmenuelt_labelElt, 
+input#lmenuelt_linkElt{
     width: 400px;
+}
+select#lmenuelt_lmenu{
+    width: 250px;
 }
 input#proposal_answer{
     width: 30px;

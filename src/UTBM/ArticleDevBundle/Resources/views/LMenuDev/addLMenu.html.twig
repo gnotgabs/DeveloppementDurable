@@ -1,0 +1,58 @@
+{% extends "ArticleDevBundle::adminLayout.html.twig" %}
+
+    {# IMPORTATION DE LA MACRO CHARGEE DE LA CREATION DES MENUS #}
+{% import "ArticleDevBundle::menu.html.twig" as macroMenus %}
+{% import "ArticleDevBundle::voletgauche.html.twig" as macroVoletGauche %}
+
+
+{% block arianne %}
+    {{ parent() }}
+    <li>
+        <a href="{{ path('article_dev_addCategory') }}" title="Ajouter une sous-catégorie">
+            Ajout de menu
+        </a><span class="end">&nbsp;</span>
+    </li>
+{% endblock %}
+
+{# 
+    CREATION DU MENU DE L'APPLICATION
+    
+    Les menus récupérés de la base de données sont passés à la méthode "dynamicMenu" de la macro de création de menus 
+    Celle-ci se charge de les placer comme il faut dans le code html préparé à cet effet contenu dans la fichier "menu.html.twig"
+#}
+{% block menu %}
+    {{ macroMenus.dynamicMenu(menus) }}
+{% endblock %}
+                
+{# VOLET GAUCHE DE L'APPLICATION #}
+{% block leftCont %}
+    {{ macroVoletGauche.voletGauche(articles, lMenus) }}
+{% endblock %}
+    
+{% block body %}
+   {{ parent() }}
+    <div class="well">
+        <p class="title">
+            Ajout des éléments du volet de gauche ( Menu )
+            
+            <span class="adminArticle">
+               <a href='{{ path('article_dev_LMenu') }}' title="Edition et suppression des menus et sous-menus">
+                   <font color='blue'><u>Editer / Supprimer menus et sous-menus</u></font>
+               </a>
+            </span>
+        </p>
+        <form action="{{ path('article_dev_addLMenu') }}" method='post' {{ form_enctype(form) }} class="formCateg">
+            {{ form_errors(form) }}
+            <div>
+                {{ form_label(form.title, "Titre du menu: ", { 'label_attr': {'class': 'formLabel'}} ) }}
+                {{ form_errors(form.title) }}
+                {{ form_widget(form.title, { 'attr': {'id': 'formCat'}}) }}                
+            </div>
+            <div>
+                {{ form_rest(form) }}
+                <input type="submit" class='btn btn-primary' value="Enrégistrer">
+                <input type="reset" class='btn btn-second' value="Annuler">
+            </div>
+        </form>
+    </div>
+{% endblock %}

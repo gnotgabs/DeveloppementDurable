@@ -449,6 +449,44 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ProposalDevController::checkAction',  '_route' => 'article_dev_response',);
         }
 
+        if (0 === strpos($pathinfo, '/admin')) {
+            // article_dev_LMenu
+            if ($pathinfo === '/admin/LMenu') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\LMenuDevController::LMenuAction',  '_route' => 'article_dev_LMenu',);
+            }
+
+            // article_dev_addLMenu
+            if ($pathinfo === '/admin/addLMenu') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\LMenuDevController::addLMenuAction',  '_route' => 'article_dev_addLMenu',);
+            }
+
+            // article_dev_editLMenu
+            if (0 === strpos($pathinfo, '/admin/editLMenu') && preg_match('#^/admin/editLMenu\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_editLMenu')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\LMenuDevController::editLMenuAction',));
+            }
+
+            // article_dev_delLMenu
+            if (0 === strpos($pathinfo, '/admin/delLMenu') && preg_match('#^/admin/delLMenu\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_delLMenu')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\LMenuDevController::delLMenuAction',));
+            }
+
+            // article_dev_addLMenuElt
+            if ($pathinfo === '/admin/addLMenuElt') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\LMenuEltDevController::addLMenuEltAction',  '_route' => 'article_dev_addLMenuElt',);
+            }
+
+            // article_dev_editLMenuElt
+            if (0 === strpos($pathinfo, '/admin/editLMenuElt') && preg_match('#^/admin/editLMenuElt\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_editLMenuElt')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\LMenuEltDevController::editLMenuEltAction',));
+            }
+
+            // article_dev_delLMenuElt
+            if (0 === strpos($pathinfo, '/admin/delLMenuElt') && preg_match('#^/admin/delLMenuElt\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_delLMenuElt')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\LMenuEltDevController::delLMenuEltAction',));
+            }
+
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

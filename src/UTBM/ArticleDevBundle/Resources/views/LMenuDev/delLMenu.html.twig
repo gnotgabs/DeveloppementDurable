@@ -1,0 +1,46 @@
+{% extends "ArticleDevBundle::adminLayout.html.twig" %}
+
+    {# IMPORTATION DE LA MACRO CHARGEE DE LA CREATION DES MENUS #}
+{% import "ArticleDevBundle::menu.html.twig" as macroMenus %}
+{% import "ArticleDevBundle::voletgauche.html.twig" as macroVoletGauche %}
+
+
+{% block arianne %}
+
+    {{ parent() }}
+ 
+    <li>
+        <a href="{{ path('article_dev_showCategories') }}" title="Retour aux catégories et sous-catégories">
+            Suppression question
+        </a><span class="end">&nbsp;</span>
+    </li>
+{% endblock %}
+
+
+{% block menu %}
+    {{ macroMenus.dynamicMenu(menus) }}
+{% endblock %}
+
+                
+{# VOLET GAUCHE DE L'APPLICATION #}
+{% block leftCont %}
+    {{ macroVoletGauche.voletGauche(articles, lMenus) }}
+{% endblock %}
+    
+{% block body %}
+   {{ parent() }}
+    <div class="well">
+        <p class="title">Etes-vous certain de vouloir supprimer l'élément <span class="editSup">« {{lMenu.title}} » ?</span></p>
+        <form action="{{ path('article_dev_delLMenu', {'id': lMenu.id}) }}" method='post' {{ form_enctype(form) }} class="formSup"> 
+            {{ form_errors(form) }}
+            
+            <a href="{{ path('article_dev_LMenu') }}" class='a-back'>
+              <i class="btn-back"></i>
+              Retour à l'administration
+            </a>
+            
+            <input type="submit" value="Supprimer" class="btn-danger" />
+            {{ form_rest(form) }}
+        </form>
+    </div>
+{% endblock %}

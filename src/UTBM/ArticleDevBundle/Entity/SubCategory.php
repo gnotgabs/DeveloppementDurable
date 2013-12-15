@@ -63,9 +63,9 @@ class SubCategory
         $this->questions = new ArrayCollection();
     }
 
-     public function __toString()
+    public function __toString()
     {
-        return $this->getLabelSubCategory();
+       return $this->getLabelSubCategory();
     }
 
     /**

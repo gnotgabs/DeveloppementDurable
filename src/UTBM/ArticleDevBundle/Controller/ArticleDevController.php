@@ -26,6 +26,10 @@ class ArticleDevController extends Controller
         $articles = $em->getRepository("ArticleDevBundle:Article")
                        ->getSubCategoryArticles($id);
         
+        // Menu du volet de gauche
+        $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
+                   ->getLeftMenu();
+        
         if($articles === null){
             throw $this->createNotFoundException('Article[id='.$id.'] inexistant.');
         }
@@ -38,6 +42,7 @@ class ArticleDevController extends Controller
         return $this->render('ArticleDevBundle:ArticleDev:index.html.twig', array(
             'articles'  => $articles,
             'menus'     => $men,
+            'lMenus'    => $lMenus,
         ));
     }
     
@@ -54,6 +59,10 @@ class ArticleDevController extends Controller
         $articles = $em->getRepository("ArticleDevBundle:Article")
                        ->getSubCategoryArticles($id);
         
+        // Menu du volet de gauche
+        $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
+                   ->getLeftMenu();
+        
         if($articles === null){
             throw $this->createNotFoundException('Article[id='.$id.'] inexistant.');
         }
@@ -66,6 +75,7 @@ class ArticleDevController extends Controller
         return $this->render('ArticleDevBundle:ArticleDev:index.html.twig', array(
             'articles'  => $articles,
             'menus'     => $men,
+            'lMenus'    => $lMenus,
         ));
     }
 
@@ -81,6 +91,13 @@ class ArticleDevController extends Controller
         // on récupère l'article à affiche en intégralité
         $article = $em->getRepository("ArticleDevBundle:Article")
                       ->find($idAr);
+        // on récupère tous les articles associés à la sous catégorie sélectionée
+        $articles = $em->getRepository("ArticleDevBundle:Article")
+                       ->getSubCategoryArticles($idAr);
+        
+        // Menu du volet de gauche
+        $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
+                   ->getLeftMenu();
 
         if($article === null){
             throw $this->createNotFoundException('Article[id='.$idAr.'] inexistant.');
@@ -92,9 +109,11 @@ class ArticleDevController extends Controller
                   ->getMenus();
         
         return $this->render('ArticleDevBundle:ArticleDev:article.html.twig', array(
+            'articles' => $articles,
             'article' => $article,
             'menus'   => $men,
             'idSc'    => $idSc,
+            'lMenus'    => $lMenus,
         ));
     }
     
@@ -111,8 +130,16 @@ class ArticleDevController extends Controller
         $men = $em->getRepository('ArticleDevBundle:Category')
                   ->getMenus();
         
+        // Menu du volet de gauche
+        $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
+                   ->getLeftMenu();
+        
+        $articles = array();
+        
         return $this->render('ArticleDevBundle:ArticleDev:admin.html.twig', array(
-            'menus'   => $men,
+            'menus'     =>  $men,
+            'lMenus'    =>  $lMenus,
+            'articles' =>  $articles,
         ));
     }
     
@@ -281,6 +308,10 @@ class ArticleDevController extends Controller
         $questions = $em->getRepository("ArticleDevBundle:Question")
                        ->getQuestions($idQ);
         
+        // Menu du volet de gauche
+        $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
+                   ->getLeftMenu();
+        
         $men = $em->getRepository('ArticleDevBundle:Category')
                   ->getMenus();
         
@@ -288,6 +319,7 @@ class ArticleDevController extends Controller
             'menus'     => $men,
             'questions'  => $questions,
             'articles'  => $articles,
+            'lMenus'    => $lMenus,
         ));
     }
 }

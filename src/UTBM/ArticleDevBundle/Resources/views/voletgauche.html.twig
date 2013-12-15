@@ -1,17 +1,24 @@
-{% macro voletGauche(articles) %}
-    {% for article in articles|slice(0, 1) %}
-        <div id="question">
-            <p class="title">Exercez vous</p>
-            <a href="{{ path('article_dev_question', {'idSC': article.subCategory.id,'idQ': article.subCategory.id}) }}" class="aQuiz">
-                Accédez aux questions
-            </a>
-        </div>
-    {% endfor %}
+{% macro voletGauche(articles, lMenus) %}
+
+    {% if articles|length != 0%}
+        {% for article in articles|slice(0, 1) %}
+            <div id="question">
+                <p class="title">Exercez vous</p>
+                <a href="{{ path('article_dev_question', {'idSC': article.subCategory.id,'idQ': article.subCategory.id}) }}" class="aQuiz">
+                    ?&nbsp;&nbsp;Accédez aux questions
+                </a>
+            </div>
+        {% endfor %}
+    {% endif %}
     <div id="autres">
-        <p class="title">Titre</p>
-        <a href="" class="aQuiz">
-            lien/liens
-        </a>
-        <br>
+        {% for lmenu in lMenus %}
+            <p class="title">{{ lmenu.title }}</p>
+            {% for elt in lmenu.lMenuElts %}
+                <a href="{{ elt.linkElt }}" class="aQuiz" target='_blank'>
+                    >&nbsp;&nbsp;{{ elt.labelElt}}
+                </a>
+            <br>
+            {% endfor %}
+        {% endfor %}
     </div>
 {% endmacro %}

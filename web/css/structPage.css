@@ -203,13 +203,13 @@ div#question{
     margin-bottom: 5px;
 }
 div#question p.title, div#autres p.title{
-    margin: 0;
+    margin: 5px;
     text-align: center;
-    font-size: 16px;
-    color:#fff;
+    font-size: 14px;
+    color:#483D8B;
     font-weight: bold;
     letter-spacing: 1px;
-    background: #483D8B;
+    background: lightblue;
 }
 div#autres{
     width:100%;
@@ -245,4 +245,9 @@ div#question a.aQuiz, div#autres a.aQuiz{
     margin: 10px;
     font-weight: bold;
     color:darkgreen;
+    font-size:12px;
+}
+div#question a.aQuiz:hover, div#autres a.aQuiz:hover{
+    color:blue;
+    text-decoration: underline;
 }

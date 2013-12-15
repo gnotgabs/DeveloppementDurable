@@ -89,3 +89,31 @@ article_dev_question:
 article_dev_response:
     pattern:  /response
     defaults: { _controller: ArticleDevBundle:ProposalDev:check }
+
+article_dev_LMenu:
+    pattern:  /admin/LMenu
+    defaults: { _controller: ArticleDevBundle:LMenuDev:LMenu }
+
+article_dev_addLMenu:
+    pattern:  /admin/addLMenu
+    defaults: { _controller: ArticleDevBundle:LMenuDev:addLMenu }
+
+article_dev_editLMenu:
+    pattern:  /admin/editLMenu={id}
+    defaults: { _controller: ArticleDevBundle:LMenuDev:editLMenu }
+
+article_dev_delLMenu:
+    pattern:  /admin/delLMenu={id}
+    defaults: { _controller: ArticleDevBundle:LMenuDev:delLMenu }
+
+article_dev_addLMenuElt:
+    pattern:  /admin/addLMenuElt
+    defaults: { _controller: ArticleDevBundle:LMenuEltDev:addLMenuElt }
+
+article_dev_editLMenuElt:
+    pattern:  /admin/editLMenuElt={id}
+    defaults: { _controller: ArticleDevBundle:LMenuEltDev:editLMenuElt }
+
+article_dev_delLMenuElt:
+    pattern:  /admin/delLMenuElt={id}
+    defaults: { _controller: ArticleDevBundle:LMenuEltDev:delLMenuElt }

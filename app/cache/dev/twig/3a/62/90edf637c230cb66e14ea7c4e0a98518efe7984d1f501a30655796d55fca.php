@@ -122,7 +122,7 @@ class __TwigTemplate_3a6290edf637c230cb66e14ea7c4e0a98518efe7984d1f501a30655796d
     {
         // line 43
         echo "    ";
-        echo $context["macroVoletGauche"]->getvoletGauche($this->getContext($context, "articles"));
+        echo $context["macroVoletGauche"]->getvoletGauche($this->getContext($context, "articles"), $this->getContext($context, "lMenus"));
         echo "
 ";
     }

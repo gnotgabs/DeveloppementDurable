@@ -2,6 +2,7 @@
 
     {# IMPORTATION DE LA MACRO CHARGEE DE LA CREATION DES MENUS #}
 {% import "ArticleDevBundle::menu.html.twig" as macroMenus %}
+{% import "ArticleDevBundle::voletgauche.html.twig" as macroVoletGauche %}
 
 
 {% block arianne %}
@@ -23,6 +24,13 @@
     {{ parent() }}
 {% endblock %}
 
+                
+{# VOLET GAUCHE DE L'APPLICATION #}
+{% block leftCont %}
+    {{ macroVoletGauche.voletGauche(articles, lMenus) }}
+{% endblock %}
+    
+
 {% block body %}
    {{ parent() }}
 
@@ -31,7 +39,7 @@
         <table>
             <thead>
             <tr>
-             <th>Articles</th> <th>Catégories</th> <th>Sous-catégories</th>
+             <th>Articles</th> <th>Catégories</th> <th colspan="2">Sous-catégories</th>
             </tr>
             </thead>
 
@@ -39,17 +47,23 @@
             <tr>
                 <td><a href="{{ path('article_dev_addArticle') }}">Ajouter un article</a></td>
                 <td><a href="{{ path('article_dev_addCategory') }}">Ajouter une catégorie</a></td>
-                <td><a href="{{ path('article_dev_addSubCategory') }}">Ajouter une sous-catégorie</a></td>
+                <td colspan="2"><a href="{{ path('article_dev_addSubCategory') }}">Ajouter une sous-catégorie</a></td>
             </tr>
             <tr>
                 <th></th>
                 <td><a href="{{ path('article_dev_showCategories') }}">Editer une catégorie</a></td>
-                <td><a href="{{ path('article_dev_showCategories') }}">Editer une sous-catégorie</a></td>
+                <td colspan="2"><a href="{{ path('article_dev_showCategories') }}">Editer une sous-catégorie</a></td>
             </tr>
             <tr>
                 <th></th>
                 <td><a href="{{ path('article_dev_showCategories') }}">Supprimer une catégorie</a></td>
-                <td><a href="{{ path('article_dev_showCategories') }}">Supprimer une sous-catégorie</a></td>
+                <td colspan="2"><a href="{{ path('article_dev_showCategories') }}">Supprimer une sous-catégorie</a></td>
+            </tr>
+            <tr>
+                <th>Les menus de gauche</th>
+                <td><a href="{{ path('article_dev_LMenu') }}">Editer/Supprimer les menus</a></td>
+                <td><a href="{{ path('article_dev_addLMenu') }}">Ajouter un menu</a></td>
+                <td><a href="{{ path('article_dev_addLMenuElt') }}">Ajouter un sous-menu</a></td>
             </tr>
             <tr>
                 <th>Les questions</th>
