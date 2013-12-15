@@ -21,7 +21,7 @@ class QuestionRepository extends EntityRepository
                       ->leftJoin('q.subCategory', 'sc')
                         ->addSelect('sc')
                       ->where("sc.id = :id")
-                      ->setMaxResults(3)
+                     // ->setMaxResults(3)
                       ->setParameter('id', $idSC)
                       ->getQuery();
         return $query->getResult();
