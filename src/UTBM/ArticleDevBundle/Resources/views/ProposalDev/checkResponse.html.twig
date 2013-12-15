@@ -1,0 +1,31 @@
+{% extends "ArticleDevBundle::adminLayout.html.twig" %}
+
+    {# IMPORTATION DE LA MACRO CHARGEE DE LA CREATION DES MENUS #}
+{% import "ArticleDevBundle::menu.html.twig" as macroMenus %}
+
+
+{% block arianne %}
+    {{ parent() }}
+    <li>
+        <a href="{{ path('article_dev_showCategories') }}" title="Retour aux catégories et sous-catégorie">
+            Edition proposition
+        </a><span class="end">&nbsp;</span>
+    </li>
+{% endblock %}
+
+{# 
+    CREATION DU MENU DE L'APPLICATION
+    
+    Les menus récupérés de la base de données sont passés à la méthode "dynamicMenu" de la macro de création de menus 
+    Celle-ci se charge de les placer comme il faut dans le code html préparé à cet effet contenu dans la fichier "menu.html.twig"
+#}
+{% block menu %}
+    {{ macroMenus.dynamicMenu(menus) }}
+{% endblock %}
+
+{% block body %}
+   {{ parent() }}
+    <div class="well">
+        <p class="title">Vérification et validation des résultats postés !</p>
+    </div>
+{% endblock %}

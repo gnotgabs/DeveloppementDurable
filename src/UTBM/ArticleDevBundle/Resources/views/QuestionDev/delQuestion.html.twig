@@ -1,0 +1,39 @@
+{% extends "ArticleDevBundle::adminLayout.html.twig" %}
+
+    {# IMPORTATION DE LA MACRO CHARGEE DE LA CREATION DES MENUS #}
+{% import "ArticleDevBundle::menu.html.twig" as macroMenus %}
+
+
+{% block arianne %}
+
+    {{ parent() }}
+ 
+    <li>
+        <a href="{{ path('article_dev_showCategories') }}" title="Retour aux catégories et sous-catégories">
+            Suppression question
+        </a><span class="end">&nbsp;</span>
+    </li>
+{% endblock %}
+
+
+{% block menu %}
+    {{ macroMenus.dynamicMenu(menus) }}
+{% endblock %}
+
+{% block body %}
+   {{ parent() }}
+    <div class="well">
+        <p class="title">Etes-vous certain de vouloir supprimer la question <span class="editSup">« {{question.entitled}} » ?</span></p>
+        <form action="{{ path('article_dev_delQuestion', {'id': question.id}) }}" method='post' {{ form_enctype(form) }} class="formSup"> 
+            {{ form_errors(form) }}
+            
+            <a href="{{ path('article_dev_admin') }}" class='a-back'>
+              <i class="btn-back"></i>
+              Retour à l'administration
+            </a>
+            
+            <input type="submit" value="Supprimer" class="btn-danger" />
+            {{ form_rest(form) }}
+        </form>
+    </div>
+{% endblock %}

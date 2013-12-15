@@ -114,9 +114,23 @@ class __TwigTemplate_ff87507d267a8fefcf990adeda20dbd27a7a0def406d0b5cc02a71dcbe5
         echo "\">Supprimer une sous-catégorie</a></td>
             </tr>
             <tr>
-                <th rowspan=\"2\">Consignes d'administration</th>
+                <th>Les questions</th>
                 <td colspan=\"3\"><a href=\"";
         // line 56
+        echo $this->env->getExtension('routing')->getPath("article_dev_addQuestion");
+        echo "\">Ajouter une question</a></td>
+            </tr>
+            <tr>
+                <th>Les propositions de réponses</th>
+                <td colspan=\"3\"><a href=\"";
+        // line 60
+        echo $this->env->getExtension('routing')->getPath("article_dev_addProposal");
+        echo "\">Ajouter une proposition de réponse</a></td>
+            </tr>
+            <tr>
+                <th>Consignes d'administration</th>
+                <td colspan=\"3\"><a href=\"";
+        // line 64
         echo $this->env->getExtension('routing')->getPath("article_dev_guideAdmin");
         echo "\">Accéder au guide administrateur</a></td>
             </tr>
@@ -138,6 +152,6 @@ class __TwigTemplate_ff87507d267a8fefcf990adeda20dbd27a7a0def406d0b5cc02a71dcbe5
 
     public function getDebugInfo()
     {
-        return array (  120 => 56,  113 => 52,  109 => 51,  102 => 47,  98 => 46,  91 => 42,  87 => 41,  83 => 40,  66 => 27,  63 => 26,  56 => 23,  53 => 22,  46 => 18,  43 => 17,  36 => 8,  33 => 7,  28 => 4,);
+        return array (  134 => 64,  127 => 60,  120 => 56,  113 => 52,  109 => 51,  102 => 47,  98 => 46,  91 => 42,  87 => 41,  83 => 40,  66 => 27,  63 => 26,  56 => 23,  53 => 22,  46 => 18,  43 => 17,  36 => 8,  33 => 7,  28 => 4,);
     }
 }

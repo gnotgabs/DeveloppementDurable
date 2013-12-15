@@ -57,15 +57,40 @@
     {% if (questions|length) != 0 %}
         <div id="corpQ">
             <form method="post" action="{{ path('article_dev_response') }}">
+                {% set i=0 %}
                 {% for question in questions %}
+                    {% set i=i+1 %}
                     <span  class="laQ">
                         > {{ question.entitled }}
+                    </span>
+                    
+                    <span class="adminArticle">
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            <a href='{{ path('article_dev_editQuestion', {'id': question.id}) }}' title="Editer la question: {{question.entitled}}">
+                               Editer
+                            </a>  - 
+                            <a href="{{ path('article_dev_delQuestion', {'id': question.id}) }}" title="Supprimer la question: {{question.entitled}}">
+                               Supprimer
+                            </a>
+                        {% endif %}
                     </span><br>
-
+                    
                     <div  class="lesR">
                         {% for proposal in question.proposals %}
-                            <input type="radio" name="q" value="{{ proposal.id }}" id="q{{ proposal.id }}" /> 
-                            <label for="q{{ proposal.id }}">{{ proposal.pEntitled }}</label><br>
+                            <input type="radio" name="q{{ i }}" value="{{ proposal.id }}" id="q{{ proposal.id }}" /> 
+                            <label for="q{{ proposal.id }}">{{ proposal.pEntitled }}</label>
+                            
+                            <span class="adminArticle">
+                                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                                    <a href='{{ path('article_dev_editProposal', {'id': proposal.id}) }}' title="Editer la réponse: {{proposal.pEntitled}}">
+                                       Editer
+                                    </a>  - 
+                                    <a href="{{ path('article_dev_delProposal', {'id': proposal.id}) }}" title="Supprimer la réponse: {{proposal.pEntitled}}">
+                                       Supprimer
+                                    </a>
+                                {% endif %}
+                            </span><br>
+                            
                         {% endfor %}
                     </div><br>
                 {% endfor %}

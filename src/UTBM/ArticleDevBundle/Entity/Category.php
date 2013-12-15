@@ -41,6 +41,7 @@ class Category
         $this->subCategories = new ArrayCollection();
     }
     
+    // POUR EVITER L'ERREUR =====> A "__toString()" method was not found on the objects of type
     public function __toString()
     {
         return $this->getLabelCategory();

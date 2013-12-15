@@ -172,48 +172,107 @@ class __TwigTemplate_fc26281794bcdf5b2097d81813f71e1ea3f41b23b98f4581ef28d63d6e9
             echo "\">
                 ";
             // line 60
+            $context["i"] = 0;
+            // line 61
+            echo "                ";
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable($this->getContext($context, "questions"));
             foreach ($context['_seq'] as $context["_key"] => $context["question"]) {
-                // line 61
+                // line 62
+                echo "                    ";
+                $context["i"] = ($this->getContext($context, "i") + 1);
+                // line 63
                 echo "                    <span  class=\"laQ\">
                         > ";
-                // line 62
+                // line 64
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "question"), "entitled"), "html", null, true);
                 echo "
-                    </span><br>
-
+                    </span>
+                    
+                    <span class=\"adminArticle\">
+                        ";
+                // line 68
+                if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+                    // line 69
+                    echo "                            <a href='";
+                    echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_editQuestion", array("id" => $this->getAttribute($this->getContext($context, "question"), "id"))), "html", null, true);
+                    echo "' title=\"Editer la question: ";
+                    echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "question"), "entitled"), "html", null, true);
+                    echo "\">
+                               Editer
+                            </a>  - 
+                            <a href=\"";
+                    // line 72
+                    echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_delQuestion", array("id" => $this->getAttribute($this->getContext($context, "question"), "id"))), "html", null, true);
+                    echo "\" title=\"Supprimer la question: ";
+                    echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "question"), "entitled"), "html", null, true);
+                    echo "\">
+                               Supprimer
+                            </a>
+                        ";
+                }
+                // line 76
+                echo "                    </span><br>
+                    
                     <div  class=\"lesR\">
                         ";
-                // line 66
+                // line 79
                 $context['_parent'] = (array) $context;
                 $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getContext($context, "question"), "proposals"));
                 foreach ($context['_seq'] as $context["_key"] => $context["proposal"]) {
-                    // line 67
-                    echo "                            <input type=\"radio\" name=\"q\" value=\"";
+                    // line 80
+                    echo "                            <input type=\"radio\" name=\"q";
+                    echo twig_escape_filter($this->env, $this->getContext($context, "i"), "html", null, true);
+                    echo "\" value=\"";
                     echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "proposal"), "id"), "html", null, true);
                     echo "\" id=\"q";
                     echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "proposal"), "id"), "html", null, true);
                     echo "\" /> 
                             <label for=\"q";
-                    // line 68
+                    // line 81
                     echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "proposal"), "id"), "html", null, true);
                     echo "\">";
                     echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "proposal"), "pEntitled"), "html", null, true);
-                    echo "</label><br>
+                    echo "</label>
+                            
+                            <span class=\"adminArticle\">
+                                ";
+                    // line 84
+                    if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+                        // line 85
+                        echo "                                    <a href='";
+                        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_editProposal", array("id" => $this->getAttribute($this->getContext($context, "proposal"), "id"))), "html", null, true);
+                        echo "' title=\"Editer la réponse: ";
+                        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "proposal"), "pEntitled"), "html", null, true);
+                        echo "\">
+                                       Editer
+                                    </a>  - 
+                                    <a href=\"";
+                        // line 88
+                        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_delProposal", array("id" => $this->getAttribute($this->getContext($context, "proposal"), "id"))), "html", null, true);
+                        echo "\" title=\"Supprimer la réponse: ";
+                        echo twig_escape_filter($this->env, $this->getAttribute($this->getContext($context, "proposal"), "pEntitled"), "html", null, true);
+                        echo "\">
+                                       Supprimer
+                                    </a>
+                                ";
+                    }
+                    // line 92
+                    echo "                            </span><br>
+                            
                         ";
                 }
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['proposal'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 70
+                // line 95
                 echo "                    </div><br>
                 ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['question'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 72
+            // line 97
             echo "                <p align=\"center\">
                     <input type=\"submit\" value=\"Validez\" id=\"btQValide\" >
                 </p>
@@ -221,13 +280,13 @@ class __TwigTemplate_fc26281794bcdf5b2097d81813f71e1ea3f41b23b98f4581ef28d63d6e9
         </div>
     ";
         } else {
-            // line 78
+            // line 103
             echo "        <div class=\"erreur\">
             Pas de question correspondant à cette catégorie !
         </div>   
     ";
         }
-        // line 82
+        // line 107
         echo "              
 ";
     }
@@ -244,6 +303,6 @@ class __TwigTemplate_fc26281794bcdf5b2097d81813f71e1ea3f41b23b98f4581ef28d63d6e9
 
     public function getDebugInfo()
     {
-        return array (  231 => 82,  225 => 78,  217 => 72,  210 => 70,  200 => 68,  193 => 67,  189 => 66,  182 => 62,  179 => 61,  175 => 60,  171 => 59,  168 => 58,  166 => 57,  161 => 56,  158 => 55,  148 => 52,  142 => 50,  139 => 49,  134 => 48,  131 => 47,  124 => 43,  121 => 42,  113 => 31,  107 => 30,  104 => 29,  101 => 28,  96 => 37,  82 => 36,  79 => 35,  76 => 28,  73 => 27,  56 => 26,  50 => 24,  47 => 23,  40 => 17,  37 => 16,  32 => 6,  30 => 5,);
+        return array (  290 => 107,  284 => 103,  276 => 97,  269 => 95,  261 => 92,  252 => 88,  243 => 85,  241 => 84,  233 => 81,  224 => 80,  220 => 79,  215 => 76,  206 => 72,  197 => 69,  195 => 68,  188 => 64,  185 => 63,  182 => 62,  177 => 61,  175 => 60,  171 => 59,  168 => 58,  166 => 57,  161 => 56,  158 => 55,  148 => 52,  142 => 50,  139 => 49,  134 => 48,  131 => 47,  124 => 43,  121 => 42,  113 => 31,  107 => 30,  104 => 29,  101 => 28,  96 => 37,  82 => 36,  79 => 35,  76 => 28,  73 => 27,  56 => 26,  50 => 24,  47 => 23,  40 => 17,  37 => 16,  32 => 6,  30 => 5,);
     }
 }

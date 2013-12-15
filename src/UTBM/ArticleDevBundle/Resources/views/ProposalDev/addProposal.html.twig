@@ -1,0 +1,54 @@
+{% extends "ArticleDevBundle::adminLayout.html.twig" %}
+
+    {# IMPORTATION DE LA MACRO CHARGEE DE LA CREATION DES MENUS #}
+{% import "ArticleDevBundle::menu.html.twig" as macroMenus %}
+
+
+{% block arianne %}
+    {{ parent() }}
+    <li>
+        <a href="{{ path('article_dev_addProposal') }}" title="Ajouter une sous-catégorie">
+            Ajout Proposition de réponse
+        </a><span class="end">&nbsp;</span>
+    </li>
+{% endblock %}
+
+{# 
+    CREATION DU MENU DE L'APPLICATION
+    
+    Les menus récupérés de la base de données sont passés à la méthode "dynamicMenu" de la macro de création de menus 
+    Celle-ci se charge de les placer comme il faut dans le code html préparé à cet effet contenu dans la fichier "menu.html.twig"
+#}
+{% block menu %}
+    {{ macroMenus.dynamicMenu(menus) }}
+{% endblock %}
+
+{% block body %}
+   {{ parent() }}
+    <div class="well">
+        <p class="title">Ajout de proposition de réponse</p>
+        <form action="{{ path('article_dev_addProposal') }}" method='post' {{ form_enctype(form) }} class="formCateg">
+            {{ form_errors(form) }}
+            <div>
+                {{ form_label(form.pEntitled, "Votre proposition : ", { 'label_attr': {'class': 'formLabel'}} ) }}
+                {{ form_errors(form.pEntitled) }}
+                {{ form_widget(form.pEntitled, { 'attr': {'id': 'formCat'}}) }}                
+            </div>
+            <div>
+                {{ form_label(form.answer, "Bonne réponse(1-0) : ", { 'label_attr': {'class': 'formLabel'}} ) }}
+                {{ form_errors(form.answer) }}
+                {{ form_widget(form.answer, { 'attr': {'id': 'formCat'}}) }}                
+            </div>
+            <div>
+                {{ form_label(form.question, "Question associée :", { 'label_attr': {'class': 'formLabel'}} ) }}
+                {{ form_errors(form.question) }}
+                {{ form_widget(form.question, { 'attr': {'id': 'formCat'}}) }}                
+            </div>
+            <div>
+                {{ form_rest(form) }}
+                <input type="submit" class='btn btn-primary' value="Enrégistrer">
+                <input type="reset" class='btn btn-second' value="Annuler">
+            </div>
+        </form>
+    </div>
+{% endblock %}

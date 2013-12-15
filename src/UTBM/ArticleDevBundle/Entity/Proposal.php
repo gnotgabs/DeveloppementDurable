@@ -41,6 +41,12 @@ class Proposal
     */
     private $question;
 
+    // POUR EVITER L'ERREUR =====> A "__toString()" method was not found on the objects of type
+    public function __toString()
+    {
+        return $this->getPEntitled();
+    }
+    
     /**
      * Get id
      *

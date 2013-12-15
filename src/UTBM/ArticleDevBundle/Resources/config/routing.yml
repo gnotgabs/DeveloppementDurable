@@ -58,10 +58,34 @@ article_dev_delSubCategory:
     pattern:  /admin/delSubCategory={id}
     defaults: { _controller: ArticleDevBundle:SubCategoryDev:delSubCategory }
 
+article_dev_addQuestion:
+    pattern:  /admin/addQuestion
+    defaults: { _controller: ArticleDevBundle:QuestionDev:addQuestion }
+
+article_dev_editQuestion:
+    pattern:  /admin/editQuestion={id}
+    defaults: { _controller: ArticleDevBundle:QuestionDev:editQuestion }
+
+article_dev_delQuestion:
+    pattern:  /admin/delQuestion={id}
+    defaults: { _controller: ArticleDevBundle:QuestionDev:delQuestion }
+
+article_dev_addProposal:
+    pattern:  /admin/addProposal
+    defaults: { _controller: ArticleDevBundle:ProposalDev:addProposal }
+
+article_dev_editProposal:
+    pattern:  /admin/editProposal={id}
+    defaults: { _controller: ArticleDevBundle:ProposalDev:editProposal }
+
+article_dev_delProposal:
+    pattern:  /admin/delProposal={id}
+    defaults: { _controller: ArticleDevBundle:ProposalDev:delProposal }
+
 article_dev_question:
     pattern:  /sc={idSC}/q={idQ}
     defaults: { _controller: ArticleDevBundle:ArticleDev:question }
 
 article_dev_response:
     pattern:  /response
-    defaults: { _controller: ArticleDevBundle:ArticleDev:check }
+    defaults: { _controller: ArticleDevBundle:ProposalDev:check }

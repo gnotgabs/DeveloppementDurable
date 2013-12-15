@@ -407,6 +407,36 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_delSubCategory')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\SubCategoryDevController::delSubCategoryAction',));
             }
 
+            // article_dev_addQuestion
+            if ($pathinfo === '/admin/addQuestion') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\QuestionDevController::addQuestionAction',  '_route' => 'article_dev_addQuestion',);
+            }
+
+            // article_dev_editQuestion
+            if (0 === strpos($pathinfo, '/admin/editQuestion') && preg_match('#^/admin/editQuestion\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_editQuestion')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\QuestionDevController::editQuestionAction',));
+            }
+
+            // article_dev_delQuestion
+            if (0 === strpos($pathinfo, '/admin/delQuestion') && preg_match('#^/admin/delQuestion\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_delQuestion')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\QuestionDevController::delQuestionAction',));
+            }
+
+            // article_dev_addProposal
+            if ($pathinfo === '/admin/addProposal') {
+                return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ProposalDevController::addProposalAction',  '_route' => 'article_dev_addProposal',);
+            }
+
+            // article_dev_editProposal
+            if (0 === strpos($pathinfo, '/admin/editProposal') && preg_match('#^/admin/editProposal\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_editProposal')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ProposalDevController::editProposalAction',));
+            }
+
+            // article_dev_delProposal
+            if (0 === strpos($pathinfo, '/admin/delProposal') && preg_match('#^/admin/delProposal\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_delProposal')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ProposalDevController::delProposalAction',));
+            }
+
         }
 
         // article_dev_question
@@ -416,7 +446,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         // article_dev_response
         if ($pathinfo === '/response') {
-            return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::checkAction',  '_route' => 'article_dev_response',);
+            return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ProposalDevController::checkAction',  '_route' => 'article_dev_response',);
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
