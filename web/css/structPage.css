@@ -41,7 +41,7 @@ body{
 #leftContent{
     float:left;
     width:20%;
-    height: 600px; // A mettre en auto
+    height: auto; // A mettre en auto
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #eef7ea) );
     background:-moz-linear-gradient( center top, #ffffff 5%, #eef7ea 100% );
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eef7ea');
@@ -195,4 +195,54 @@ span.barUser{
 }
 span#barUser a{
     color:blue;
+}
+
+div#question{
+    width:100%;
+    height: auto;
+    margin-bottom: 5px;
+}
+div#question p.title, div#autres p.title{
+    margin: 0;
+    text-align: center;
+    font-size: 16px;
+    color:#fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background: #483D8B;
+}
+div#autres{
+    width:100%;
+    height: auto;
+}
+div#corpQ{
+    width:95%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}
+span.laQ{
+    margin: 0;
+    background: greenyellow;
+}
+div.lesR{
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: auto;
+    margin-right: auto;
+    background: lightblue;
+}
+input#btQValide{
+    margin: auto;
+    padding:5px;
+    width: 120px;
+    color:blue;
+    font-size: 13px;
+    font-weight: bold;
+}
+div#question a.aQuiz, div#autres a.aQuiz{
+    margin: 10px;
+    font-weight: bold;
+    color:darkgreen;
 }

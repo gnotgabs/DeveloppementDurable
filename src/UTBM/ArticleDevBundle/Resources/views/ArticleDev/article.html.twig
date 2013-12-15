@@ -3,6 +3,7 @@
 
 {# IMPORTATION DE LA MACRO CHARGEE DE LA CREATION DES MENUS #}
 {% import "ArticleDevBundle::menu.html.twig" as macroMenus %}
+{% import "ArticleDevBundle::voletgauche.html.twig" as macroVoletGauche %}
 
 
 
@@ -32,6 +33,11 @@
     {% endif %}
 {% endblock %}
 
+{# VOLET GAUCHE DE L'APPLICATION #}
+{% block leftCont %}
+    {{ macroVoletGauche.voletGauche(articles) }}
+{% endblock %}
+            
 {% block body %}
     {{ parent() }}
     <div class='titleDev'>

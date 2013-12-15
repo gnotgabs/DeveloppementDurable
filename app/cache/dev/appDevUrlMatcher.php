@@ -409,6 +409,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // article_dev_question
+        if (0 === strpos($pathinfo, '/sc') && preg_match('#^/sc\\=(?P<idSC>[^/]++)/q\\=(?P<idQ>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_question')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::questionAction',));
+        }
+
+        // article_dev_response
+        if ($pathinfo === '/response') {
+            return array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::checkAction',  '_route' => 'article_dev_response',);
+        }
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

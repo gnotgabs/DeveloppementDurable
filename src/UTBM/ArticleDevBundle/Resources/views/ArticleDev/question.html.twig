@@ -1,0 +1,83 @@
+{# Héritage de l'aperçu global de l'application #}
+{% extends "::base.html.twig" %}
+
+{# IMPORTATION DE LA MACRO CHARGEE DE LA CREATION DES MENUS #}
+{% import "ArticleDevBundle::menu.html.twig" as macroMenus %}
+{% import "ArticleDevBundle::voletgauche.html.twig" as macroVoletGauche %}
+
+
+
+{# 
+    CREATION DU MENU DE L'APPLICATION
+    
+    Les menus récupérés de la base de données sont passés à la méthode "dynamicMenu" de la macro de création de menus 
+    Celle-ci se charge de les placer comme il faut dans le code html préparé à cet effet contenu dans la fichier "menu.html.twig"
+#}
+{% block menu %}
+    {{ macroMenus.dynamicMenu(menus) }}
+{% endblock %}
+
+{#
+    FIL D'ARIANNE DE L'APPLICATION
+#}
+{% block arianne %}
+    {{ parent() }}
+
+    {% for article in articles|slice(0, 1) %}
+        {% if article.subCategory.labelSubCategory!="accueil" %}
+            {% block subCat %}
+                <li>
+                    <a href="{{ path('article_dev_show', {'id':article.subCategory.id}) }}" title="Retour à : {{ article.subCategory.labelSubCategory }}">
+                        {{ article.subCategory.labelSubCategory }}
+                    </a><span class="end">&nbsp;</span>
+                </li>
+            {% endblock %}
+        {% endif %}
+    {% endfor %}
+                
+{% endblock %}
+    
+                
+{# VOLET GAUCHE DE L'APPLICATION #}
+{% block leftCont %}
+    {{ macroVoletGauche.voletGauche(articles) }}
+{% endblock %}
+
+{# BLOCK RESERVE A LA SOUS-CATEGORIE SELECTIONNEE #}
+{% block catSelect %}
+    {% for article in articles|slice(0, 1) %}
+        {% if article.subCategory.labelSubCategory!="accueil" %}
+              -  {{ article.subCategory.labelSubCategory }}
+        {% endif %}
+    {% endfor %}    
+{% endblock %}
+                
+{% block body %}
+    {{ parent() }}
+    {% if (questions|length) != 0 %}
+        <div id="corpQ">
+            <form method="post" action="{{ path('article_dev_response') }}">
+                {% for question in questions %}
+                    <span  class="laQ">
+                        > {{ question.entitled }}
+                    </span><br>
+
+                    <div  class="lesR">
+                        {% for proposal in question.proposals %}
+                            <input type="radio" name="q" value="{{ proposal.id }}" id="q{{ proposal.id }}" /> 
+                            <label for="q{{ proposal.id }}">{{ proposal.pEntitled }}</label><br>
+                        {% endfor %}
+                    </div><br>
+                {% endfor %}
+                <p align="center">
+                    <input type="submit" value="Validez" id="btQValide" >
+                </p>
+            </form>
+        </div>
+    {% else %}
+        <div class="erreur">
+            Pas de question correspondant à cette catégorie !
+        </div>   
+    {% endif %}
+              
+{% endblock %}

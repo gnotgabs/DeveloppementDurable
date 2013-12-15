@@ -33,6 +33,11 @@ class SubCategory
     private $articles;
     
     /**
+     * @ORM\OneToMany(targetEntity="UTBM\ArticleDevBundle\Entity\Question", mappedBy="subCategory", cascade={"remove"})
+     */
+    private $questions;
+    
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -55,6 +60,7 @@ class SubCategory
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->questions = new ArrayCollection();
     }
 
      public function __toString()
@@ -149,5 +155,38 @@ class SubCategory
     public function getArticles()
     {
         return $this->articles;
+    }
+
+    /**
+     * Add questions
+     *
+     * @param \UTBM\ArticleDevBundle\Entity\Question $questions
+     * @return SubCategory
+     */
+    public function addQuestion(\UTBM\ArticleDevBundle\Entity\Question $questions)
+    {
+        $this->questions[] = $questions;
+    
+        return $this;
+    }
+
+    /**
+     * Remove questions
+     *
+     * @param \UTBM\ArticleDevBundle\Entity\Question $questions
+     */
+    public function removeQuestion(\UTBM\ArticleDevBundle\Entity\Question $questions)
+    {
+        $this->questions->removeElement($questions);
+    }
+
+    /**
+     * Get questions
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getQuestions()
+    {
+        return $this->questions;
     }
 }

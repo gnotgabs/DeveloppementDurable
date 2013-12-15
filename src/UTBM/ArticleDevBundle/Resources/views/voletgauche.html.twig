@@ -1,0 +1,17 @@
+{% macro voletGauche(articles) %}
+    {% for article in articles|slice(0, 1) %}
+        <div id="question">
+            <p class="title">Exercez vous</p>
+            <a href="{{ path('article_dev_question', {'idSC': article.subCategory.id,'idQ': article.subCategory.id}) }}" class="aQuiz">
+                Accédez aux questions
+            </a>
+        </div>
+    {% endfor %}
+    <div id="autres">
+        <p class="title">Titre</p>
+        <a href="" class="aQuiz">
+            lien/liens
+        </a>
+        <br>
+    </div>
+{% endmacro %}

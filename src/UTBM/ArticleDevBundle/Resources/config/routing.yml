@@ -57,3 +57,11 @@ article_dev_editSubCategory:
 article_dev_delSubCategory:
     pattern:  /admin/delSubCategory={id}
     defaults: { _controller: ArticleDevBundle:SubCategoryDev:delSubCategory }
+
+article_dev_question:
+    pattern:  /sc={idSC}/q={idQ}
+    defaults: { _controller: ArticleDevBundle:ArticleDev:question }
+
+article_dev_response:
+    pattern:  /response
+    defaults: { _controller: ArticleDevBundle:ArticleDev:check }

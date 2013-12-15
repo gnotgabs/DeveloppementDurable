@@ -267,4 +267,27 @@ class ArticleDevController extends Controller
             'menus'   => $men,
         ));
     }
+    
+    public function questionAction($idQ){
+                
+         // On récupère l'EntityManager
+        $em = $this->getDoctrine()->getManager();
+
+        // on récupère tous les articles associés à la sous catégorie sélectionée
+        $articles = $em->getRepository("ArticleDevBundle:Article")
+                       ->getSubCategoryArticles($idQ);
+        
+        // on récupère toutes les questions associés à la sous catégorie courante
+        $questions = $em->getRepository("ArticleDevBundle:Question")
+                       ->getQuestions($idQ);
+        
+        $men = $em->getRepository('ArticleDevBundle:Category')
+                  ->getMenus();
+        
+        return $this->render('ArticleDevBundle:ArticleDev:question.html.twig', array(
+            'menus'     => $men,
+            'questions'  => $questions,
+            'articles'  => $articles,
+        ));
+    }
 }

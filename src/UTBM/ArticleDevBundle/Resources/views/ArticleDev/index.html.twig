@@ -3,6 +3,7 @@
 
 {# IMPORTATION DE LA MACRO CHARGEE DE LA CREATION DES MENUS #}
 {% import "ArticleDevBundle::menu.html.twig" as macroMenus %}
+{% import "ArticleDevBundle::voletgauche.html.twig" as macroVoletGauche %}
 
 
 
@@ -39,6 +40,7 @@
                 
 {# VOLET GAUCHE DE L'APPLICATION #}
 {% block leftCont %}
+    {{ macroVoletGauche.voletGauche(articles) }}
 {% endblock %}
 
 {# BLOCK RESERVE A LA SOUS-CATEGORIE SELECTIONNEE #}
