@@ -44,9 +44,16 @@ class ProposalDevController extends Controller
         $men = $em->getRepository('ArticleDevBundle:Category')
                   ->getMenus();
         
+        // Menu du volet de gauche
+        $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
+                   ->getLeftMenu();
+        $articles = array();
+        
         return $this->render('ArticleDevBundle:ProposalDev:addProposal.html.twig', array(
                 'form'      =>      $form->createView(),
                 'menus'     =>      $men,
+                'lMenus'    =>      $lMenus,
+                'articles'  =>      $articles,
                 ));
     }
     
@@ -82,10 +89,17 @@ class ProposalDevController extends Controller
         $men = $em->getRepository('ArticleDevBundle:Category')
                   ->getMenus();
         
+        // Menu du volet de gauche
+        $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
+                   ->getLeftMenu();
+        $articles = array();
+        
         return $this->render('ArticleDevBundle:ProposalDev:editProposal.html.twig', array(
             'menus'     =>      $men,
             'form'      =>      $form->createView(),
             'proposal'   =>      $proposal,
+            'lMenus'    =>      $lMenus,
+            'articles'  =>      $articles,
         ));
     }
 
@@ -117,10 +131,17 @@ class ProposalDevController extends Controller
         $men = $em->getRepository('ArticleDevBundle:Category')
                   ->getMenus();
         
+        // Menu du volet de gauche
+        $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
+                   ->getLeftMenu();
+        $articles = array();
+        
         return $this->render('ArticleDevBundle:ProposalDev:delProposal.html.twig', array(
             'menus'     => $men,
             'form'      => $form->createView(),
             'proposal'   => $proposal,
+            'lMenus'    =>      $lMenus,
+            'articles'  =>      $articles,
         ));
     }
     

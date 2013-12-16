@@ -43,9 +43,16 @@ class QuestionDevController extends Controller
         $men = $em->getRepository('ArticleDevBundle:Category')
                   ->getMenus();
         
+        // Menu du volet de gauche
+        $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
+                   ->getLeftMenu();
+        $articles = array();
+        
         return $this->render('ArticleDevBundle:QuestionDev:addQuestion.html.twig', array(
                 'form'      =>      $form->createView(),
                 'menus'     =>      $men,
+                'lMenus'    =>      $lMenus,
+                'articles'  =>      $articles,
                 ));
     }
     
@@ -81,10 +88,17 @@ class QuestionDevController extends Controller
         $men = $em->getRepository('ArticleDevBundle:Category')
                   ->getMenus();
         
+        // Menu du volet de gauche
+        $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
+                   ->getLeftMenu();
+        $articles = array();
+        
         return $this->render('ArticleDevBundle:QuestionDev:editQuestion.html.twig', array(
             'menus'     =>      $men,
             'form'      =>      $form->createView(),
             'question'   =>      $question,
+            'lMenus'    =>      $lMenus,
+            'articles'  =>      $articles,
         ));
     }
 
@@ -116,10 +130,17 @@ class QuestionDevController extends Controller
         $men = $em->getRepository('ArticleDevBundle:Category')
                   ->getMenus();
         
+        // Menu du volet de gauche
+        $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
+                   ->getLeftMenu();
+        $articles = array();
+        
         return $this->render('ArticleDevBundle:QuestionDev:delQuestion.html.twig', array(
             'menus'     => $men,
             'form'      => $form->createView(),
             'question'   => $question,
+            'lMenus'    =>      $lMenus,
+            'articles'  =>      $articles,
         ));
     }
     
