@@ -42,9 +42,9 @@
                 {{ form_widget(form.pEntitled, { 'attr': {'id': 'formCat'}}) }}                
             </div>
             <div>
-                {{ form_label(form.answer, "Bonne réponse(1-0) : ", { 'label_attr': {'class': 'formLabel'}} ) }}
+                {{ form_label(form.answer, "Bonne réponse ? : ", { 'label_attr': {'class': 'formLabel'}} ) }}
                 {{ form_errors(form.answer) }}
-                {{ form_widget(form.answer, { 'attr': {'id': 'formCat'}}) }}                
+                {{ form_widget(form.answer, { 'attr': {'id': 'formCat'}}) }}<span>&nbsp;&nbsp; Sélectionnez "1" pour vrai et "0" pour faut</span>
             </div>
             <div>
                 {{ form_label(form.question, "Question associée :", { 'label_attr': {'class': 'formLabel'}} ) }}

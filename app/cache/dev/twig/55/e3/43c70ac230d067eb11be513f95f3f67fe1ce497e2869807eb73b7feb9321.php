@@ -105,7 +105,7 @@ class __TwigTemplate_55e343c70ac230d067eb11be513f95f3f67fe1ce497e2869807eb73b7fe
             <div>
                 ";
         // line 45
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "answer"), 'label', array("label_attr" => array("class" => "formLabel"), "label" => "Bonne réponse(1-0) : "));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "answer"), 'label', array("label_attr" => array("class" => "formLabel"), "label" => "Bonne réponse ? : "));
         echo "
                 ";
         // line 46
@@ -114,7 +114,7 @@ class __TwigTemplate_55e343c70ac230d067eb11be513f95f3f67fe1ce497e2869807eb73b7fe
                 ";
         // line 47
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute($this->getContext($context, "form"), "answer"), 'widget', array("attr" => array("id" => "formCat")));
-        echo "                
+        echo "<span>&nbsp;&nbsp; Sélectionnez \"1\" pour vrai et \"0\" pour faut</span>
             </div>
             <div>
                 ";

@@ -46,7 +46,7 @@ class __TwigTemplate_bacfad9e48130f6d0dabbf2282f563d7ff5d67066426e15da0cd9628b55
                     // line 7
                     echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("article_dev_question", array("idSC" => $this->getAttribute($this->getAttribute($this->getContext($context, "article"), "subCategory"), "id"), "idQ" => $this->getAttribute($this->getAttribute($this->getContext($context, "article"), "subCategory"), "id"))), "html", null, true);
                     echo "\" class=\"aQuiz\">
-                    ?&nbsp;&nbsp;Accédez aux questions
+                    Accédez aux questions
                 </a>
             </div>
         ";
