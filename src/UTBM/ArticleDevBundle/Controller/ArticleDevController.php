@@ -290,8 +290,16 @@ class ArticleDevController extends Controller
         $men = $em->getRepository('ArticleDevBundle:Category')
                   ->getMenus();
         
+         // Menu du volet de gauche
+        $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
+                   ->getLeftMenu();
+        
+        $articles = array();
+        
         return $this->render('ArticleDevBundle:ArticleDev:guideAdmin.html.twig', array(
             'menus'   => $men,
+            'lMenus'    =>  $lMenus,
+            'articles' =>  $articles,
         ));
     }
     

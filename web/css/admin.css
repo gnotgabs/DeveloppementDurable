@@ -166,3 +166,32 @@ input#devModif_title, input#devModif_content, input#devModif_link, input#devModi
 .good li:last-child{
     border-bottom: 1px solid black;
 }
+div.well ol > li.title1{
+    font-size: 15px;
+    font-weight: bold;
+    color: green;
+}
+div.well ol > li.title2{
+    font-size: 13px;
+    font-weight: bold;
+    color: blue;
+}
+div.well ol > p{
+    margin: 5px;
+    text-align: justify;
+    text-indent: 30px;
+}
+div#lienInterne > li.title1{
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+div#lienInterne > ol > li.title2{
+    font-size: 12px;
+    color:blue;
+    margin: 3px;
+}
+div#lienInterne > ol > li.title2:hover{
+    text-decoration: underline;
+    cursor: pointer
+}

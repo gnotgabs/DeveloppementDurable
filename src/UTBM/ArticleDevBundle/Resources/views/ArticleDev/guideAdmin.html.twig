@@ -1,6 +1,7 @@
 {% extends "ArticleDevBundle::adminLayout.html.twig" %}
 
 {% import "ArticleDevBundle::menu.html.twig" as macroMenus %}
+{% import "ArticleDevBundle::voletgauche.html.twig" as macroVoletGauche %}
 
 
 {% block arianne %}
@@ -15,10 +16,111 @@
 {% block menu %}
     {{ macroMenus.dynamicMenu(menus) }}
 {% endblock %}
+    
+    {# VOLET GAUCHE DE L'APPLICATION #}
+{% block leftCont %}
+<div id="lienInterne">
+    <LI  class="title1">Gérer les utilisateurs</LI>
+    <OL type="1">
+        <LI class="title2"><a href='#CU'>Création d’un utilisateur </a></LI>
+        <LI class="title2"><a href='#ARU'>Attribuer un rôle à l’utilisateur </a></LI>
+        <LI class="title2"><a href='#AU'>Activation d’un utilisateur </a></LI>
+        <LI class="title2"><a href='#DU'>Désactivation d’un utilisateur </a></LI>
+        <LI class="title2"><a href='#SR'>Supprimer un rôle </a></LI>
+        <LI class="title2"><a href='#CMDP'>Changer le mot de passe d’un utilisateur </a></LI>
+    </OL>
+    <LI class="title1">Gérer les modules de l’application</LI>
+    <OL type="1">
+        <LI class="title2"><a href='#AA'>Ajouter un article </a></LI>
+        <LI class="title2"><a href='#AC'>Ajouter une catégorie</a></LI>
+        <LI class="title2"><a href='#ASC'>Ajouter une sous-catégorie</a></LI>
+        <LI class="title2"><a href='#SE'>Suppression et édition des catégories et sous-catégories</a></LI>
+    </OL>
+</div>
+{% endblock %}
+
 
 {% block body %}
    {{ parent() }}
     <div class="well">
-        <p class="title">Le guide de l'administrateur</p>
+        <p class="title">Le guide de l'administrateur <a name="sommet"></a></p>
+        <OL type="I">
+            <LI  class="title1">Gérer les utilisateurs</LI>
+            <p>Toutes les actions qui suivront dans ce paragraphe supposent que, via l’invite de commande 
+                Windows ou le logiciel GithBash, nous nous sommes positionné dans le répertoire où l’application 
+                a été développée. De même, le FOSUserBundle doit avoir été installé et bien configuré 
+                (pour l’installation dudit bundle, confère annexe2 du Rapport)
+            </p>
+            <OL type="1">
+                <LI class="title2"><a name='CU'>Création d’un utilisateur </a></LI>
+                <p>Pour créer un nouvel utilisateur, il suffit d’exécuter la commande qui suit :<br>
+                    <b>php app/console fos:user:create leUser leUser@example.com motDePass</b>
+                </p>
+                <LI class="title2"><a name='ARU'>Attribuer un rôle à l’utilisateur </a></LI>
+                <p>pour attribuer le rôle d’administrateur à l’utilisateur, il suffit d’exécuter la commande qui suit:<br>
+                    <b>php app/console fos:user:promote leUser ROLE_ADMIN</b>
+                </p>
+                <LI class="title2"><a name='AU'>Activation d’un utilisateur </a></LI>
+                <p>Pour qu’un utilisateur puisse se connecter, il faut l’activer. Pour cela, il faut exécuter la commande qui suit:<br>
+                    <b>php app/console fos:user:activate leUser</b>
+                </p>
+                <LI class="title2"><a name='DU'>Désactivation d’un utilisateur </a></LI>
+                <p>pour ce faire, exécuter la commande qui suit:<br>
+                    <b>php app/console fos:user:deactivate leUser</b>
+                </p>
+                <LI class="title2"><a name='SR'>Supprimer un rôle </a></LI>
+                <p>Par exemple ci-dessous, on voudrait supprimer le rôle administrateur attribué précédemment à l’utilisateur leUser :<br>
+                    <b>php app/console fos:user:demote leUser  ROLE_ADMIN</b>
+                </p>
+                <LI class="title2"><a name='CMDP'>Changer le mot de passe d’un utilisateur </a></LI>
+                <p>Pour le faire, exécuter la commande :<br>
+                    <b>php app/console fos:user:change-password leUser  newPassword</b>
+                </p>
+            </OL>
+            <LI class="title1">Gérer les modules de l’application</LI><br>
+            <OL type="1">
+                <LI class="title2"><a name='AA'>Ajouter un article </a></LI>
+                <p>Pour le faire, il faut cliquer sur le bouton << Ajouter un article >> se trouvant dans la page d'administration principale (le tableau):
+                </p>
+                <p>Une fois parvenue à la page d’ajout d’un article, il suffit de remplir convenablement les différents 
+                    champs et ne pas oublier de sélectionner la sous-catégorie dans laquelle l’article sera affiché
+                </p>
+                <p>Le champ « lien important » est celui devant contenir le lien qui permettra aux étudiants (utilisateurs) 
+                    d’avoir de plus de détails sur l’article.
+                </p>
+                <p>Le champ « image de l’article », permet de renseigner le chemin vers l’image à afficher dans l’article. Ce champ peut contenir un 
+                    lien http ou un chemin absolu vers une image située sur le serveur hébergeant l’application.
+                </p>
+                <p>Pour créer un paragraphe lors de la création d’un article, il suffit placer la balise HTML suivante au bon endroit : <<b> br</b>>
+                </p>
+                
+                <LI class="title2"><a name='AC'>Ajouter une catégorie</a></LI>
+                <p>Il suffit de repérer, la colonne traitant des catégories et cliquer sur le bouton << Ajouter une catégorie >>:
+                </p>
+                <p>Par catégorie nous entendons : élément du « Menu » de l’application. Une fois le menu choisit, il ne reste plus qu’à le valider.
+                </p>
+                
+                <LI class="title2"><a name='ASC'>Ajouter une sous-catégorie</a></LI>
+                <p>Il suffit de repérer, la colonne traitant des sous-catégories et cliquer sur le bouton << Ajouter une sous-catégorie >>
+                </p>
+                <p>Par sous-catégorie, nous entendons : élément du « sous-menu » de l’application. Une fois le sous-menu ainsi que le menu 
+                    auquel il appartient choisit, il ne reste plus qu’à le valider. Le paragraphe suivant traite de la correction des menus 
+                    et sous-menus est cas d’erreur.
+                </p>
+                
+                <LI class="title2"><a name='SE'>Suppression et édition des catégories et sous-catégories</a></LI>
+                <p>Pour apporter des modifications ou supprimer les menus et sous-menus créés précédemment, il suffit d’aller sous dans 
+                    la colonne « Articles » soit dans la colonne « sous-catégories », et de cliquer sur « éditer » ou « supprimer » une 
+                    catégorie / sous-catégorie. 
+                </p>
+                <p>Dans la page qui s'affiche, tous les menus et sous-menus constituant l’application sont répertoriés. Pour en modifier 
+                    ou en supprimer, il suffit de cliquer sur le bouton correspondant situé devant la catégorie ou sous-catégorie à traiter. 
+                </p>
+                <p>De la même manière que présenter dans l’administration des modules ci-dessus, il est possible d’effectuer les mêmes 
+                    opérations sur les modules suivant : les menus et sous-menus du volet de gauche, les questions et les propositions de réponses.
+                </p>
+            </OL>
+        </OL>
+        <a href="#sommet"> Debut de page</a>
     </div>
 {% endblock %}
