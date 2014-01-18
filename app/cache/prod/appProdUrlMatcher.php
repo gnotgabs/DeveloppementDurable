@@ -198,7 +198,7 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 
         if (0 === strpos($pathinfo, '/sc')) {
             // article_dev_show
-            if (preg_match('#^/sc\\=(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+            if (preg_match('#^/sc\\=(?P<id>\\d+)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'article_dev_show')), array (  '_controller' => 'UTBM\\ArticleDevBundle\\Controller\\ArticleDevController::showAction',));
             }
 

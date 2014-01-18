@@ -30,8 +30,8 @@ class ArticleDevController extends Controller
         $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
                    ->getLeftMenu();
         
-        if($articles === null){
-            throw $this->createNotFoundException('Article[id='.$id.'] inexistant.');
+        if(!$articles){
+            throw $this->createNotFoundException('La page demandée est introuvable !');
         }
         
         // on récupère les menus ainsi que tous les éléments qui leurs sont liés
@@ -63,8 +63,8 @@ class ArticleDevController extends Controller
         $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
                    ->getLeftMenu();
         
-        if($articles === null){
-            throw $this->createNotFoundException('Article[id='.$id.'] inexistant.');
+        if(!$articles){
+            throw $this->createNotFoundException('La page demandée est introuvable !');
         }
         
         // on récupère les menus ainsi que tous les éléments qui leurs sont liés
@@ -99,8 +99,8 @@ class ArticleDevController extends Controller
         $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
                    ->getLeftMenu();
 
-        if($article === null){
-            throw $this->createNotFoundException('Article[id='.$idAr.'] inexistant.');
+        if(!$articles){
+            throw $this->createNotFoundException('La page demandée est introuvable !');
         }
 
         // on récupère les menus ainsi que tous les éléments qui leurs sont liés

@@ -5,6 +5,8 @@ article_dev_homepage:
 article_dev_show:
     pattern:  /sc={id}
     defaults: { _controller: ArticleDevBundle:ArticleDev:show }
+    requirements:
+        id: \d+
     
 article_dev_article:
     pattern:  /sc={idSc}/ar={idAr}

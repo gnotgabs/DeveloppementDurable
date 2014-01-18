@@ -68,7 +68,7 @@ body{
 }
 #rightContent p.content{
     text-align: justify;
-    text-indent: 30px;
+   /* text-indent: 30px;*/
     margin: auto;
     padding: 5px;
 }
@@ -93,6 +93,7 @@ body{
     color:crimson;
     font-weight: bold;
     font-size: 16px;
+    margin-top: 20px;
 }
 .erreur{
     width: 80%;
@@ -107,13 +108,13 @@ body{
 .imageDev{
     width:180px;
     border:0;
-    height:120px;
+    height:150px;
     float: right; border: 0pt none; margin: 5px 10px;
 }
 .imageDevSup{
     width:250px;
     border:0;
-    height:180px;
+    height:200px;
     float: right; border: 0pt none; margin: 5px 10px;
 }
 span.details, span.back{
