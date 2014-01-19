@@ -30,7 +30,7 @@ class ArticleDevController extends Controller
         $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
                    ->getLeftMenu();
         
-        if(!$articles){
+        if($articles === null){
             throw $this->createNotFoundException('La page demandée est introuvable !');
         }
         
@@ -62,8 +62,8 @@ class ArticleDevController extends Controller
         // Menu du volet de gauche
         $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
                    ->getLeftMenu();
-        
-        if(!$articles){
+
+        if($articles === null){
             throw $this->createNotFoundException('La page demandée est introuvable !');
         }
         
@@ -98,8 +98,8 @@ class ArticleDevController extends Controller
         // Menu du volet de gauche
         $lMenus = $em->getRepository("ArticleDevBundle:LMenu")
                    ->getLeftMenu();
-
-        if(!$articles){
+       
+        if($articles === null){
             throw $this->createNotFoundException('La page demandée est introuvable !');
         }
 

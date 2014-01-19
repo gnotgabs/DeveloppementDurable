@@ -21,6 +21,7 @@ class ArticleRepository extends EntityRepository
                         ->addSelect('sc')
                       ->where("sc.id = :id")
                       ->setParameter('id', $id)
+                      ->orderBy('ar.date', 'DESC')
                       ->getQuery();
         return $query->getResult();
     }
